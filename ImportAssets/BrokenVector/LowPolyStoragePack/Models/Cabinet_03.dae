@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2017-05-20T15:15:04</created>
+    <modified>2017-05-20T15:15:04</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Storage_DIffuse-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.64 0.64 0.64 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Storage_DIffuse-material" name="Storage_DIffuse">
+      <instance_effect url="#Storage_DIffuse-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Cabinet_3_mesh-mesh" name="Cabinet 3_mesh">
+      <mesh>
+        <source id="Cabinet_3_mesh-mesh-positions">
+          <float_array id="Cabinet_3_mesh-mesh-positions-array" count="120">-0.225 -0.6285425 0.1975333 -0.225 0.627774 0.1975332 -0.225 -0.6285425 -0.2024667 -0.225 0.627774 -0.2024667 0.225 -0.6285425 0.1975333 0.225 0.627774 0.1975332 0.225 -0.6285425 -0.2024667 0.225 0.627774 -0.2024667 -0.1889662 -0.590162 0.1975333 -0.1889662 0.5893936 0.1975332 0.1889662 0.5893936 0.1975332 0.1889662 -0.590162 0.1975333 0.1889662 -0.590162 -0.1767455 0.1889662 0.5893936 -0.1767455 -0.1889662 0.5893936 -0.1767455 -0.1889662 -0.590162 -0.1767455 -0.1889662 -0.3173313 0.1714608 0.1889662 -0.3173313 0.1714608 0.1889662 -0.3173313 -0.1767455 -0.1889662 -0.3173313 -0.1767455 -0.1889662 -0.292954 0.1714608 0.1889662 -0.292954 0.1714608 0.1889662 -0.292954 -0.1767455 -0.1889662 -0.292954 -0.1767455 -0.1889662 -0.01368767 0.1714608 0.1889662 -0.01368767 0.1714608 0.1889662 -0.01368767 -0.1767455 -0.1889662 -0.01368767 -0.1767455 -0.1889662 0.01068955 0.1714608 0.1889662 0.01068955 0.1714608 0.1889662 0.01068955 -0.1767455 -0.1889662 0.01068955 -0.1767455 -0.1889662 0.2952222 0.1714607 0.1889662 0.2952222 0.1714607 0.1889662 0.2952222 -0.1767455 -0.1889662 0.2952222 -0.1767455 -0.1889662 0.3195995 0.1714607 0.1889662 0.3195995 0.1714607 0.1889662 0.3195995 -0.1767455 -0.1889662 0.3195995 -0.1767455</float_array>
+          <technique_common>
+            <accessor source="#Cabinet_3_mesh-mesh-positions-array" count="40" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cabinet_3_mesh-mesh-normals">
+          <float_array id="Cabinet_3_mesh-mesh-normals-array" count="42">-1 0 0 0 0 -1 1 0 0 -3.39536e-7 0 1 0 -1 0 0 1 0 0 0 1 0 0 1 3.39536e-7 0 1 -1 0 0 1 0 0 0 0 -1 0 -1 0 0 1 0</float_array>
+          <technique_common>
+            <accessor source="#Cabinet_3_mesh-mesh-normals-array" count="14" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cabinet_3_mesh-mesh-map-0">
+          <float_array id="Cabinet_3_mesh-mesh-map-0-array" count="256">0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.6181176 0.1226799 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041 0.3654772 0.1358041</float_array>
+          <technique_common>
+            <accessor source="#Cabinet_3_mesh-mesh-map-0-array" count="128" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cabinet_3_mesh-mesh-vertices">
+          <input semantic="POSITION" source="#Cabinet_3_mesh-mesh-positions"/>
+        </vertices>
+        <polylist material="Storage_DIffuse-material" count="32">
+          <input semantic="VERTEX" source="#Cabinet_3_mesh-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cabinet_3_mesh-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Cabinet_3_mesh-mesh-map-0" offset="2" set="0"/>
+          <vcount>4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 </vcount>
+          <p>1 0 0 3 0 1 2 0 2 0 0 3 3 1 4 7 1 5 6 1 6 2 1 7 7 2 8 5 2 9 4 2 10 6 2 11 1 3 12 0 3 13 8 3 14 9 3 15 0 4 16 2 4 17 6 4 18 4 4 19 5 5 20 7 5 21 3 5 22 1 5 23 15 6 24 12 6 25 13 6 26 14 6 27 0 7 28 4 7 29 11 7 30 8 7 31 5 7 32 1 7 33 9 7 34 10 7 35 4 8 36 5 8 37 10 8 38 11 8 39 11 9 40 10 9 41 13 9 42 12 9 43 8 5 44 11 5 45 12 5 46 15 5 47 9 10 48 8 10 49 15 10 50 14 10 51 10 4 52 9 4 53 14 4 54 13 4 55 16 4 56 19 4 57 18 4 58 17 4 59 20 5 60 21 5 61 22 5 62 23 5 63 18 11 64 19 11 65 23 11 66 22 11 67 17 2 68 18 2 69 22 2 70 21 2 71 19 0 72 16 0 73 20 0 74 23 0 75 16 7 76 17 7 77 21 7 78 20 7 79 24 12 80 27 12 81 26 12 82 25 12 83 28 13 84 29 13 85 30 13 86 31 13 87 26 11 88 27 11 89 31 11 90 30 11 91 25 2 92 26 2 93 30 2 94 29 2 95 27 0 96 24 0 97 28 0 98 31 0 99 24 7 100 25 7 101 29 7 102 28 7 103 32 4 104 35 4 105 34 4 106 33 4 107 36 5 108 37 5 109 38 5 110 39 5 111 34 11 112 35 11 113 39 11 114 38 11 115 33 2 116 34 2 117 38 2 118 37 2 119 35 0 120 32 0 121 36 0 122 39 0 123 32 7 124 33 7 125 37 7 126 36 7 127</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Cabinet_3_mesh" name="Cabinet_3_mesh" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -4.37114e-8 -1 0 0 1 -4.37114e-8 0 0 0 0 1</matrix>
+        <instance_geometry url="#Cabinet_3_mesh-mesh" name="Cabinet_3_mesh">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Storage_DIffuse-material" target="#Storage_DIffuse-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
