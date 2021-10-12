@@ -168,8 +168,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		muzzleflashLight.enabled = false;
 	}
 
-	private void Start () {
-		
+	public void Init () {
 		//Save the weapon name
 		storedWeaponName = weaponName;
 		//Get weapon name from string to text
@@ -248,37 +247,37 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			randomMuzzleflashValue = Random.Range (minRandomValue, maxRandomValue);
 		}
 
-		//Timescale settings
-		//Change timescale to normal when 1 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha1)) 
-		{
-			Time.timeScale = 1.0f;
-			timescaleText.text = "1.0";
-		}
-		//Change timesccale to 50% when 2 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha2)) 
-		{
-			Time.timeScale = 0.5f;
-			timescaleText.text = "0.5";
-		}
-		//Change timescale to 25% when 3 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha3)) 
-		{
-			Time.timeScale = 0.25f;
-			timescaleText.text = "0.25";
-		}
-		//Change timescale to 10% when 4 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha4)) 
-		{
-			Time.timeScale = 0.1f;
-			timescaleText.text = "0.1";
-		}
-		//Pause game when 5 key is pressed
-		if (Input.GetKeyDown (KeyCode.Alpha5)) 
-		{
-			Time.timeScale = 0.0f;
-			timescaleText.text = "0.0";
-		}
+		// //Timescale settings
+		// //Change timescale to normal when 1 key is pressed
+		// if (Input.GetKeyDown (KeyCode.Alpha1)) 
+		// {
+		// 	Time.timeScale = 1.0f;
+		// 	timescaleText.text = "1.0";
+		// }
+		// //Change timesccale to 50% when 2 key is pressed
+		// if (Input.GetKeyDown (KeyCode.Alpha2)) 
+		// {
+		// 	Time.timeScale = 0.5f;
+		// 	timescaleText.text = "0.5";
+		// }
+		// //Change timescale to 25% when 3 key is pressed
+		// if (Input.GetKeyDown (KeyCode.Alpha3)) 
+		// {
+		// 	Time.timeScale = 0.25f;
+		// 	timescaleText.text = "0.25";
+		// }
+		// //Change timescale to 10% when 4 key is pressed
+		// if (Input.GetKeyDown (KeyCode.Alpha4)) 
+		// {
+		// 	Time.timeScale = 0.1f;
+		// 	timescaleText.text = "0.1";
+		// }
+		// //Pause game when 5 key is pressed
+		// if (Input.GetKeyDown (KeyCode.Alpha5)) 
+		// {
+		// 	Time.timeScale = 0.0f;
+		// 	timescaleText.text = "0.0";
+		// }
 
 		//Set current ammo text from ammo int
 		currentAmmoText.text = currentAmmo.ToString ();
@@ -293,10 +292,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			anim.Play ("Knife Attack 1", 0, 0f);
 		}
 		//Play knife attack 2 animation when F key is pressed
-		if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
-		{
-			anim.Play ("Knife Attack 2", 0, 0f);
-		}
+		// if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
+		// {
+		// 	anim.Play ("Knife Attack 2", 0, 0f);
+		// }
 			
 		//Throw grenade when pressing G key
 		if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
