@@ -36,3 +36,5 @@ GUI功能
 1. 拾取枪支
     - 使用Camera和Physics组件发射射线检测，检测到对象标签为Weapon时弹出拾取UI提示。
         - 注意事项：对象需具有Collider组件才可被射线检测
+2. 步枪/手枪切换
+    - 通过检测按键Alpha1、Alpha2进行步枪、手枪的GameObject激活与隐藏，完成切换效果。
