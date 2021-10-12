@@ -478,10 +478,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSController
       objectReference: {fileID: 0}
-    - target: {fileID: 6773266079462089684, guid: 857c8e0682fd7554a82c7e2d43df7039,
-        type: 3}
-      propertyPath: m_Name
-      value: GunIcon
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 857c8e0682fd7554a82c7e2d43df7039, type: 3}
