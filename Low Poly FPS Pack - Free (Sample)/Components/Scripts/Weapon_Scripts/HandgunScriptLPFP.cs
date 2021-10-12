@@ -22,9 +22,10 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 	public float aimFov = 15.0f;
 
-	[Header("UI Weapon Name")]
+	[Header("UI Weapon Info")]
 	[Tooltip("Name of the current weapon, shown in the game UI.")]
 	public string weaponName;
+	public Sprite weaponIcon;
 	private string storedWeaponName;
 
 	[Header("Weapon Sway")]
@@ -117,6 +118,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	public Text currentWeaponText;
 	public Text currentAmmoText;
 	public Text totalAmmoText;
+	public Image currentWeaponIcon;
 
 	[System.Serializable]
 	public class prefabs
@@ -166,7 +168,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		muzzleflashLight.enabled = false;
 	}
 
-	private void Start () {
+	public void Init () {
 		//Save the weapon name
 		storedWeaponName = weaponName;
 		//Get weapon name from string to text
@@ -179,6 +181,9 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 		//Set the shoot sound to audio source
 		shootAudioSource.clip = SoundClips.shootSound;
+		
+		//设置武器图标
+		currentWeaponIcon.sprite = weaponIcon;
 	}
 
 	private void LateUpdate () {

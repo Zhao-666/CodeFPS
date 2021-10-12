@@ -22,9 +22,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	public float aimFov = 25.0f;
 
-	[Header("UI Weapon Name")]
+	[Header("UI Weapon Info")]
 	[Tooltip("Name of the current weapon, shown in the game UI.")]
 	public string weaponName;
+	public Sprite weaponIcon;
 	private string storedWeaponName;
 
 	[Header("Weapon Sway")]
@@ -118,6 +119,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	public Text currentWeaponText;
 	public Text currentAmmoText;
 	public Text totalAmmoText;
+	public Image currentWeaponIcon;
 
 	[System.Serializable]
 	public class prefabs
@@ -181,6 +183,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 		//Set the shoot sound to audio source
 		shootAudioSource.clip = SoundClips.shootSound;
+		
+		//设置武器图标
+		currentWeaponIcon.sprite = weaponIcon;
 	}
 
 	private void LateUpdate () {
