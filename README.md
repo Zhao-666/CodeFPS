@@ -19,34 +19,35 @@
 
 希望你玩的开心。
 ## 项目规划
-### 资源信息
-Unity版本：2018.4.36f1 Personal。
-
-开发软件：JetBrain Rider 2020.1.1
+### 项目信息
+软件版本
+- Unity：2018.4.36f1 Personal
+- DOTween：DOTween_1_2_632
+- 开发工具：JetBrain Rider 2020.1.1
 
 使用Unity商店资源包
 - Low Poly FPS Pack
 - Low Poly Dungeons Lite
 - Low Poly Weapons VOL.1
 - Low Poly Storage Pack
-- POLYGON Starter Pack - Low Poly 3D Art by Synty
+- POLYGON Starter Pack
 
 ### 主体功能
 #### 一期
-- 拾取枪支（已完成）
-- 步枪/手枪切换（已完成）
-- 靶场场景搭建（进行中）
-- 靶子、人质等射击目标
+- 拾取枪支（已完成，耗时2h）
+- 步枪/手枪切换（已完成，耗时2h）
+- 靶场场景搭建（进行中，耗时6h）
+- 靶子、人质等射击目标（进行中，耗时2h）
 #### 二期
 - 爬梯、滑索功能
 - 实战场景搭建
 - 实战训练计时功能
 
 ### GUI功能
-- 枪支图标切换（已完成）
-- 拾取武器提示（已完成）
+- 枪支图标切换（已完成，耗时1h）
+- 拾取武器提示（已完成，耗时1h）
 - 准星显示
-- 流程提示文案显示
+- 流程提示文案显示（进行中）
 
 ## 当前进度
 ### 2021-10-12
@@ -67,8 +68,10 @@ Unity版本：2018.4.36f1 Personal。
 3. 修改资源包中的靶子脚本
     - 由自动击倒起立改为手动执行，以满足教学流程。
 4. 制作木板靶子
-    
+5. 使用UGUI+DOTween实现流程提示文案显示。
+    - 需要为对象添加Canvas Group组件，修改组件的Alpha值。
+    - 引入DOTween可以很方便的实现淡入淡出效果（DOFade）。
     
 遇到问题
-1. 手误操作导致模型组件丢失，原本打算从Git从新Clone一份新的下来，发现Clone下来的也一样会丢失。
-查找到问题是gitignore提交时忽略了meta文件，导致Clone的预制体无法使用。
+1. 手误操作导致模型组件丢失，原本打算从Git重新Clone一份下来，发现Clone下来的组建也一样会丢失。
+查找到问题是gitignore在提交时忽略了meta文件，导致Clone的预制体无法使用。

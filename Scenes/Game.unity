@@ -5522,8 +5522,8 @@ Transform:
   m_LocalPosition: {x: 12.3, y: 0, z: 9.5}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 1430913414}
-  m_RootOrder: 5
+  m_Father: {fileID: 1331199998}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &979906159
 BoxCollider:
@@ -5871,6 +5871,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eddd5dbbd5cba0343953e804ef2e05c8, type: 3}
+--- !u!1 &1023633912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3280946084901688366, guid: a9c03c297c61b5b40b798c11078b584d,
+    type: 3}
+  m_PrefabInstance: {fileID: 58463567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1034243063
 GameObject:
   m_ObjectHideFlags: 0
@@ -7920,6 +7926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1331199998}
+  - component: {fileID: 1331199999}
   m_Layer: 0
   m_Name: GuideManager
   m_TagString: Untagged
@@ -7937,10 +7944,33 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 979906158}
   m_Father: {fileID: 1217465116}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1331199999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331199997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3516cb47a5f26664f89da5d3e3d122bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assaultRifle: {fileID: 1897319307}
+  handGun: {fileID: 1023633912}
+  woodTarget: {fileID: 1535074909}
+  topTarget: {fileID: 595582606}
+  targetList:
+  - {fileID: 1172702372}
+  - {fileID: 1995788517}
+  - {fileID: 413992386}
+  guideTips: {fileID: 2024299959}
+  shootingTrigger: {fileID: 979906157}
 --- !u!1001 &1336991540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8348,7 +8378,6 @@ Transform:
   - {fileID: 1163765274}
   - {fileID: 2005465214}
   - {fileID: 2100929165}
-  - {fileID: 979906158}
   m_Father: {fileID: 2001088687}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11288,6 +11317,12 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 961016614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1897319307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2255888350757387845, guid: 92bab9672f634824db5b2bdac089a08f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1472029741}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1915951500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11659,7 +11694,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001088687}
-  - component: {fileID: 2001088688}
   m_Layer: 0
   m_Name: Targets
   m_TagString: Untagged
@@ -11687,24 +11721,6 @@ Transform:
   m_Father: {fileID: 1981355896}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2001088688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001088686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3516cb47a5f26664f89da5d3e3d122bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  woodTarget: {fileID: 1535074909}
-  topTarget: {fileID: 595582606}
-  targetList:
-  - {fileID: 1172702372}
-  - {fileID: 1995788517}
-  - {fileID: 413992386}
 --- !u!1001 &2005465213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11975,6 +11991,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2022396592}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2024299959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2024299959, guid: 857c8e0682fd7554a82c7e2d43df7039,
+    type: 3}
+  m_PrefabInstance: {fileID: 6772486320186985842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &2024299960
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024299959}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &2030775831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12855,6 +12889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FPSController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836970242301309326, guid: 857c8e0682fd7554a82c7e2d43df7039,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 128.80078
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 857c8e0682fd7554a82c7e2d43df7039, type: 3}
