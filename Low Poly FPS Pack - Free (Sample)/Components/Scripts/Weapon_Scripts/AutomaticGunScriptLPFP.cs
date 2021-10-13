@@ -320,6 +320,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//Auto reload if true
 			if (autoReload == true && !isReloading) 
 			{
+				//Fixbug: 按住右键时自动装弹会立刻装满 
+				isReloading = true;
 				StartCoroutine (AutoReload ());
 			}
 		} 
