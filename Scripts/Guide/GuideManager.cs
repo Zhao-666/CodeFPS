@@ -7,20 +7,20 @@ public class GuideManager : MonoBehaviour
     private int currentStage = 0;
     private float checkTime;
 
-    [Header("Gun")] public GameObject assaultRifle;
+    [Header("Gun")]
+    //Gun
+    public GameObject assaultRifle;
     public GameObject handGun;
 
     [Header("Shooting target")]
     //The target that can be shot
     public TargetScript woodTarget;
-
     public TargetScript topTarget;
     public TargetScript[] targetList;
 
     [Header("GuideTips")]
     //Guide Tips
     public GameObject guideTips;
-
     private Text guideText;
 
     [Header("ShootingTrigger")]
@@ -40,10 +40,37 @@ public class GuideManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentStage == 0 && Time.time - checkTime > 2)
+        CheckStage();
+    }
+
+    private void CheckStage()
+    {
+        float currentTime = Time.time;
+        //阶段参考《流程规划-训练场流程规划》
+        if (currentStage == 0)
         {
-            checkTime = Time.time;
-            ShowGuideTips(0);
+            if (currentTime - checkTime > 2)
+            {
+                ShowGuideTips(0);
+                checkTime = currentTime;
+            }
+
+            if (assaultRifle == null)
+            {
+                //已拾取AK47
+                HideGuideTips();
+                currentStage = 1;
+                checkTime = currentTime;
+            }
+        }
+
+        if (currentStage == 1)
+        {
+            if (currentTime - checkTime > 1)
+            {
+                ShowGuideTips(1);
+                checkTime = currentTime;
+            }
         }
     }
 
