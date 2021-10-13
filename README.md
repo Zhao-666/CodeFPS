@@ -47,3 +47,10 @@
     - 花费太多时间在场景搭建中，可以先使用Cube等物体作为临时场景搭建。
     
 ### 2021-10-13
+完成功能
+1. UGUI分辨率自适应
+    - 通过使用Canvas Scaler组件，将Scale Mode改为Scale with Screen Size完成自适应功能。
+    
+遇到问题
+1. 手误操作导致模型组件丢失，原本打算从Git从新Clone一份新的下来，发现Clone下来的也一样会丢失。
+查找到问题是gitignore提交时忽略了meta文件，导致Clone的预制体无法使用。
