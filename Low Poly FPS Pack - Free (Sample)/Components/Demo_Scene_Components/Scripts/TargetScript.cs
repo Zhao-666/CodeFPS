@@ -1,65 +1,60 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using UnityEngine;
 
 // ----- Low Poly FPS Pack Free Version -----
-public class TargetScript : MonoBehaviour {
+public class TargetScript : MonoBehaviour
+{
+    private bool isDown;
+    
+    public bool isHit;
 
-	float randomTime;
-	bool routineStarted = false;
+    [Header("Audio")]
+    //Set the audios
+    public AudioClip upSound;
+    public AudioClip downSound;
 
-	//Used to check if the target has been hit
-	public bool isHit = false;
+    public AudioSource audioSource;
 
-	[Header("Customizable Options")]
-	//Minimum time before the target goes back up
-	public float minTime;
-	//Maximum time before the target goes back up
-	public float maxTime;
+    private void Awake()
+    {
+        isHit = true;
+    }
 
-	[Header("Audio")]
-	public AudioClip upSound;
-	public AudioClip downSound;
+    private void Update()
+    {
+        //If the target is hit
+        if (isHit == true)
+        {
+            if (isDown == false)
+            {
+                Down();
+            }
+        }
+    }
 
-	public AudioSource audioSource;
-	
-	private void Update () {
-		
-		//Generate random time based on min and max time values
-		randomTime = Random.Range (minTime, maxTime);
+    public void Down()
+    {
+        isDown = true;
+        //Animate the target "down"
+        gameObject.GetComponent<Animation>().Play("target_down");
 
-		//If the target is hit
-		if (isHit == true) 
-		{
-			if (routineStarted == false) 
-			{
-				//Animate the target "down"
-				gameObject.GetComponent<Animation> ().Play("target_down");
+        //Set the downSound as current sound, and play it
+        audioSource.GetComponent<AudioSource>().clip = downSound;
+        audioSource.Play();
+    }
 
-				//Set the downSound as current sound, and play it
-				audioSource.GetComponent<AudioSource>().clip = downSound;
-				audioSource.Play();
+    public void Up()
+    {
+        //Animate the target "up" 
+        gameObject.GetComponent<Animation>().Play("target_up");
 
-				//Start the timer
-				StartCoroutine(DelayTimer());
-				routineStarted = true;
-			} 
-		}
-	}
+        //Set the upSound as current sound, and play it
+        audioSource.GetComponent<AudioSource>().clip = upSound;
+        audioSource.Play();
 
-	//Time before the target pops back up
-	private IEnumerator DelayTimer () {
-		//Wait for random amount of time
-		yield return new WaitForSeconds(randomTime);
-		//Animate the target "up" 
-		gameObject.GetComponent<Animation> ().Play ("target_up");
-
-		//Set the upSound as current sound, and play it
-		audioSource.GetComponent<AudioSource>().clip = upSound;
-		audioSource.Play();
-
-		//Target is no longer hit
-		isHit = false;
-		routineStarted = false;
-	}
+        //Target is no longer hit
+        isHit = false;
+        isDown = false;
+    }
 }
 // ----- Low Poly FPS Pack Free Version -----

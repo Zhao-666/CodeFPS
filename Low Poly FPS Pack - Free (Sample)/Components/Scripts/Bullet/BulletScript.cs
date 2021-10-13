@@ -39,12 +39,14 @@ public class BulletScript : MonoBehaviour {
 		}
 
 		//If bullet collides with "Metal" tag
-		if (collision.transform.tag == "Metal") 
+		if (collision.transform.tag == "Metal"
+		|| collision.transform.tag == "Target") 
 		{
 			//Instantiate random impact prefab from array
-			Instantiate (metalImpactPrefabs [Random.Range 
-				(0, metalImpactPrefabs.Length)], transform.position, 
-				Quaternion.LookRotation (collision.contacts [0].normal));
+			Instantiate (metalImpactPrefabs [Random.Range(0, metalImpactPrefabs.Length)],
+				transform.position, 
+				Quaternion.LookRotation (collision.contacts [0].normal),
+				collision.gameObject.transform);
 			//Destroy bullet object
 			Destroy(gameObject);
 		}

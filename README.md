@@ -1,6 +1,7 @@
 # Code:FPS
-使用Unity引擎实现的一款FPS游戏。
+使用Unity3D引擎实现的一款FPS游戏。
 
+使用LowPoly风格仿制《使命召唤4》新手训练场。
 ## 项目背景
 《使命召唤6》是我的启蒙单机游戏。
 
@@ -18,6 +19,18 @@
 
 希望你玩的开心。
 ## 项目规划
+### 资源信息
+Unity版本：2018.4.36f1 Personal。
+
+开发软件：JetBrain Rider 2020.1.1
+
+使用Unity商店资源包
+- Low Poly FPS Pack
+- Low Poly Dungeons Lite
+- Low Poly Weapons VOL.1
+- Low Poly Storage Pack
+- POLYGON Starter Pack - Low Poly 3D Art by Synty
+
 ### 主体功能
 #### 一期
 - 拾取枪支（已完成）
@@ -50,6 +63,11 @@
 完成功能
 1. UGUI分辨率自适应
     - 通过使用Canvas Scaler组件，将Scale Mode改为Scale with Screen Size完成自适应功能。
+2. 靶场场景搭建
+3. 修改资源包中的靶子脚本
+    - 由自动击倒起立改为手动执行，以满足教学流程。
+4. 制作木板靶子
+    
     
 遇到问题
 1. 手误操作导致模型组件丢失，原本打算从Git从新Clone一份新的下来，发现Clone下来的也一样会丢失。
