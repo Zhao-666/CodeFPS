@@ -152,6 +152,10 @@ namespace FPSControllerLPFP
 
         private void RotateCameraAndCharacter()
         {
+            if (Cursor.lockState == CursorLockMode.None)
+            {
+                return;
+            }
             var rotationX = _rotationX.Update(RotationXRaw, rotationSmoothness);
             var rotationY = _rotationY.Update(RotationYRaw, rotationSmoothness);
             var clampedY = RestrictVerticalRotation(rotationY);

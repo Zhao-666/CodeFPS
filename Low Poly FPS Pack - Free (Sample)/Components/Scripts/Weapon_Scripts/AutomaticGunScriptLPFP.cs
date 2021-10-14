@@ -61,6 +61,11 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	private bool isRunning;
 	//Check if aiming
 	private bool isAiming;
+	public bool IsAiming
+	{
+		get => isAiming;
+	}
+	
 	//Check if walking
 	private bool isWalking;
 	//Check if inspecting weapon
@@ -213,7 +218,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 		//Aiming
 		//Toggle camera FOV when right click is held down
-		if(Input.GetButton("Fire2") && !isReloading && !isRunning && !isInspecting) 
+		if(Input.GetButton("Fire2") && !isReloading && !isRunning && !isInspecting
+		&& Cursor.lockState == CursorLockMode.Locked) 
 		{
 			
 			isAiming = true;
@@ -336,7 +342,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			
 		//AUtomatic fire
 		//Left click hold 
-		if (Input.GetMouseButton (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning) 
+		if (Input.GetMouseButton (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning
+		&& Cursor.lockState == CursorLockMode.Locked) 
 		{
 			//Shoot automatic
 			if (Time.time - lastFired > 1 / fireRate) 

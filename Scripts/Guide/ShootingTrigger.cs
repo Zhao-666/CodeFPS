@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShootingTrigger : MonoBehaviour
 {
@@ -9,7 +6,7 @@ public class ShootingTrigger : MonoBehaviour
     {
         if (other.gameObject.name == "FPSController")
         {
-            SendMessageUpwards("PlayerArrived");
+            SendMessageUpwards("ArrivedShootingArea");
         }
     }
 }

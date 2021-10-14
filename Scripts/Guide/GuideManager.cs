@@ -1,40 +1,36 @@
-﻿using DG.Tweening;
+﻿using System;
+using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GuideManager : MonoBehaviour
 {
+    private const string TrainingStagePrefix = "TrainingStage_";
     private int currentStage = 0;
-    private float checkTime;
+    private int runningStage = -1;
+    private int finalStage = 3;
 
-    [Header("Gun")]
-    //Gun
-    public GameObject assaultRifle;
-    public GameObject handGun;
+    [Header("TrainingStageManager")]
+    //TrainingStageManager
+    public GameObject trainingStageManager;
 
-    [Header("Shooting target")]
-    //The target that can be shot
-    public TargetScript woodTarget;
-    public TargetScript topTarget;
-    public TargetScript[] targetList;
+    private readonly Dictionary<string, TrainingStageBase> trainingStageBases
+        = new Dictionary<string, TrainingStageBase>();
 
     [Header("GuideTips")]
     //Guide Tips
     public GameObject guideTips;
-    private Text guideText;
 
-    [Header("ShootingTrigger")]
-    //Shooting Trigger
-    public GameObject shootingTrigger;
+    private Text guideText;
 
     // Start is called before the first frame update
     void Start()
     {
         guideTips.GetComponent<CanvasGroup>().DOFade(0, 0);
         guideText = guideTips.transform.Find("GuideText").GetComponent<Text>();
-        handGun.SetActive(false);
-        shootingTrigger.SetActive(false);
-        checkTime = Time.time;
+
+        SetTrainingStageScript();
     }
 
     // Update is called once per frame
@@ -43,43 +39,42 @@ public class GuideManager : MonoBehaviour
         CheckStage();
     }
 
+    /**
+     * 检测流程阶段
+     */
     private void CheckStage()
     {
-        float currentTime = Time.time;
-        //阶段参考《流程规划-训练场流程规划》
-        if (currentStage == 0)
+        if (currentStage <= finalStage && currentStage != runningStage)
         {
-            if (currentTime - checkTime > 2)
+            runningStage = currentStage;
+            //阶段参考《流程规划-训练场流程规划》
+            TrainingStageBase tsb;
+            trainingStageBases.TryGetValue(TrainingStagePrefix + currentStage, out tsb);
+            if (tsb != null)
             {
-                ShowGuideTips(0);
-                checkTime = currentTime;
+                Debug.Log("Run " + TrainingStagePrefix + currentStage);
+                tsb.Run();
             }
-
-            if (assaultRifle == null)
+            else
             {
-                //已拾取AK47
-                HideGuideTips();
-                currentStage = 1;
-                checkTime = currentTime;
-            }
-        }
-
-        if (currentStage == 1)
-        {
-            if (currentTime - checkTime > 1)
-            {
-                ShowGuideTips(1);
-                checkTime = currentTime;
+                Debug.Log(TrainingStagePrefix + currentStage + " script can't found.");
+                currentStage++;
             }
         }
     }
 
-    private void PlayerArrived()
+    /**
+     * 调用此方法进入下一阶段
+     */
+    private void NextStage()
     {
-        topTarget.Up();
-        targetList[0].Up();
+        currentStage++;
+        HideGuideTips();
     }
 
+    /**
+     * 阶段脚本调用
+     */
     private void ShowGuideTips(int index)
     {
         guideText.text = GuideTips.Tips[index];
@@ -89,5 +84,20 @@ public class GuideManager : MonoBehaviour
     private void HideGuideTips()
     {
         guideTips.GetComponent<CanvasGroup>().DOFade(0, 1);
+    }
+
+    /**
+     * 获取所有阶段脚本
+     */
+    private void SetTrainingStageScript()
+    {
+        TrainingStageBase[] tsb = trainingStageManager.GetComponents<TrainingStageBase>();
+        if (tsb != null)
+        {
+            foreach (TrainingStageBase trainingStageBase in tsb)
+            {
+                trainingStageBases.Add(trainingStageBase.GetType().Name, trainingStageBase);
+            }
+        }
     }
 }
