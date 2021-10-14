@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class TrainingStageBase : MonoBehaviour
 {
@@ -11,6 +10,14 @@ public abstract class TrainingStageBase : MonoBehaviour
      * 阶段逻辑
      */
     protected abstract void Process();
+
+    protected virtual void AwakeInit()
+    {
+    }
+
+    protected virtual void StartInit()
+    {
+    }
 
     void Awake()
     {
@@ -53,7 +60,4 @@ public abstract class TrainingStageBase : MonoBehaviour
     {
         SendMessageUpwards("HideGuideTips");
     }
-    
-    protected virtual void AwakeInit(){}
-    protected virtual void StartInit(){}
 }
