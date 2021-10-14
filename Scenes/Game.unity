@@ -447,6 +447,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -595,6 +600,10 @@ PrefabInstance:
     - target: {fileID: 116448, guid: ed6ed70884be26a479dd8a819af56329, type: 3}
       propertyPath: m_Name
       value: Container_01_Green (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 116448, guid: ed6ed70884be26a479dd8a819af56329, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 446728, guid: ed6ed70884be26a479dd8a819af56329, type: 3}
       propertyPath: m_LocalPosition.x
@@ -875,6 +884,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -1352,6 +1366,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1426,6 +1445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -1614,6 +1638,10 @@ PrefabInstance:
     - target: {fileID: 116448, guid: ed6ed70884be26a479dd8a819af56329, type: 3}
       propertyPath: m_Name
       value: Container_01_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 116448, guid: ed6ed70884be26a479dd8a819af56329, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 446728, guid: ed6ed70884be26a479dd8a819af56329, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1915,6 +1943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Storage_Rack_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 152222, guid: 34b8a5bfe71cc1844b2d95a6853d2630, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 475310, guid: 34b8a5bfe71cc1844b2d95a6853d2630, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.3
@@ -2155,6 +2187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EUR-Pallet (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 175688, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 480390, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -2296,6 +2332,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -2439,6 +2480,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2513,6 +2559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -2736,6 +2787,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2890,6 +2946,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -3201,6 +3262,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3274,6 +3340,10 @@ PrefabInstance:
     - target: {fileID: 136706, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
       propertyPath: m_Name
       value: Box_01_Yellow (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136706, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 455826, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3350,6 +3420,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -3488,6 +3563,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3562,6 +3642,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -3677,6 +3762,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3751,6 +3841,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -3882,6 +3977,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8014036971784306386, guid: c65426a375c90574a95eaaf4840e9481,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65426a375c90574a95eaaf4840e9481, type: 3}
 --- !u!4 &662745519 stripped
@@ -3967,7 +4067,7 @@ PrefabInstance:
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.5
+      value: 9.49
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -4220,6 +4320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4332,6 +4437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chair_05 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 907737577407192764, guid: 3c94a574020d3de429d0c295b3a83db4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 6062957040624609817, guid: 3c94a574020d3de429d0c295b3a83db4,
         type: 3}
@@ -4462,6 +4572,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014036971784306386, guid: c65426a375c90574a95eaaf4840e9481,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65426a375c90574a95eaaf4840e9481, type: 3}
@@ -4611,6 +4726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -4818,6 +4938,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4891,6 +5016,10 @@ PrefabInstance:
     - target: {fileID: 175688, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
       propertyPath: m_Name
       value: EUR-Pallet
+      objectReference: {fileID: 0}
+    - target: {fileID: 175688, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 480390, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5023,6 +5152,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8014036971784306386, guid: c65426a375c90574a95eaaf4840e9481,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65426a375c90574a95eaaf4840e9481, type: 3}
 --- !u!4 &885581014 stripped
@@ -5099,6 +5233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -5232,6 +5371,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5351,6 +5495,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -5541,6 +5690,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5615,6 +5769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -5804,6 +5963,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chair_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 907737577407192764, guid: 3c94a574020d3de429d0c295b3a83db4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 6062957040624609817, guid: 3c94a574020d3de429d0c295b3a83db4,
         type: 3}
@@ -6209,6 +6373,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6391,6 +6560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -6851,7 +7025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 438956, guid: 84e2da24fceb32c45a3059b4c1d82538, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.8
+      value: 11.6
       objectReference: {fileID: 0}
     - target: {fileID: 438956, guid: 84e2da24fceb32c45a3059b4c1d82538, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6981,6 +7155,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -7702,6 +7881,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7980,6 +8164,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -8290,6 +8479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box_01_Yellow (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 136706, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 455826, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -8460,6 +8653,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8014036971784306386, guid: c65426a375c90574a95eaaf4840e9481,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65426a375c90574a95eaaf4840e9481, type: 3}
 --- !u!4 &1404310425 stripped
@@ -8564,7 +8762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1430913413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5609581532468339494}
@@ -8741,6 +8939,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8014036971784306386, guid: c65426a375c90574a95eaaf4840e9481,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65426a375c90574a95eaaf4840e9481, type: 3}
 --- !u!4 &1470012325 stripped
@@ -8887,6 +9090,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9016,6 +9224,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014036971784306386, guid: c65426a375c90574a95eaaf4840e9481,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65426a375c90574a95eaaf4840e9481, type: 3}
@@ -9229,6 +9442,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -9509,6 +9727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9616,6 +9839,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -9790,6 +10018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box_02
       objectReference: {fileID: 0}
+    - target: {fileID: 5129442236857904303, guid: e37d55d9adae8724c9dcf1dff5b67578,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e37d55d9adae8724c9dcf1dff5b67578, type: 3}
 --- !u!4 &1622193397 stripped
@@ -9935,6 +10168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -10141,6 +10379,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table_01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014036971784306386, guid: c65426a375c90574a95eaaf4840e9481,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65426a375c90574a95eaaf4840e9481, type: 3}
@@ -10569,6 +10812,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10757,6 +11005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EUR-Pallet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 175688, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 480390, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -10832,6 +11084,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor5x5 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
@@ -10998,6 +11255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11140,6 +11402,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11213,6 +11480,10 @@ PrefabInstance:
     - target: {fileID: 175688, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
       propertyPath: m_Name
       value: EUR-Pallet (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 175688, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 480390, guid: be11ab6aad4338d4d8ad965540935796, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11627,6 +11898,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11739,6 +12015,10 @@ PrefabInstance:
     - target: {fileID: 152222, guid: 34b8a5bfe71cc1844b2d95a6853d2630, type: 3}
       propertyPath: m_Name
       value: Storage_Rack_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 152222, guid: 34b8a5bfe71cc1844b2d95a6853d2630, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 475310, guid: 34b8a5bfe71cc1844b2d95a6853d2630, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12069,6 +12349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box_01_Yellow
       objectReference: {fileID: 0}
+    - target: {fileID: 136706, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 455826, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -12199,6 +12483,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Table_01 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014036971784306386, guid: c65426a375c90574a95eaaf4840e9481,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c65426a375c90574a95eaaf4840e9481, type: 3}
@@ -12590,6 +12879,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor5x5 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1881366460282897824, guid: 1231e7c4649316144b276c81ae743ee4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Metal
+      objectReference: {fileID: 0}
     - target: {fileID: 1881366460282897884, guid: 1231e7c4649316144b276c81ae743ee4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12663,6 +12957,10 @@ PrefabInstance:
     - target: {fileID: 136706, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
       propertyPath: m_Name
       value: Box_01_Yellow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136706, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 455826, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12851,6 +13149,10 @@ PrefabInstance:
     - target: {fileID: 136706, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
       propertyPath: m_Name
       value: Box_01_Yellow (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136706, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
+      propertyPath: m_TagString
+      value: Metal
       objectReference: {fileID: 0}
     - target: {fileID: 455826, guid: 303a8118f0602de4d848c9d7b7e74129, type: 3}
       propertyPath: m_LocalPosition.x
