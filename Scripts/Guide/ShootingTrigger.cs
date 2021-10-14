@@ -6,6 +6,7 @@ public class ShootingTrigger : MonoBehaviour
     {
         if (other.gameObject.name == "FPSController")
         {
+            Debug.Log("ShootingTrigger Enter");
             SendMessageUpwards("ArrivedShootingArea");
         }
     }

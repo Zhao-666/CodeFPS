@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GuideManager : MonoBehaviour
 {
     private const string TrainingStagePrefix = "TrainingStage_";
-    private int currentStage = 0;
+    private int currentStage = 7;
     private int runningStage = -1;
     private int finalStage = 10;
 

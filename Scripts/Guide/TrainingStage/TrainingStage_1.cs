@@ -36,7 +36,7 @@ public class TrainingStage_1 : TrainingStageBase
 
     public override void Run()
     {
-        base.Run();
         shootingTrigger.SetActive(true);
+        base.Run();
     }
 }
