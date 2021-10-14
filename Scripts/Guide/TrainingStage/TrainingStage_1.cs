@@ -18,8 +18,7 @@ public class TrainingStage_1 : TrainingStageBase
     {
         if (!hasShowTips && Time.time - runTime > 1)
         {
-            SendMessageUpwards("ShowGuideTips", 1);
-            hasShowTips = true;
+            ShowTips(1);
         }
 
         if (arrived)

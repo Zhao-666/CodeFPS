@@ -11,7 +11,9 @@ public class SettingPanelController : MonoBehaviour
     //MousePositionPanel
     public GameObject mousePositionPanel;
 
-    private readonly GameObject currentShowPanel = null;
+    //当前展示的Panel
+    private GameObject currentShowPanel;
+    public GameObject CurrentShowPanel => currentShowPanel;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,7 +30,7 @@ public class SettingPanelController : MonoBehaviour
     {
         UnlockMouse();
         gameObject.SetActive(true);
-        Instantiate(mousePositionPanel, transform);
+        currentShowPanel = Instantiate(mousePositionPanel, transform);
     }
 
     public void HideSettingPanel()

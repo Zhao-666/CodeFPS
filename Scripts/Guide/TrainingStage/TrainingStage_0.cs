@@ -10,8 +10,7 @@ public class TrainingStage_0 : TrainingStageBase
     {
         if (!hasShowTips && Time.time - runTime > 2)
         {
-            SendMessageUpwards("ShowGuideTips", value: 0);
-            hasShowTips = true;
+            ShowTips(0);
         }
 
         if (assaultRifle == null)

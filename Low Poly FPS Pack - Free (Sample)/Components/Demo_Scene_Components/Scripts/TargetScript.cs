@@ -5,8 +5,11 @@ using UnityEngine;
 public class TargetScript : MonoBehaviour
 {
     private bool isDown;
-    
+
     public bool isHit;
+    
+    //设为false则不会倒下，需要手动调用Down()
+    public bool isWillDown = true;
 
     [Header("Audio")]
     //Set the audios
@@ -25,7 +28,7 @@ public class TargetScript : MonoBehaviour
         //If the target is hit
         if (isHit == true)
         {
-            if (isDown == false)
+            if (isWillDown && isDown == false)
             {
                 Down();
             }
