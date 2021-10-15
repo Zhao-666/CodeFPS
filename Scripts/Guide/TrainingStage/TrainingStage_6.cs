@@ -47,6 +47,7 @@ public class TrainingStage_6 : TrainingStageBase
         ShowChatText(9);
         yield return new WaitForSeconds(3);
         ShowChatText(10);
+        yield return new WaitForSeconds(1);
         canShot = true;
     }
 }
