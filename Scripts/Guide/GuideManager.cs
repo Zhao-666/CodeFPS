@@ -86,6 +86,11 @@ public class GuideManager : MonoBehaviour
         guideTips.GetComponent<CanvasGroup>().DOFade(0, 1);
     }
 
+    private void PublishChatText(int index)
+    {
+        ChatPanelController.Instance.PublishText(GuideChatText.ChatText[index]);
+    }
+
     /**
      * 获取所有阶段脚本
      */

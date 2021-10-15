@@ -14,7 +14,8 @@ public class TrainingStage_3 : TrainingStageBase
         if (!hasShowTips && Time.time - runTime > 1)
         {
             //提示鼠标左键射击
-            ShowTips(3);
+            ShowTips(2);
+            ShowChatText(2);
             //上下靶子起立
             topTarget.Up();
             firstTarget.Up();

@@ -8,19 +8,19 @@ public class TrainingStage_1 : TrainingStageBase
     //ShootingTrigger
     public GameObject shootingTrigger;
 
-    void Start()
+    protected override void StartInit()
     {
         shootingTrigger.SetActive(false);
     }
+    
+    protected override void BeforeRun()
+    {
+        shootingTrigger.SetActive(true);
+        ShowChatText(0);
+    }
 
-    // Update is called once per frame
     protected override void Process()
     {
-        if (!hasShowTips && Time.time - runTime > 1)
-        {
-            ShowTips(1);
-        }
-
         if (arrived)
         {
             //已到达触发点
@@ -32,11 +32,6 @@ public class TrainingStage_1 : TrainingStageBase
     private void ArrivedShootingArea()
     {
         arrived = true;
-    }
-
-    public override void Run()
-    {
-        shootingTrigger.SetActive(true);
-        base.Run();
+        shootingTrigger.SetActive(false);
     }
 }

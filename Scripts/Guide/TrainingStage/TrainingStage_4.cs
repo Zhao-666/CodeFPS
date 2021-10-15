@@ -2,6 +2,7 @@
 
 public class TrainingStage_4 : TrainingStageBase
 {
+    private bool canShot;
     private bool settingPanelClosed;
 
     [Header("Shooting target")]
@@ -11,6 +12,11 @@ public class TrainingStage_4 : TrainingStageBase
     public TargetScript secondTarget;
     public TargetScript thirdTarget;
 
+    protected override void BeforeRun()
+    {
+        ShowChatText(3);
+    }
+
     protected override void Process()
     {
         if (!settingPanelClosed && SettingPanelController.Instance.CurrentShowPanel == null)
@@ -18,15 +24,16 @@ public class TrainingStage_4 : TrainingStageBase
             settingPanelClosed = true;
         }
 
-        if (settingPanelClosed && !hasShowTips)
+        if (settingPanelClosed && !canShot)
         {
-            ShowTips(4);
+            ShowChatText(4);
             firstTarget.Up();
             secondTarget.Up();
             thirdTarget.Up();
+            canShot = true;
         }
 
-        if (hasShowTips && firstTarget.isHit && secondTarget.isHit && thirdTarget.isHit)
+        if (canShot && firstTarget.isHit && secondTarget.isHit && thirdTarget.isHit)
         {
             Over();
         }

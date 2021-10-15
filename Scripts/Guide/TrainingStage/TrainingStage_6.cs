@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrainingStage_6 : TrainingStageBase
 {
+    private bool canShot;
     private const int MaxShotCount = 10;
 
     [Header("Shooting target")]
@@ -13,14 +14,14 @@ public class TrainingStage_6 : TrainingStageBase
     private TargetScript currentTarget;
     private int hasShotCount;
 
+    protected override void BeforeRun()
+    {
+        StartCoroutine(ShowTwoChatText());
+    }
+
     protected override void Process()
     {
-        if (!hasShowTips && Time.time - runTime > 2)
-        {
-            ShowTips(6);
-        }
-
-        if (hasShowTips)
+        if (canShot)
         {
             if (currentTarget == null || currentTarget.isHit)
             {
@@ -39,5 +40,13 @@ public class TrainingStage_6 : TrainingStageBase
         currentTarget = targets[Random.Range(0, targets.Length)];
         currentTarget.Up();
         hasShotCount++;
+    }
+    
+    private IEnumerator ShowTwoChatText()
+    {
+        ShowChatText(9);
+        yield return new WaitForSeconds(3);
+        ShowChatText(10);
+        canShot = true;
     }
 }

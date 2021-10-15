@@ -12,30 +12,25 @@ public class TrainingStage_7 : TrainingStageBase
         handGun.SetActive(false);
     }
 
+    protected override void BeforeRun()
+    {
+        StartCoroutine(ShowTwoChatText());
+        handGun.SetActive(true);
+    }
+
     protected override void Process()
     {
-        if (!hasShowTips)
-        {
-            StartCoroutine(ShowTwoTips());
-        }
-
         if (handGun == null)
         {
             Over();
         }
-        else if (!handGun.activeSelf)
-        {
-            handGun.SetActive(true);
-        }
     }
 
-    private IEnumerator ShowTwoTips()
+    private IEnumerator ShowTwoChatText()
     {
         yield return new WaitForSeconds(1);
-        ShowTips(7);
+        ShowChatText(11);
         yield return new WaitForSeconds(2);
-        HideTips();
-        yield return new WaitForSeconds(2);
-        ShowTips(8);
+        ShowChatText(12);
     }
 }

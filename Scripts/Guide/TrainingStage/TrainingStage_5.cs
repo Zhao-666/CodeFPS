@@ -4,29 +4,44 @@ using UnityEngine;
 
 public class TrainingStage_5 : TrainingStageBase
 {
+    private bool canShot;
+
     [Header("Wood target")]
     //The target that can be shot
     public TargetScript woodTarget;
 
+    protected override void BeforeRun()
+    {
+        StartCoroutine(ShowChatText());
+    }
+
     protected override void Process()
     {
-        if (!hasShowTips && Time.time - runTime > 1)
+        if (canShot && woodTarget.isHit)
         {
-            ShowTips(5);
-            woodTarget.isWillDown = false;
-            woodTarget.Up();
-        }
-
-        if (hasShowTips && woodTarget.isHit)
-        {
+            canShot = false;
+            ShowChatText(7);
             StartCoroutine(WaitOver());
         }
     }
 
     private IEnumerator WaitOver()
     {
+        yield return new WaitForSeconds(2);
+        ShowChatText(8);
         yield return new WaitForSeconds(3);
         woodTarget.Down();
         Over();
+    }
+
+    private IEnumerator ShowChatText()
+    {
+        yield return new WaitForSeconds(2);
+        ShowChatText(5);
+        yield return new WaitForSeconds(2);
+        canShot = true;
+        ShowChatText(6);
+        woodTarget.isWillDown = false;
+        woodTarget.Up();
     }
 }

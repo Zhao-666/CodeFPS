@@ -7,24 +7,38 @@ public abstract class TrainingStageBase : MonoBehaviour
     protected float runTime;
 
     /**
-     * 阶段逻辑
+     * 当前阶段逻辑
      */
     protected abstract void Process();
 
+    /**
+     * Awake初始化
+     */
     protected virtual void AwakeInit()
     {
     }
 
+    /**
+     * Start初始化
+     */
     protected virtual void StartInit()
     {
     }
 
-    void Awake()
+    /**
+     * 阶段运行前调用此方法
+     */
+    protected virtual void BeforeRun()
+    {
+        
+    }
+
+    private void Awake()
     {
         AwakeInit();
     }
 
-    void Start()
+    private void Start()
     {
         StartInit();
     }
@@ -37,13 +51,14 @@ public abstract class TrainingStageBase : MonoBehaviour
         }
     }
 
-    public virtual void Run()
+    public void Run()
     {
+        BeforeRun();
         runTime = Time.time;
         isRunning = true;
     }
 
-    protected virtual void Over()
+    protected void Over()
     {
         isRunning = false;
         SendMessageUpwards("NextStage");
@@ -59,5 +74,10 @@ public abstract class TrainingStageBase : MonoBehaviour
     protected void HideTips()
     {
         SendMessageUpwards("HideGuideTips");
+    }
+
+    protected void ShowChatText(int index)
+    {
+        SendMessageUpwards("PublishChatText", index);
     }
 }
