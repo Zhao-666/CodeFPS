@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public GameObject assaultRifle;
     // Handgun
     public GameObject handGun;
+    //当前枪支
+    private GameObject currentGun;
 
     private bool hasAssaultRifle;
     private bool hasHandGun;
@@ -41,14 +42,12 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1) && hasAssaultRifle)
         {
-            ShowAndHideHandgun(false);
-            ShowAndHideAssaultRifle();
+            ShowAssaultRifle();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2) && hasHandGun)
         {
-            ShowAndHideAssaultRifle(false);
-            ShowAndHideHandgun();
+            ShowHandgun();
         }
 
         if (Input.GetKeyDown(KeyCode.F) && rayWeapon != null)
@@ -61,24 +60,22 @@ public class PlayerController : MonoBehaviour
 
     private void PickUpWeapon()
     {
-        if (rayWeapon==null)
+        if (rayWeapon == null)
         {
             return;
         }
-        
+
         if (rayWeapon.name == "Assault_Rifle")
         {
             hasAssaultRifle = true;
             gunInfo.SetActive(true);
-            ShowAndHideHandgun(false);
-            ShowAndHideAssaultRifle();
+            ShowAssaultRifle();
         }
         else if (rayWeapon.name == "Handgun")
         {
             hasHandGun = true;
             gunInfo.SetActive(true);
-            ShowAndHideAssaultRifle(false);
-            ShowAndHideHandgun();
+            ShowHandgun();
         }
 
         Destroy(rayWeapon);
@@ -113,21 +110,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ShowAndHideAssaultRifle(bool show = true)
+    private void ShowAssaultRifle()
     {
-        assaultRifle.SetActive(show);
-        if (show)
-        {
-            assaultRifle.GetComponent<AutomaticGunScriptLPFP>().Init();
-        }
+        HideCurrentGun();
+        assaultRifle.SetActive(true);
+        assaultRifle.GetComponent<AutomaticGunScriptLPFP>().Init();
+        currentGun = assaultRifle;
     }
 
-    private void ShowAndHideHandgun(bool show = true)
+    private void ShowHandgun()
     {
-        handGun.SetActive(show);
-        if (show)
+        HideCurrentGun();
+        handGun.SetActive(true);
+        handGun.GetComponent<HandgunScriptLPFP>().Init();
+        currentGun = handGun;
+    }
+
+    private void HideCurrentGun()
+    {
+        if (currentGun != null)
         {
-            handGun.GetComponent<HandgunScriptLPFP>().Init();
+            currentGun.SetActive(false);
         }
     }
 }
