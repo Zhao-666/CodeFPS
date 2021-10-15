@@ -191,6 +191,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		
 		//设置武器图标
 		currentWeaponIcon.sprite = weaponIcon;
+		
+		//播放上膛声音
+		PlayAudioOnMainAudioSource(SoundClips.reloadSoundOutOfAmmo, 1.5f);
 	}
 
 	private void LateUpdate () {
@@ -232,8 +235,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 			if (!soundHasPlayed) 
 			{
-				mainAudioSource.clip = SoundClips.aimSound;
-				mainAudioSource.Play ();
+				PlayAudioOnMainAudioSource(SoundClips.aimSound);
 	
 				soundHasPlayed = true;
 			}
@@ -444,8 +446,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		{
 			holstered = true;
 
-			mainAudioSource.clip = SoundClips.holsterSound;
-			mainAudioSource.Play();
+			PlayAudioOnMainAudioSource(SoundClips.holsterSound);
 
 			hasBeenHolstered = true;
 		} 
@@ -453,8 +454,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		{
 			holstered = false;
 
-			mainAudioSource.clip = SoundClips.takeOutSound;
-			mainAudioSource.Play ();
+			PlayAudioOnMainAudioSource(SoundClips.takeOutSound);
 
 			hasBeenHolstered = false;
 		}
@@ -524,8 +524,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//Play diff anim if out of ammo
 			anim.Play ("Reload Out Of Ammo", 0, 0f);
 
-			mainAudioSource.clip = SoundClips.reloadSoundOutOfAmmo;
-			mainAudioSource.Play ();
+			PlayAudioOnMainAudioSource(SoundClips.reloadSoundOutOfAmmo);
 
 			//If out of ammo, hide the bullet renderer in the mag
 			//Do not show if bullet renderer is not assigned in inspector
@@ -550,8 +549,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//Play diff anim if out of ammo
 			anim.Play ("Reload Out Of Ammo", 0, 0f);
 
-			mainAudioSource.clip = SoundClips.reloadSoundOutOfAmmo;
-			mainAudioSource.Play ();
+			PlayAudioOnMainAudioSource(SoundClips.reloadSoundOutOfAmmo);
 
 			//If out of ammo, hide the bullet renderer in the mag
 			//Do not show if bullet renderer is not assigned in inspector
@@ -568,8 +566,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//Play diff anim if ammo left
 			anim.Play ("Reload Ammo Left", 0, 0f);
 
-			mainAudioSource.clip = SoundClips.reloadSoundAmmoLeft;
-			mainAudioSource.Play ();
+			PlayAudioOnMainAudioSource(SoundClips.reloadSoundAmmoLeft);
 
 			//If reloading when ammo left, show bullet in mag
 			//Do not show if bullet renderer is not assigned in inspector
@@ -624,6 +621,16 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		{
 			isInspecting = false;
 		}
+	}
+
+	/**
+	 * 在MainAudioSource上播放音乐
+	 */
+	private void PlayAudioOnMainAudioSource(AudioClip audioClip, float delay = 0)
+	{
+		mainAudioSource.clip = audioClip;
+		mainAudioSource.time = delay;
+		mainAudioSource.Play();
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----
