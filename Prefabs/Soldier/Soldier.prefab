@@ -605,8 +605,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7032073747097514370}
   - component: {fileID: 7032073747105193566}
+  - component: {fileID: 4795959859174611626}
   m_Layer: 0
-  m_Name: Soldier_demo
+  m_Name: Soldier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -621,7 +622,7 @@ Transform:
   m_GameObject: {fileID: 7032073747097939426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.710438, y: -1, z: -0.18348122}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_Children:
   - {fileID: 7032073747097514430}
   - {fileID: 7032073747097514368}
@@ -647,6 +648,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &4795959859174611626
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032073747097939426}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.36785534
+  m_Height: 2.499594
+  m_Direction: 1
+  m_Center: {x: 0.014677729, y: 1.3131714, z: 0}
 --- !u!1 &7032073747097939428
 GameObject:
   m_ObjectHideFlags: 0
