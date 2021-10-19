@@ -8,7 +8,6 @@ public class TrainingStage_4 : TrainingStageBase
     [Header("Shooting target")]
     //The target that can be shot
     public TargetScript firstTarget;
-
     public TargetScript secondTarget;
     public TargetScript thirdTarget;
 

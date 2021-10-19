@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1275976282}
   m_Layer: 0
   m_Name: WoodTarget
-  m_TagString: Target
+  m_TagString: WoodTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6713419301522701024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 46947824685093413}
   m_Father: {fileID: 0}
@@ -161,11 +161,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHit: 0
-  minTime: 5
-  maxTime: 25
+  isWillDown: 1
   upSound: {fileID: 8300000, guid: 83ed69ca21a297b4ab15a1e89abd4e4b, type: 3}
   downSound: {fileID: 8300000, guid: 0a3d74157d2f1714894e1358632773c8, type: 3}
-  audioSource: {fileID: 5609581532468339497}
+  audioSource: {fileID: 0}
 --- !u!65 &1275976282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -174,11 +173,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6713419301522701024}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1387577, y: 1.0307684, z: 0.103856325}
-  m_Center: {x: 0, y: 0.52416253, z: 0.0028909445}
+  m_Size: {x: 1.0918388, y: 0.9476826, z: 0.051724434}
+  m_Center: {x: 0.002606392, y: 0.5243257, z: 0.0028910637}
 --- !u!1001 &8162832293666178748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,7 +260,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8868790754558415699, guid: 5062c1312f2beb14694d90a058d444e4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5062c1312f2beb14694d90a058d444e4, type: 3}
 --- !u!4 &46947824685093413 stripped
 Transform:

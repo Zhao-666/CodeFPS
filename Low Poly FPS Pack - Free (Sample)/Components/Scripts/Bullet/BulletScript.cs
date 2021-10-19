@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 // ----- Low Poly FPS Pack Free Version -----
 public class BulletScript : MonoBehaviour {
@@ -16,6 +18,14 @@ public class BulletScript : MonoBehaviour {
 
 	[Header("Impact Effect Prefabs")]
 	public Transform [] metalImpactPrefabs;
+
+	private Ray ray;
+	private RaycastHit[] raycastHits = new RaycastHit[3];
+
+	private void Awake()
+	{
+		CheckPermeableTarget();
+	}
 
 	private void Start () 
 	{
@@ -87,6 +97,28 @@ public class BulletScript : MonoBehaviour {
 		yield return new WaitForSeconds (destroyAfter);
 		//Destroy bullet object
 		Destroy (gameObject);
+	}
+
+	private void CheckPermeableTarget()
+	{
+		ray = new Ray(transform.position,transform.forward);
+		int hitsCount = Physics.RaycastNonAlloc(ray, raycastHits);
+		if (hitsCount > 0)
+		{
+			foreach (RaycastHit raycastHit in raycastHits)
+			{
+				if (raycastHit.collider != null)
+				{
+					GameObject go = raycastHit.collider.gameObject;
+					if (go != null && go.CompareTag("WoodTarget"))
+					{
+						Instantiate (metalImpactPrefabs [Random.Range(0, metalImpactPrefabs.Length)],
+							raycastHit.point, Quaternion.LookRotation (raycastHit.normal),
+							go.transform);
+					}
+				}
+			}
+		}
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----

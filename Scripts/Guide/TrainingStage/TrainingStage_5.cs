@@ -10,6 +10,13 @@ public class TrainingStage_5 : TrainingStageBase
     //The target that can be shot
     public TargetScript woodTarget;
 
+    [Header("Shooting target")]
+    //The target that can be shot
+    public TargetScript firstTarget;
+
+    public TargetScript secondTarget;
+    public TargetScript thirdTarget;
+
     protected override void BeforeRun()
     {
         StartCoroutine(ShowChatText());
@@ -17,7 +24,7 @@ public class TrainingStage_5 : TrainingStageBase
 
     protected override void Process()
     {
-        if (canShot && woodTarget.isHit)
+        if (canShot && firstTarget.isHit && secondTarget.isHit && thirdTarget.isHit)
         {
             canShot = false;
             ShowChatText(7);
@@ -43,5 +50,8 @@ public class TrainingStage_5 : TrainingStageBase
         ShowChatText(6);
         woodTarget.isWillDown = false;
         woodTarget.Up();
+        firstTarget.Up();
+        secondTarget.Up();
+        thirdTarget.Up();
     }
 }
