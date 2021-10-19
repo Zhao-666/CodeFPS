@@ -20,7 +20,7 @@ public class TargetScript : MonoBehaviour
 
     private void Awake()
     {
-        isHit = true;
+        // isHit = true;
     }
 
     private void Update()

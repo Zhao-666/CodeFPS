@@ -158,6 +158,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 	private bool soundHasPlayed = false;
 
+	private Quaternion originBulletSpawnPointRotation;
+	
 	private void Awake () 
 	{
 		//Set the animator component
@@ -166,6 +168,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		currentAmmo = ammo;
 
 		muzzleflashLight.enabled = false;
+		originBulletSpawnPointRotation = Spawnpoints.bulletSpawnPoint.transform.localRotation;
 	}
 
 	public void Init () {
@@ -226,6 +229,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	
 				soundHasPlayed = true;
 			}
+			Spawnpoints.bulletSpawnPoint.localRotation = originBulletSpawnPointRotation;
 		} 
 		else 
 		{
@@ -387,12 +391,16 @@ public class HandgunScriptLPFP : MonoBehaviour {
 					}
 				}
 			}
-				
+
+			if (!isAiming)
+			{
+				RandomBulletSpawnPoint();
+			}
 			//Spawn bullet at bullet spawnpoint
 			var bullet = (Transform)Instantiate (
 				Prefabs.bulletPrefab,
-				Spawnpoints.bulletSpawnPoint.transform.position,
-				Spawnpoints.bulletSpawnPoint.transform.rotation);
+				Spawnpoints.bulletSpawnPoint.position,
+				Spawnpoints.bulletSpawnPoint.rotation);
 
 			//Add velocity to the bullet
 			bullet.GetComponent<Rigidbody>().velocity = 
@@ -618,6 +626,17 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		//Restore ammo when reloading
 		currentAmmo = ammo;
 		outOfAmmo = false;
+	}
+	
+	/**
+	 * Let the bullet position random.
+	 */
+	private void RandomBulletSpawnPoint()
+	{
+		int randX = Random.Range(-10, 10);
+		int randY = Random.Range(-10, 10);
+		Vector3 pos = new Vector3(randX,randY,0);
+		Spawnpoints.bulletSpawnPoint.localRotation = Quaternion.Euler(pos);
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----
