@@ -196,6 +196,9 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		currentWeaponIcon.sprite = weaponIcon;
 		
 		StartCoroutine(nameof(ReduceRotateBase));
+		
+		//移动过程中拣枪会出现位置错位
+		transform.localPosition = Vector3.zero;
 	}
 
 	private void LateUpdate () {

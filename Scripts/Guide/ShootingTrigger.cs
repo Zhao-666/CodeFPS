@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ShootingTrigger : MonoBehaviour
 {
@@ -6,8 +7,15 @@ public class ShootingTrigger : MonoBehaviour
     {
         if (other.gameObject.name == "FPSController")
         {
-            Debug.Log("ShootingTrigger Enter");
             SendMessageUpwards("ArrivedShootingArea");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "FPSController")
+        {
+            SendMessageUpwards("LeftShootingArea");
         }
     }
 }

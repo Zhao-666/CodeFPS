@@ -219,6 +219,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 		StartCoroutine(nameof(ReduceRotateBase));
 		StartCoroutine(nameof(ReduceRecoilForce));
+		
+		//移动过程中拣枪会出现位置错位
+		transform.localPosition = Vector3.zero;
 	}
 
 	private void LateUpdate () {

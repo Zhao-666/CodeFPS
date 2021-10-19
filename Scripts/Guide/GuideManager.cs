@@ -15,6 +15,10 @@ public class GuideManager : MonoBehaviour
     //TrainingStageManager
     public GameObject trainingStageManager;
 
+    [Header("TimeTrainingManager")]
+    //TimeTrainingManager
+    public GameObject timeTrainingManager;
+
     private readonly Dictionary<string, TrainingStageBase> trainingStageBases
         = new Dictionary<string, TrainingStageBase>();
 
@@ -29,7 +33,7 @@ public class GuideManager : MonoBehaviour
     {
         guideTips.GetComponent<CanvasGroup>().DOFade(0, 0);
         guideText = guideTips.transform.Find("GuideText").GetComponent<Text>();
-
+        timeTrainingManager.SetActive(false);
         SetTrainingStageScript();
     }
 
@@ -59,6 +63,13 @@ public class GuideManager : MonoBehaviour
             {
                 Debug.Log(TrainingStagePrefix + currentStage + " script can't found.");
                 currentStage++;
+            }
+            
+            if (currentStage > finalStage)
+            {
+                timeTrainingManager.SetActive(true);
+                ShowGuideTips(3);
+                Invoke(nameof(HideGuideTips),3);
             }
         }
     }
