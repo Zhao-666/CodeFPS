@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 // ----- Low Poly FPS Pack Free Version -----
 public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	//Animator component attached to weapon
 	Animator anim;
+
+	[Header("Arms")]
+	//Arm Transform
+	public Transform arms;
 
 	[Header("Gun Camera")]
 	//Main gun camera
@@ -167,6 +172,14 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	private Quaternion originBulletSpawnPointRotation;
 
+	private int bulletSpawnRotateBase;
+
+	private const int NormalRecoilForce = 3;
+	private const int AimingRecoilForce = 4;
+	
+	private int recoilForce = NormalRecoilForce;
+	private float recoilForceCount;
+
 	private void Awake () {
 		
 		//Set the animator component
@@ -176,6 +189,12 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 		muzzleflashLight.enabled = false;
 		originBulletSpawnPointRotation = Spawnpoints.bulletSpawnPoint.transform.localRotation;
+	}
+
+	private void OnDisable()
+	{
+		StopCoroutine(nameof(ReduceRotateBase));
+		StopCoroutine(nameof(ReduceRecoilForce));
 	}
 
 	public void Init () {
@@ -197,6 +216,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		
 		//播放上膛声音
 		PlayAudioOnMainAudioSource(SoundClips.reloadSoundOutOfAmmo, 1.5f);
+
+		StartCoroutine(nameof(ReduceRotateBase));
+		StartCoroutine(nameof(ReduceRecoilForce));
 	}
 
 	private void LateUpdate () {
@@ -244,6 +266,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			}
 
 			Spawnpoints.bulletSpawnPoint.localRotation = originBulletSpawnPointRotation;
+			recoilForce = AimingRecoilForce;
 		} 
 		else 
 		{
@@ -256,6 +279,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			anim.SetBool ("Aim", false);
 				
 			soundHasPlayed = false;
+			recoilForce = NormalRecoilForce;
 		}
 		//Aiming end
 
@@ -425,6 +449,11 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 				if (!isAiming)
 				{
+					//Let the bullet spawn random
+					if (bulletSpawnRotateBase < 5)
+					{
+						bulletSpawnRotateBase++;	
+					}
 					RandomBulletSpawnPoint();	
 				}
 				
@@ -440,8 +469,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				
 				//Spawn casing prefab at spawnpoint
 				Instantiate (Prefabs.casingPrefab, 
-					Spawnpoints.casingSpawnPoint.transform.position, 
-					Spawnpoints.casingSpawnPoint.transform.rotation);
+					Spawnpoints.casingSpawnPoint.position, 
+					Spawnpoints.casingSpawnPoint.rotation);
+				
+				AddRecoilForce();
 			}
 		}
 
@@ -652,10 +683,50 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	 */
 	private void RandomBulletSpawnPoint()
 	{
-		int randX = Random.Range(-10, 10);
-		int randY = Random.Range(-10, 10);
+		int rotateBase = 2 + (bulletSpawnRotateBase * 2);
+		int randX = Random.Range(-1 * rotateBase, rotateBase);
+		int randY = Random.Range(-1 * rotateBase, rotateBase);
 		Vector3 pos = new Vector3(randX,randY,0);
 		Spawnpoints.bulletSpawnPoint.localRotation = Quaternion.Euler(pos);
+	}
+
+	private IEnumerator ReduceRotateBase()
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(0.3f);
+			if (bulletSpawnRotateBase > 0)
+			{
+				bulletSpawnRotateBase--;
+			}
+		}
+	}
+
+	private IEnumerator ReduceRecoilForce()
+	{
+		float backupForce = 0.4f;
+		while (true)
+		{
+			yield return new WaitForSeconds(0.01f);
+			if (recoilForceCount >= 0)
+			{
+				arms.transform.localRotation = 
+					Quaternion.Euler(arms.transform.localRotation.eulerAngles +
+					                 new Vector3(backupForce,0,0));
+				recoilForceCount -= backupForce;
+			}
+		}
+	}
+
+	private void AddRecoilForce()
+	{
+		if (recoilForceCount < recoilForce * 10)
+		{
+			recoilForceCount += recoilForce;
+			arms.transform.localRotation = 
+				Quaternion.Euler(arms.transform.localRotation.eulerAngles - 
+				                 new Vector3(recoilForce,0,0));
+		}
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----

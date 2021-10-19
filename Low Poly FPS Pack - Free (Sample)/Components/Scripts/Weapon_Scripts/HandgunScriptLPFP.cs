@@ -160,6 +160,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 	private Quaternion originBulletSpawnPointRotation;
 	
+	private int bulletSpawnRotateBase;
+	
 	private void Awake () 
 	{
 		//Set the animator component
@@ -169,6 +171,11 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 		muzzleflashLight.enabled = false;
 		originBulletSpawnPointRotation = Spawnpoints.bulletSpawnPoint.transform.localRotation;
+	}
+	
+	private void OnDisable()
+	{
+		StopCoroutine(nameof(ReduceRotateBase));
 	}
 
 	public void Init () {
@@ -187,6 +194,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		
 		//设置武器图标
 		currentWeaponIcon.sprite = weaponIcon;
+		
+		StartCoroutine(nameof(ReduceRotateBase));
 	}
 
 	private void LateUpdate () {
@@ -394,7 +403,12 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 			if (!isAiming)
 			{
-				RandomBulletSpawnPoint();
+				//Let the bullet spawn random
+				if (bulletSpawnRotateBase < 5)
+				{
+					bulletSpawnRotateBase++;	
+				}
+				RandomBulletSpawnPoint();	
 			}
 			//Spawn bullet at bullet spawnpoint
 			var bullet = (Transform)Instantiate (
@@ -408,8 +422,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 			//Spawn casing prefab at spawnpoint
 			Instantiate (Prefabs.casingPrefab, 
-				Spawnpoints.casingSpawnPoint.transform.position, 
-				Spawnpoints.casingSpawnPoint.transform.rotation);
+				Spawnpoints.casingSpawnPoint.position, 
+				Spawnpoints.casingSpawnPoint.rotation);
 		}
 
 		//Inspect weapon when pressing T key
@@ -633,10 +647,24 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	 */
 	private void RandomBulletSpawnPoint()
 	{
-		int randX = Random.Range(-10, 10);
-		int randY = Random.Range(-10, 10);
+		int rotateBase = 2 + (bulletSpawnRotateBase * 2);
+		int randX = Random.Range(-1 * rotateBase, rotateBase);
+		int randY = Random.Range(-1 * rotateBase, rotateBase);
 		Vector3 pos = new Vector3(randX,randY,0);
 		Spawnpoints.bulletSpawnPoint.localRotation = Quaternion.Euler(pos);
+	}
+	
+	
+	private IEnumerator ReduceRotateBase()
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(0.3f);
+			if (bulletSpawnRotateBase > 0)
+			{
+				bulletSpawnRotateBase--;
+			}
+		}
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----
