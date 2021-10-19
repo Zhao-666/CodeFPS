@@ -535,10 +535,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				//Start show bullet delay
 				StartCoroutine (ShowBulletInMag ());
 			}
-		} 
-		//Restore ammo when reloading
-		currentAmmo = ammo;
-		outOfAmmo = false;
+		}
 	}
 
 	//Reload
@@ -576,9 +573,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				<SkinnedMeshRenderer> ().enabled = true;
 			}
 		}
-		//Restore ammo when reloading
-		currentAmmo = ammo;
-		outOfAmmo = false;
 	}
 
 	//Enable bullet in mag renderer after set amount of time
@@ -631,6 +625,16 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		mainAudioSource.clip = audioClip;
 		mainAudioSource.time = delay;
 		mainAudioSource.Play();
+	}
+
+	/**
+	 * Call this function when reload animation was finish. 
+	 */
+	private void ReloadFinish()
+	{
+		//Restore ammo when reloading
+		currentAmmo = ammo;
+		outOfAmmo = false;
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----
