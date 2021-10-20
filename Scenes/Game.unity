@@ -18252,6 +18252,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5249691835967355264, guid: 20e3718bf7370f641a86be012a0b22f3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5249691835967355388, guid: 20e3718bf7370f641a86be012a0b22f3,
         type: 3}
       propertyPath: m_Name
@@ -29198,11 +29203,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FPSController
-      objectReference: {fileID: 0}
-    - target: {fileID: 6836820499037577146, guid: 857c8e0682fd7554a82c7e2d43df7039,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 857c8e0682fd7554a82c7e2d43df7039, type: 3}
