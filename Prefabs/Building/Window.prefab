@@ -42,7 +42,7 @@ Light:
   serializedVersion: 8
   m_Type: 3
   m_Color: {r: 0.9622642, g: 0.9239665, b: 0.83971167, a: 1}
-  m_Intensity: 5
+  m_Intensity: 8
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -111,7 +111,7 @@ Light:
   serializedVersion: 8
   m_Type: 3
   m_Color: {r: 0.9622642, g: 0.9239665, b: 0.83971167, a: 1}
-  m_Intensity: 5
+  m_Intensity: 8
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -251,7 +251,7 @@ PrefabInstance:
     - target: {fileID: 23004052355798778, guid: c65338a0f30f41c4681e41312190273d,
         type: 3}
       propertyPath: m_ScaleInLightmap
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23004052355798778, guid: c65338a0f30f41c4681e41312190273d,
         type: 3}
@@ -345,7 +345,7 @@ PrefabInstance:
     - target: {fileID: 23004052355798778, guid: c65338a0f30f41c4681e41312190273d,
         type: 3}
       propertyPath: m_ScaleInLightmap
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23004052355798778, guid: c65338a0f30f41c4681e41312190273d,
         type: 3}
