@@ -137,8 +137,11 @@ namespace FPSControllerLPFP
         private void FixedUpdate()
         {
             // FixedUpdate is used instead of Update because this code is dealing with physics and smoothing.
-            RotateCameraAndCharacter();
-            MoveCharacter();
+            if (Cursor.lockState != CursorLockMode.None)
+            {
+                RotateCameraAndCharacter();
+                MoveCharacter();
+            }
             _isGrounded = false;
         }
 			
@@ -152,10 +155,6 @@ namespace FPSControllerLPFP
 
         private void RotateCameraAndCharacter()
         {
-            if (Cursor.lockState == CursorLockMode.None)
-            {
-                return;
-            }
             var rotationX = _rotationX.Update(RotationXRaw, rotationSmoothness);
             var rotationY = _rotationY.Update(RotationYRaw, rotationSmoothness);
             var clampedY = RestrictVerticalRotation(rotationY);

@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 public class MenuPanelController : MonoBehaviour
 {
-    public static MenuPanelController Instance;
-    
+    public static MenuPanelController Instance { get; private set; }
+
     [Header("PanelParent")]
     //The panel that use to place another panel;
     public GameObject panelParent;
@@ -21,6 +19,8 @@ public class MenuPanelController : MonoBehaviour
     public GameObject loadingPanel;
     //ProducerPanel
     public GameObject producerPanel;
+    //QuitPanel
+    public GameObject quitPanel;
 
     [Header("MenuBtn")]
     //Start button
@@ -31,6 +31,16 @@ public class MenuPanelController : MonoBehaviour
     public GameObject producerBtn;
     //Quit button
     public GameObject quitBtn;
+
+    [Header("Audio Source")]
+    //Audio Source
+    public AudioSource audioSource;
+    
+    [Header("Audio Clip")]
+    //Start button click sound
+    public AudioClip startBtnClickSound;
+    //Normal button click sound
+    public AudioClip normalBtnClickSound;
 
     private CanvasGroup canvasGroup;
 
@@ -46,6 +56,7 @@ public class MenuPanelController : MonoBehaviour
         startBtn.GetComponent<Button>().onClick.AddListener(StartBtnOnClick);
         optionBtn.GetComponent<Button>().onClick.AddListener(OptionBtnOnClick);
         producerBtn.GetComponent<Button>().onClick.AddListener(ProducerBtnOnClick);
+        quitBtn.GetComponent<Button>().onClick.AddListener(QuitBtnOnClick);
     }
 
     /**
@@ -56,27 +67,46 @@ public class MenuPanelController : MonoBehaviour
         canvasGroup.DOFade(1, 0.5f);
     }
 
+    private void ButtonClick(AudioClip clip = null)
+    {
+        if (clip == null)
+        {
+            clip = normalBtnClickSound;
+        }
+
+        audioSource.clip = clip;
+        audioSource.Play();
+        HideMenu();
+    }
+
     private void HideMenu()
     {
         canvasGroup.DOFade(0, 0.2f);
     }
-    
+
     private void StartBtnOnClick()
     {
+        ButtonClick(startBtnClickSound);
         Instantiate(loadingPanel, panelParent.transform);
-        HideMenu();
         StartCoroutine(StartGame());
     }
 
     private void OptionBtnOnClick()
     {
-        HideMenu();
+        ButtonClick();
         Instantiate(optionPanel, panelParent.transform);
     }
+
     private void ProducerBtnOnClick()
     {
-        HideMenu();
+        ButtonClick();
         Instantiate(producerPanel, panelParent.transform);
+    }
+
+    private void QuitBtnOnClick()
+    {
+        ButtonClick();
+        Instantiate(quitPanel, panelParent.transform);
     }
 
     private IEnumerator StartGame()
@@ -89,6 +119,9 @@ public class MenuPanelController : MonoBehaviour
             LoadingPanelController.Instance.SetProgressBarValue(loadingValue);
             yield return new WaitForSeconds(0.1f);
         }
+
         LoadingPanelController.Instance.ShowAndHideProgressBar(false);
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Game");
     }
 }

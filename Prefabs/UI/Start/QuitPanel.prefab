@@ -77,7 +77,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5173\u95ED"
+  m_Text: "\u5426"
 --- !u!114 &4561316168933517503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u9009\u9879"
+  m_Text: "\u786E\u8BA4\u9000\u51FA\u6E38\u620F\u5417\uFF1F"
 --- !u!114 &4561316169002166515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6765\u4E0D\u53CA\u505A\u8FD9\u4E2A\u529F\u80FD\u4E86"
+  m_Text: "\u662F"
 --- !u!114 &4561316169616325168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,9 +306,9 @@ GameObject:
   - component: {fileID: 4561316169790907367}
   - component: {fileID: 4561316169790907365}
   - component: {fileID: 4561316169790907366}
-  - component: {fileID: 4561316169790907364}
+  - component: {fileID: 3759088487351509932}
   m_Layer: 5
-  m_Name: OptionPanel
+  m_Name: QuitPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -321,7 +321,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4561316169790907360}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &4561316169790907364
+--- !u!114 &3759088487351509932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,9 +378,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4561316169790907360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2c39aa88291cd84d94656d2d79dcfb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e23f6faa243f1a43be8f93237134a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yesBtn: {fileID: 4561316169916504872}
   noBtn: {fileID: 4561316170621506856}
 --- !u!1 &4561316169916504872
 GameObject:
