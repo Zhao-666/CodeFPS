@@ -8,7 +8,14 @@
 
 想要试玩的同学，**编译完成的游戏压缩包**在Release页面即可下载。
 ## 效果图
-版本：BetaV0.1
+**版本：BetaV0.2**
+
+场景：游戏开始界面
+![例图2](https://github.com/Zhao-666/CodeFPS/blob/master/Doc/DemoImage/BetaV0.2.png)
+
+**版本：BetaV0.1**
+
+场景：训练靶场
 ![例图1](https://github.com/Zhao-666/CodeFPS/blob/master/Doc/DemoImage/BetaV0.1.png)
 ## 项目背景
 《使命召唤6》是我的启蒙单机游戏。
