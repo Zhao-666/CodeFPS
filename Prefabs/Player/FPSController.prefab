@@ -18789,7 +18789,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6771977841565623514}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 10
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 1
@@ -18944,7 +18944,7 @@ MonoBehaviour:
   walkingSpeed: 5
   runningSpeed: 9
   movementSmoothness: 0.125
-  jumpForce: 25
+  jumpForce: 42
   mouseSensitivity: 5
   rotationSmoothness: 0.05
   minVerticalAngle: -90
