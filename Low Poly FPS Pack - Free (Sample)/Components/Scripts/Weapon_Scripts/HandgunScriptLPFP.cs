@@ -650,7 +650,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	 */
 	private void RandomBulletSpawnPoint()
 	{
-		int rotateBase = 2 + (bulletSpawnRotateBase * 2);
+		int rotateBase = 1 + (bulletSpawnRotateBase * 1);
 		int randX = Random.Range(-1 * rotateBase, rotateBase);
 		int randY = Random.Range(-1 * rotateBase, rotateBase);
 		Vector3 pos = new Vector3(randX,randY,0);
