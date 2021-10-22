@@ -162,6 +162,27 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	
 	private int bulletSpawnRotateBase;
 	
+	public void Init () {
+		//Save the weapon name
+		storedWeaponName = weaponName;
+		//Get weapon name from string to text
+		currentWeaponText.text = weaponName;
+		//Set total ammo text from total ammo int
+		totalAmmoText.text = ammo.ToString();
+
+		//Weapon sway
+		//fixbug: 枪支晃动的情况下有可能造成永久性偏移
+		initialSwayPosition = Vector3.zero;
+
+		//Set the shoot sound to audio source
+		shootAudioSource.clip = SoundClips.shootSound;
+		
+		//设置武器图标
+		currentWeaponIcon.sprite = weaponIcon;
+		
+		StartCoroutine(nameof(ReduceRotateBase));
+	}
+	
 	private void Awake () 
 	{
 		//Set the animator component
@@ -176,29 +197,6 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	private void OnDisable()
 	{
 		StopCoroutine(nameof(ReduceRotateBase));
-	}
-
-	public void Init () {
-		//Save the weapon name
-		storedWeaponName = weaponName;
-		//Get weapon name from string to text
-		currentWeaponText.text = weaponName;
-		//Set total ammo text from total ammo int
-		totalAmmoText.text = ammo.ToString();
-
-		//Weapon sway
-		initialSwayPosition = transform.localPosition;
-
-		//Set the shoot sound to audio source
-		shootAudioSource.clip = SoundClips.shootSound;
-		
-		//设置武器图标
-		currentWeaponIcon.sprite = weaponIcon;
-		
-		StartCoroutine(nameof(ReduceRotateBase));
-		
-		//移动过程中拣枪会出现位置错位
-		transform.localPosition = Vector3.zero;
 	}
 
 	private void LateUpdate () {
