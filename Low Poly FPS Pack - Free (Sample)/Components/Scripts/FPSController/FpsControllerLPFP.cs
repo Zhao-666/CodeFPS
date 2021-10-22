@@ -38,9 +38,10 @@ namespace FPSControllerLPFP
         [Tooltip("Amount of force applied to the player when jumping."), SerializeField]
         private float jumpForce = 35f;
 
-		[Header("Look Settings")]
-        [Tooltip("Rotation speed of the fps controller."), SerializeField]
-        private float mouseSensitivity = 7f;
+		// [Header("Look Settings")]
+        // [Tooltip("Rotation speed of the fps controller."), SerializeField]
+        // 修改为读取GlobalSettingData里的值
+        private float mouseSensitivity = 4f;
 
         [Tooltip("Approximately the amount of time it will take for the fps controller to reach maximum rotation speed."), SerializeField]
         private float rotationSmoothness = 0.05f;
@@ -86,8 +87,20 @@ namespace FPSControllerLPFP
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             ValidateRotationRestriction();
+            LoadGlobalSetting();
         }
-			
+
+        /**
+         * 读取全局保存数据
+         */
+        private void LoadGlobalSetting()
+        {
+            if (GlobalSettingData.Instance!=null)
+            {
+                mouseSensitivity = GlobalSettingData.Instance.mouseSensitivity;
+            }
+        }
+
         private Transform AssignCharactersCamera()
         {
             var t = transform;
