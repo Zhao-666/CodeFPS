@@ -29144,6 +29144,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2464861865529349811, guid: 857c8e0682fd7554a82c7e2d43df7039,
+        type: 3}
+      propertyPath: weaponSway
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6769778766699985026, guid: 857c8e0682fd7554a82c7e2d43df7039,
         type: 3}
       propertyPath: m_LocalPosition.x
