@@ -201,7 +201,8 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 	private void LateUpdate () {
 		//Weapon sway
-		if (weaponSway == true) {
+		// 开镜状态下晃动体验不好
+		if (weaponSway == true&& isAiming == false){
 			float movementX = -Input.GetAxis ("Mouse X") * swayAmount;
 			float movementY = -Input.GetAxis ("Mouse Y") * swayAmount;
 			//Clamp movement to min and max values
@@ -239,7 +240,12 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	
 				soundHasPlayed = true;
 			}
+			
+			//开镜状态提高子弹精度
 			Spawnpoints.bulletSpawnPoint.localRotation = originBulletSpawnPointRotation;
+			
+			//开镜状态将枪支回归原位
+			transform.localPosition = Vector3.zero;
 		} 
 		else 
 		{
