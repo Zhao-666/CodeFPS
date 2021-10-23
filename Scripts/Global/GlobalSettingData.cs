@@ -4,13 +4,18 @@ using UnityEngine.Events;
 
 public class GlobalSettingData : MonoBehaviour
 {
+    public enum VSyncCount
+    {
+        EveryVBlank,
+        EverySecondVBlank
+    }
     private event UnityAction GlobalEvent;
     
     public static GlobalSettingData Instance { get; private set; }
 
-    [Header("FPS Limit")] [SerializeField]
+    [Header("V Sync Count")] [SerializeField]
     // The FPS limit of this game
-    public int fps = 60;
+    public VSyncCount vSync = VSyncCount.EveryVBlank;
 
     [Header("Look Settings")]
     //鼠标灵敏度，临时解决方案，后期需要改成保存到本地
@@ -19,7 +24,7 @@ public class GlobalSettingData : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        Application.targetFrameRate = fps;
+        QualitySettings.vSyncCount = (int)vSync + 1;
     }
 
     /**
@@ -38,10 +43,10 @@ public class GlobalSettingData : MonoBehaviour
         GlobalEvent?.Invoke();
     }
     
-    public void SetApplicationFrameRate(int value)
+    public void SetVSyncCount(VSyncCount value)
     {
-        fps = value;
-        Application.targetFrameRate = fps;
+        vSync = value;
+        QualitySettings.vSyncCount = (int)vSync + 1;
     }
 
     public void SetMouseSensitivity(float value)

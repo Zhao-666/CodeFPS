@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca307236f5ce0c438864b69c2956372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fps: 60
+  vSync: 0
   mouseSensitivity: 4
 --- !u!1 &40812617
 GameObject:

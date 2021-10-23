@@ -36,9 +36,8 @@ public class OptionPanelController : MonoBehaviour
     {
         mouseSensitivity.GetComponent<Slider>().value 
             = GlobalSettingData.Instance.mouseSensitivity;
-
-        frameRate.GetComponent<InputField>().text 
-            = GlobalSettingData.Instance.fps.ToString();
+        frameRate.GetComponent<Dropdown>().value
+            = (int) GlobalSettingData.Instance.vSync;
     }
 
     /**
@@ -49,8 +48,8 @@ public class OptionPanelController : MonoBehaviour
         GlobalSettingData.Instance.SetMouseSensitivity(
             mouseSensitivity.GetComponent<Slider>().value);
         
-        GlobalSettingData.Instance.SetApplicationFrameRate(
-                Int32.Parse(frameRate.GetComponent<InputField>().text));
+        GlobalSettingData.Instance.SetVSyncCount(
+            (GlobalSettingData.VSyncCount)frameRate.GetComponent<Dropdown>().value);
     }
 
     private void SubmitBtnOnClick()
