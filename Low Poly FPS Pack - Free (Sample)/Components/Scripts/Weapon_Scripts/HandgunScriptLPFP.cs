@@ -472,8 +472,11 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		//Reload 
 		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
 		{
-			//Reload
-			Reload ();
+			if (currentAmmo != ammo)
+			{
+				//Reload
+				Reload ();	
+			}
 
 			if (!hasStartedSliderBack) 
 			{

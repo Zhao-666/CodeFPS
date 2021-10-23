@@ -528,8 +528,11 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//Reload 
 		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
 		{
-			//Reload
-			Reload ();
+			if (currentAmmo != ammo)
+			{
+				//Reload
+				Reload ();
+			}
 		}
 
 		//Walking when pressing down WASD keys
