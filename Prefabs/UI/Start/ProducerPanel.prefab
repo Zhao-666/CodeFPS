@@ -443,7 +443,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 30, y: 0}
-  m_SizeDelta: {x: -60, y: 0}
+  m_SizeDelta: {x: -90, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7537659063215410777
 CanvasRenderer:
@@ -633,6 +633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CloseBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 5539600678595990869, guid: afced9ad83dbaf140a284a1c148f2b54,
+        type: 3}
+      propertyPath: m_Text
+      value: "\u5173\u95ED"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afced9ad83dbaf140a284a1c148f2b54, type: 3}

@@ -2,47 +2,63 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class MenuPanelController : MonoBehaviour
+public class StartPanelController : MonoBehaviour
 {
-    public static MenuPanelController Instance { get; private set; }
+    public static StartPanelController Instance { get; private set; }
 
     [Header("PanelParent")]
+    [SerializeField]
     //The panel that use to place another panel;
-    public GameObject panelParent;
+    private GameObject panelParent;
 
     [Header("UI Panel")]
+    [SerializeField]
     //OptionPanel
-    public GameObject optionPanel;
+    private GameObject optionPanel;
+    [SerializeField]
     //LoadingPanel
-    public GameObject loadingPanel;
+    private GameObject loadingPanel;
+    [SerializeField]
     //ProducerPanel
-    public GameObject producerPanel;
+    private GameObject producerPanel;
+    [SerializeField]
     //QuitPanel
-    public GameObject quitPanel;
+    private GameObject quitPanel;
 
     [Header("MenuBtn")]
+    [SerializeField]
     //Start button
-    public GameObject startBtn;
+    private GameObject startBtn;
+    [SerializeField]
     //Options button
-    public GameObject optionBtn;
+    private GameObject optionBtn;
+    [SerializeField]
     //Producer button
-    public GameObject producerBtn;
+    private GameObject producerBtn;
+    [SerializeField]
     //Quit button
-    public GameObject quitBtn;
+    private GameObject quitBtn;
 
     [Header("Audio Source")]
+    [SerializeField]
     //Audio Source
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     
     [Header("Audio Clip")]
+    [SerializeField]
     //Start button click sound
-    public AudioClip startBtnClickSound;
+    private AudioClip startBtnClickSound;
+    [SerializeField]
     //Normal button click sound
-    public AudioClip normalBtnClickSound;
+    private AudioClip normalBtnClickSound;
 
-    private CanvasGroup canvasGroup;
+    [Header("Menu CanvasGroup")]
+    [SerializeField]
+    //Menu canvas group
+    private CanvasGroup menuCanvasGroup;
 
     void Awake()
     {
@@ -52,11 +68,11 @@ public class MenuPanelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvasGroup = GetComponent<CanvasGroup>();
         startBtn.GetComponent<Button>().onClick.AddListener(StartBtnOnClick);
         optionBtn.GetComponent<Button>().onClick.AddListener(OptionBtnOnClick);
         producerBtn.GetComponent<Button>().onClick.AddListener(ProducerBtnOnClick);
         quitBtn.GetComponent<Button>().onClick.AddListener(QuitBtnOnClick);
+        ShowMenu();
     }
 
     /**
@@ -64,7 +80,12 @@ public class MenuPanelController : MonoBehaviour
      */
     public void ShowMenu()
     {
-        canvasGroup.DOFade(1, 0.5f);
+        menuCanvasGroup.DOFade(1, 0.5f);
+    }
+    
+    private void HideMenu()
+    {
+        menuCanvasGroup.DOFade(0, 0.2f);
     }
 
     private void ButtonClick(AudioClip clip = null)
@@ -77,11 +98,6 @@ public class MenuPanelController : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
         HideMenu();
-    }
-
-    private void HideMenu()
-    {
-        canvasGroup.DOFade(0, 0.2f);
     }
 
     private void StartBtnOnClick()

@@ -1,16 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class InputManager : MonoBehaviour
+namespace Game.Input
 {
-    // Update is called once per frame
-    void Update()
+    public class InputManager : MonoBehaviour
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        // Update is called once per frame
+        void Update()
         {
-            // Cursor.lockState = CursorLockMode.None;
-            // Cursor.visible = true;
+            if (UnityEngine.Input.GetKeyUp(KeyCode.Escape))
+            {
+                SettingPanelController.Instance.ShowEscPanel();
+            }
         }
     }
 }

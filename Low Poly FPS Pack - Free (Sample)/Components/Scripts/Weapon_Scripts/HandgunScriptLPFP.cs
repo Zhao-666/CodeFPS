@@ -202,9 +202,9 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	private void LateUpdate () {
 		//Weapon sway
 		// 开镜状态下晃动体验不好
-		if (weaponSway == true&& isAiming == false){
-			float movementX = -Input.GetAxis ("Mouse X") * swayAmount;
-			float movementY = -Input.GetAxis ("Mouse Y") * swayAmount;
+		if (weaponSway == true && isAiming == false){
+			float movementX = Input.GetAxis ("Mouse X") * swayAmount;
+			float movementY = Input.GetAxis ("Mouse Y") * swayAmount;
 			//Clamp movement to min and max values
 			movementX = Mathf.Clamp 
 				(movementX, -maxSwayAmount, maxSwayAmount);

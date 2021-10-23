@@ -95,10 +95,16 @@ namespace FPSControllerLPFP
          */
         private void LoadGlobalSetting()
         {
-            if (GlobalSettingData.Instance!=null)
+            if (GlobalSettingData.Instance != null)
             {
-                mouseSensitivity = GlobalSettingData.Instance.mouseSensitivity;
+                UpdateMouseSensitivity();
+                GlobalSettingData.Instance.RegisterGlobalEvent(UpdateMouseSensitivity);
             }
+        }
+
+        private void UpdateMouseSensitivity()
+        {
+            mouseSensitivity = GlobalSettingData.Instance.mouseSensitivity;
         }
 
         private Transform AssignCharactersCamera()

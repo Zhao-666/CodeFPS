@@ -1,12 +1,9 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionPanelController : MonoBehaviour
 {
-    private event UnityAction OptionEvents;
-    
     [Header("UI Button")]
     [SerializeField]
     private Button submitBtn;
@@ -59,15 +56,27 @@ public class OptionPanelController : MonoBehaviour
         
         //Call GlobalSettingData submit all changes.
         GlobalSettingData.Instance.SubmitGlobalSetting();
-        
-        MenuPanelController.Instance.ShowMenu();
-        Destroy(gameObject);
+
+        Close();
     }
 
     private void CloseBtnOnClick()
     {
-        MenuPanelController.Instance.ShowMenu();
-        Destroy(gameObject);
+        Close();
     }
 
+    private void Close()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "Start")
+        {
+            //Start界面弹出菜单
+            StartPanelController.Instance.ShowMenu();   
+        }
+        else if (currentScene == "Game")
+        {
+            SettingPanelController.Instance.HideSettingPanel();
+        }
+        Destroy(gameObject);
+    }
 }

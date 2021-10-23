@@ -208,7 +208,6 @@ GameObject:
   - component: {fileID: 135756039}
   - component: {fileID: 135756038}
   - component: {fileID: 135756037}
-  - component: {fileID: 135756040}
   - component: {fileID: 135756041}
   m_Layer: 5
   m_Name: MenuPanel
@@ -298,34 +297,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135756035}
   m_CullTransparentMesh: 0
---- !u!114 &135756040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135756035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cdd5f99a4d030d40a25155f56a1f547, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelParent: {fileID: 123891297}
-  optionPanel: {fileID: 4561316169790907360, guid: 0888f0b2fa36d4f418e266bb4db481ff,
-    type: 3}
-  loadingPanel: {fileID: 7088480831004885899, guid: f25134f67dcbddc43aabc14f96cac67d,
-    type: 3}
-  producerPanel: {fileID: 7537659062825824655, guid: 4cbb773ee763b3e4c86ed4a8a8f05ab4,
-    type: 3}
-  quitPanel: {fileID: 4561316169790907360, guid: 6113f105cf67a7644aedae81e320dce4,
-    type: 3}
-  startBtn: {fileID: 631134700}
-  optionBtn: {fileID: 1517827248}
-  producerBtn: {fileID: 1508370841}
-  quitBtn: {fileID: 271296432}
-  audioSource: {fileID: 2322402117920631739}
-  startBtnClickSound: {fileID: 8300000, guid: 41e2c6a7124ebe04abbf5d99a23af0b8, type: 3}
-  normalBtnClickSound: {fileID: 8300000, guid: 217c62a005bd5474e948679f120da45e, type: 3}
 --- !u!225 &135756041
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -334,7 +305,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135756035}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1190,7 +1161,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Version:Beta v0.2
+  m_Text: Version:Beta v0.3
 --- !u!222 &1620233065
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1428,6 +1399,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2027269166}
+  - component: {fileID: 2027269167}
   m_Layer: 5
   m_Name: StartPanel
   m_TagString: Untagged
@@ -1456,6 +1428,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2027269167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027269165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cdd5f99a4d030d40a25155f56a1f547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelParent: {fileID: 123891297}
+  optionPanel: {fileID: 4561316169790907360, guid: 0888f0b2fa36d4f418e266bb4db481ff,
+    type: 3}
+  loadingPanel: {fileID: 7088480831004885899, guid: f25134f67dcbddc43aabc14f96cac67d,
+    type: 3}
+  producerPanel: {fileID: 7537659062825824655, guid: 4cbb773ee763b3e4c86ed4a8a8f05ab4,
+    type: 3}
+  quitPanel: {fileID: 4561316169790907360, guid: 6113f105cf67a7644aedae81e320dce4,
+    type: 3}
+  startBtn: {fileID: 631134700}
+  optionBtn: {fileID: 1517827248}
+  producerBtn: {fileID: 1508370841}
+  quitBtn: {fileID: 271296432}
+  audioSource: {fileID: 2322402117920631739}
+  startBtnClickSound: {fileID: 8300000, guid: 41e2c6a7124ebe04abbf5d99a23af0b8, type: 3}
+  normalBtnClickSound: {fileID: 8300000, guid: 217c62a005bd5474e948679f120da45e, type: 3}
+  menuCanvasGroup: {fileID: 135756041}
 --- !u!1001 &992894841190978553
 PrefabInstance:
   m_ObjectHideFlags: 0

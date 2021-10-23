@@ -174,10 +174,19 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	private int bulletSpawnRotateBase;
 
-	private const int NormalRecoilForce = 3;
-	private const int AimingRecoilForce = 4;
+	//普通状态下后坐力
+	private const float NormalRecoilForce = 0.8f;
+	//开镜状态下后坐力
+	private const float AimingRecoilForce = 1.5f;
 	
-	private int recoilForce = NormalRecoilForce;
+	//后坐力归位力
+	private const float NormalBackupForce = 0.8f;
+	//射击时后坐力归位力
+	private const float ShootingBackupForce = 0.1f;
+	
+	//当前后坐力
+	private float recoilForce = NormalRecoilForce;
+	//后坐力计数
 	private float recoilForceCount;
 
 	public void Init () {
@@ -226,10 +235,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		
 		//Weapon sway
 		// 开镜状态下晃动体验不好
-		if (weaponSway == true&& isAiming == false) 
+		if (weaponSway == true && isAiming == false) 
 		{
-			float movementX = -Input.GetAxis ("Mouse X") * swayAmount;
-			float movementY = -Input.GetAxis ("Mouse Y") * swayAmount;
+			float movementX = Input.GetAxis ("Mouse X") * swayAmount;
+			float movementY = Input.GetAxis ("Mouse Y") * swayAmount;
 			//Clamp movement to min and max values
 			movementX = Mathf.Clamp 
 				(movementX, -maxSwayAmount, maxSwayAmount);
@@ -711,12 +720,20 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	private IEnumerator ReduceRecoilForce()
 	{
-		float backupForce = 0.4f;
+		float backupForce;
 		while (true)
 		{
-			yield return new WaitForSeconds(0.01f);
+			yield return null;
 			if (recoilForceCount >= 0)
 			{
+				if (Input.GetMouseButton(0))
+				{
+					backupForce = ShootingBackupForce;
+				}
+				else
+				{
+					backupForce = NormalBackupForce;
+				}
 				arms.transform.localRotation = 
 					Quaternion.Euler(arms.transform.localRotation.eulerAngles +
 					                 new Vector3(backupForce,0,0));
@@ -727,12 +744,14 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	private void AddRecoilForce()
 	{
-		if (recoilForceCount < recoilForce * 10)
+		float yAxisForce = recoilForce / 2;
+		if (recoilForceCount < recoilForce * 10)//这个值影响多少颗子弹达到最高
 		{
+			int rand = Random.Range(-1, 2);
 			recoilForceCount += recoilForce;
 			arms.transform.localRotation = 
 				Quaternion.Euler(arms.transform.localRotation.eulerAngles - 
-				                 new Vector3(recoilForce,0,0));
+				                 new Vector3(recoilForce,yAxisForce * rand,0));
 		}
 	}
 }

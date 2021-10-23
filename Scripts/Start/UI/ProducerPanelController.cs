@@ -17,7 +17,7 @@ public class ProducerPanelController : MonoBehaviour
 
     private void CloseBtnOnClick()
     {
-        MenuPanelController.Instance.ShowMenu();
+        StartPanelController.Instance.ShowMenu();
         Destroy(gameObject);
     }
 }

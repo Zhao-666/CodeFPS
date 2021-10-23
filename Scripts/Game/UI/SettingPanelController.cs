@@ -7,10 +7,19 @@ public class SettingPanelController : MonoBehaviour
 {
     public static SettingPanelController Instance { get; private set; }
 
-    [Header("MousePositionPanel")]
+    [Header("UI Panel")]
+    [SerializeField]
     //MousePositionPanel
-    public GameObject mousePositionPanel;
+    private GameObject mousePositionPanel;
+    [SerializeField]
+    //EscPanel
+    private GameObject escPanel;
+    [SerializeField]
+    //EscPanel
+    private GameObject optionPanel;
 
+    //上一个展示的Panel，后期可改为栈
+    private GameObject lastShowPanel;
     //当前展示的Panel
     private GameObject currentShowPanel;
     public GameObject CurrentShowPanel => currentShowPanel;
@@ -26,13 +35,43 @@ public class SettingPanelController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void ShowMousePositionPanel()
+    /**
+     * 展示选项面板
+     */
+    public void ShowOptionPanel()
     {
-        UnlockMouse();
-        gameObject.SetActive(true);
-        currentShowPanel = Instantiate(mousePositionPanel, transform);
+        if (currentShowPanel != null)
+        {
+            currentShowPanel.SetActive(false);
+            lastShowPanel = currentShowPanel;
+        }
+        ShowSettingPanel(optionPanel);
     }
 
+    /**
+     * 展示游戏中ESC面板
+     */
+    public void ShowEscPanel()
+    {
+        //按ESC键时如果有正在显示的窗口则关闭
+        if (currentShowPanel != null)
+        {
+            HideSettingPanel();
+        }
+        else
+        {
+            ShowSettingPanel(escPanel);
+        }
+    }
+
+    /**
+     * 展示鼠标移动修改面板
+     */
+    public void ShowMousePositionPanel()
+    {
+        ShowSettingPanel(mousePositionPanel);
+    }
+    
     public void HideSettingPanel()
     {
         if (currentShowPanel != null)
@@ -40,8 +79,27 @@ public class SettingPanelController : MonoBehaviour
             Destroy(currentShowPanel);
         }
 
-        gameObject.SetActive(false);
-        LockMouse();
+        if (lastShowPanel != null)
+        {
+            //上一层面板
+            lastShowPanel.SetActive(true);
+            currentShowPanel = lastShowPanel;
+            lastShowPanel = null;
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            LockMouse();
+            Time.timeScale = 1;
+        }
+    }
+
+    private void ShowSettingPanel(GameObject showPanel)
+    {
+        Time.timeScale = 0;
+        UnlockMouse();
+        gameObject.SetActive(true);
+        currentShowPanel = Instantiate(showPanel, transform);
     }
 
     private void UnlockMouse()

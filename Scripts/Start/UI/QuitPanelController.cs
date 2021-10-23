@@ -28,7 +28,7 @@ public class QuitPanelController : MonoBehaviour
     }
     private void NoBtnOnClick()
     {
-        MenuPanelController.Instance.ShowMenu();
+        StartPanelController.Instance.ShowMenu();
         Destroy(gameObject);
     }
 }
