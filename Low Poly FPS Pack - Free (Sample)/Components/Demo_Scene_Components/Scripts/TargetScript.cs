@@ -4,6 +4,7 @@ using UnityEngine;
 // ----- Low Poly FPS Pack Free Version -----
 public class TargetScript : MonoBehaviour
 {
+    private bool isInit = true;
     private bool isDown;
 
     public bool isHit;
@@ -40,10 +41,15 @@ public class TargetScript : MonoBehaviour
         isDown = true;
         //Animate the target "down"
         gameObject.GetComponent<Animation>().Play("target_down");
+        
+        if (!isInit)
+        {
+            //Set the downSound as current sound, and play it
+            audioSource.GetComponent<AudioSource>().clip = downSound;
+            audioSource.Play();
+        }
 
-        //Set the downSound as current sound, and play it
-        audioSource.GetComponent<AudioSource>().clip = downSound;
-        audioSource.Play();
+        isInit = false;
     }
 
     public void Up()

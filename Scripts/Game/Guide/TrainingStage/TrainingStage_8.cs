@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TrainingStage_8 : TrainingStageBase
 {
+    private bool isOver = false;
     private bool switchAssaultRifle = false;
 
     [Header("Guns Arms")]
@@ -25,10 +26,18 @@ public class TrainingStage_8 : TrainingStageBase
             ShowChatText(14);
         }
 
-        if (switchAssaultRifle && handgunArms.activeSelf)
+        if (switchAssaultRifle && handgunArms.activeSelf && !isOver)
         {
-            ShowChatText(15);
-            Over();
+            isOver = true;
+            StartCoroutine(ShowTwoChatText());
         }
+    }
+
+    private IEnumerator ShowTwoChatText()
+    {
+        ShowChatText(15);
+        yield return new WaitForSeconds(2);
+        ShowChatText(16);
+        Over();
     }
 }

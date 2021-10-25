@@ -20,5 +20,6 @@ public static class GuideChatText
         "<color=#00A46180>盖兹：</color>很好，现在切换到步枪。",
         "<color=#00A46180>盖兹：</color>拿出手枪。",
         "<color=#00A46180>盖兹：</color>记住，换到手枪永远比换弹夹更快。",
+        "<color=#00A46180>盖兹：</color>普莱斯中尉要见你。（未开发）",
     };
 }
