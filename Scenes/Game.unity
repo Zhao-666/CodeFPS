@@ -29538,6 +29538,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2911402110032948174, guid: 857c8e0682fd7554a82c7e2d43df7039,
+        type: 3}
+      propertyPath: weaponName
+      value: Glock
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911402110032948174, guid: 857c8e0682fd7554a82c7e2d43df7039,
+        type: 3}
+      propertyPath: ammo
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 6769778766699985026, guid: 857c8e0682fd7554a82c7e2d43df7039,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29597,6 +29607,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FPSController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836820499037577146, guid: 857c8e0682fd7554a82c7e2d43df7039,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 857c8e0682fd7554a82c7e2d43df7039, type: 3}
