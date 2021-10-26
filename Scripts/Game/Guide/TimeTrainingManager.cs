@@ -95,7 +95,7 @@ public class TimeTrainingManager : MonoBehaviour
     }
 
     //ShootingTrigger 触发此方法
-    private void ArrivedShootingArea()
+    private void ArrivedArea()
     {
         timeText.GetComponent<CanvasGroup>().DOFade(1, 1);
         timeText.GetComponent<Text>().text = "射击靶子开始计时";
@@ -105,7 +105,7 @@ public class TimeTrainingManager : MonoBehaviour
     }
 
     //ShootingTrigger 触发此方法
-    private void LeftShootingArea()
+    private void LeftArea()
     {
         arrived = false;
         score = 0;

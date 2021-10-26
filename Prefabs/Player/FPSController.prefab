@@ -1167,11 +1167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e56ac14cb72efeb4b92cf5cb025a97c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 6752852140076720724}
   gunCamera: {fileID: 6754021570888978734}
   fovSpeed: 15
   defaultFov: 40
   aimFov: 16
-  weaponName: USP
+  weaponName: Glock
   weaponIcon: {fileID: 21300000, guid: d6e4dc2ab496ac845a119b14c5abbb91, type: 3}
   weaponSway: 1
   swayAmount: 0.02
@@ -1180,7 +1181,7 @@ MonoBehaviour:
   sliderBackTimer: 1.58
   autoReload: 1
   autoReloadDelay: 0.15
-  ammo: 9
+  ammo: 17
   bulletForce: 400
   showBulletInMagDelay: 0.6
   bulletInMagRenderer: {fileID: 7008998904094919004}
@@ -12185,6 +12186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arms: {fileID: 6769800777812973338}
+  mainCamera: {fileID: 6752852140076720724}
   gunCamera: {fileID: 6754021570888978734}
   fovSpeed: 15
   defaultFov: 40
@@ -18872,7 +18874,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 83148e234855b384788cbd584a7ebb0a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0

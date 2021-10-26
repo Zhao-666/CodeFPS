@@ -68,7 +68,7 @@ public class GuideManager : MonoBehaviour
             if (currentStage > finalStage)
             {
                 timeTrainingManager.SetActive(true);
-                ShowGuideTips(3);
+                ShowGuideTips(GuideTips.Tips.Count - 1);
                 Invoke(nameof(HideGuideTips),3);
             }
         }

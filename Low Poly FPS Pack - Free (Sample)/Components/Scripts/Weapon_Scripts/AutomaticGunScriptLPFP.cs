@@ -13,6 +13,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	//Arm Transform
 	public Transform arms;
 
+	[Header("Main Camera")]
+	//Main gun camera
+	public Camera mainCamera;
+
 	[Header("Gun Camera")]
 	//Main gun camera
 	public Camera gunCamera;
@@ -755,6 +759,22 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			arms.transform.localRotation = 
 				Quaternion.Euler(arms.transform.localRotation.eulerAngles - 
 				                 new Vector3(recoilForce,yAxisForce * rand,0));
+		}
+	}
+
+	/**
+	 * Knife attack animation call this function
+	 */
+	private void KnifeAttack()
+	{
+		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(ray, out var raycastHit,1))
+		{
+			GameObject go = raycastHit.collider.gameObject;
+			if (go.CompareTag("Watermelon"))
+			{
+				go.GetComponent<WatermelonGrenade>().Explosion();
+			}
 		}
 	}
 }

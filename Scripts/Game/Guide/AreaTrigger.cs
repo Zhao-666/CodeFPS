@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-public class ShootingTrigger : MonoBehaviour
+public class AreaTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "FPSController")
         {
-            SendMessageUpwards("ArrivedShootingArea");
+            SendMessageUpwards("ArrivedArea");
         }
     }
 
@@ -15,7 +15,7 @@ public class ShootingTrigger : MonoBehaviour
     {
         if (other.gameObject.name == "FPSController")
         {
-            SendMessageUpwards("LeftShootingArea");
+            SendMessageUpwards("LeftArea");
         }
     }
 }

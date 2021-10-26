@@ -29,7 +29,7 @@ public class TrainingStage_1 : TrainingStageBase
     }
 
     //ShootingTrigger 触发此方法
-    private void ArrivedShootingArea()
+    private void ArrivedArea()
     {
         arrived = true;
         shootingTrigger.SetActive(false);

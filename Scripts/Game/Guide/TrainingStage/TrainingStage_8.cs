@@ -15,6 +15,7 @@ public class TrainingStage_8 : TrainingStageBase
 
     protected override void BeforeRun()
     {
+        ShowTips(3);
         ShowChatText(13);
     }
 
@@ -29,15 +30,15 @@ public class TrainingStage_8 : TrainingStageBase
         if (switchAssaultRifle && handgunArms.activeSelf && !isOver)
         {
             isOver = true;
-            StartCoroutine(ShowTwoChatText());
+            HideTips();
+            StartCoroutine(ShowChatText());
         }
     }
 
-    private IEnumerator ShowTwoChatText()
+    private IEnumerator ShowChatText()
     {
         ShowChatText(15);
         yield return new WaitForSeconds(2);
-        ShowChatText(16);
         Over();
     }
 }

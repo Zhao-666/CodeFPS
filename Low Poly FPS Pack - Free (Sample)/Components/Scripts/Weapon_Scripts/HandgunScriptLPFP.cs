@@ -8,6 +8,10 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	//Animator component attached to weapon
 	Animator anim;
 
+	[Header("Main Camera")]
+	//Main gun camera
+	public Camera mainCamera;
+	
 	[Header("Gun Camera")]
 	//Main gun camera
 	public Camera gunCamera;
@@ -673,6 +677,22 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			if (bulletSpawnRotateBase > 0)
 			{
 				bulletSpawnRotateBase--;
+			}
+		}
+	}
+	
+	/**
+	 * Knife attack animation call this function
+	 */
+	private void KnifeAttack()
+	{
+		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+		if (Physics.Raycast(ray, out var raycastHit))
+		{
+			GameObject go = raycastHit.collider.gameObject;
+			if (go.CompareTag("Watermelon"))
+			{
+				go.GetComponent<WatermelonGrenade>().Explosion();
 			}
 		}
 	}
