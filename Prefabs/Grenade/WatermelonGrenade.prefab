@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4649673911370914875}
   - component: {fileID: 4649673911370914874}
   m_Layer: 0
-  m_Name: Watermelon
-  m_TagString: Watermelon
+  m_Name: WatermelonGrenade
+  m_TagString: WatermelonGrenade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

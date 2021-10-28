@@ -3,41 +3,98 @@ using UnityEngine;
 
 public class TrainingStage_9 : TrainingStageBase
 {
-    private bool isOver = false;
-    
+    private bool useGrenade = true;
+    private bool processOver = false;
+    private bool watermelonIsNull = false;
+
+    [Header("RagdollSoldier")] [SerializeField]
+    //A ragdoll soldier prefab
+    private GameObject ragdollSoldier;
+
+    [Header("Soldier")] [SerializeField]
+    // The soldier stand in the stands.
+    private GameObject soldier;
+
     [Header("Watermelon")] [SerializeField]
     //Watermelon game object
     private GameObject watermelon;
+    
+    [Header("WatermelonGrenade")] [SerializeField]
+    //WatermelonGrenade game object
+    private GameObject watermelonGrenade;
 
     [Header("WatermelonTrigger")] [SerializeField]
     //WatermelonTrigger
     private GameObject watermelonTrigger;
 
+    [Header("RagdollTrigger")] [SerializeField]
+    //RagdollTrigger
+    private GameObject ragdollTrigger;
+
+    private GameObject currentWatermelon;
+
     protected override void AwakeInit()
     {
         watermelon.SetActive(false);
+        watermelonGrenade.SetActive(false);
+        watermelonTrigger.SetActive(false);
+        ragdollTrigger.SetActive(false);
+        
+        if (useGrenade)
+        {
+            currentWatermelon = watermelonGrenade;
+        }
+        else
+        {
+            currentWatermelon = watermelon;
+        }
     }
 
     protected override void BeforeRun()
     {
-        watermelon.SetActive(true);
+        currentWatermelon.SetActive(true);
+        watermelonTrigger.SetActive(true);
         StartCoroutine(ShowStartChatText());
     }
 
     protected override void Process()
     {
-        if (!isOver && watermelon == null)
+        if (!watermelonIsNull && currentWatermelon == null)
         {
-            isOver = true;
-            StartCoroutine(ShowOverChatText());
+            watermelonIsNull = true;
+        }
+
+        if (watermelonIsNull && !processOver)
+        {
+            processOver = true;
+            if (useGrenade)
+            {
+                soldier.SetActive(false);
+                StartCoroutine(ShowRagdollTrigger());   
+            }
+            else
+            {
+                StartCoroutine(ShowOverChatText());
+            }
         }
     }
-    
-    //WatermelonTrigger 触发此方法
+
+    //WatermelonTrigger/RagdollTrigger 触发此方法
     private void ArrivedArea()
     {
-        ShowTips(5);
-        watermelonTrigger.SetActive(false);
+        if (!watermelonIsNull)
+        {
+            //第一次触发
+            ShowTips(5);
+            watermelonTrigger.SetActive(false);
+        }
+        else
+        {
+            //第二次触发
+            ragdollTrigger.SetActive(false);
+            Instantiate(ragdollSoldier, new Vector3(14, 14, 8), Quaternion.identity);
+            StartCoroutine(ShowOverChatText());
+        }
     }
 
     private IEnumerator ShowStartChatText()
@@ -52,10 +109,17 @@ public class TrainingStage_9 : TrainingStageBase
 
     private IEnumerator ShowOverChatText()
     {
+        watermelonTrigger.SetActive(false);
         HideTips();
         ShowChatText(19);
         yield return new WaitForSeconds(3);
         ShowChatText(20);
         Over();
+    }
+
+    private IEnumerator ShowRagdollTrigger()
+    {
+        yield return new WaitForSeconds(2);
+        ragdollTrigger.SetActive(true);
     }
 }

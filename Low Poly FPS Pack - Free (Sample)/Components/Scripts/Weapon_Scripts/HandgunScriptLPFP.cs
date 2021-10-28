@@ -313,10 +313,10 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			anim.Play ("Knife Attack 1", 0, 0f);
 		}
 		//Play knife attack 2 animation when F key is pressed
-		// if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
-		// {
-		// 	anim.Play ("Knife Attack 2", 0, 0f);
-		// }
+		if (Input.GetKeyDown (KeyCode.V) && !isInspecting) 
+		{
+			anim.Play ("Knife Attack 2", 0, 0f);
+		}
 			
 		//Throw grenade when pressing G key
 		if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
@@ -690,9 +690,14 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		if (Physics.Raycast(ray, out var raycastHit))
 		{
 			GameObject go = raycastHit.collider.gameObject;
-			if (go.CompareTag("Watermelon"))
+			if (go.CompareTag("WatermelonGrenade"))
 			{
 				go.GetComponent<WatermelonGrenade>().Explosion();
+			}
+			
+			if (go.CompareTag("Watermelon"))
+			{
+				go.GetComponent<Watermelon>().Explode();
 			}
 		}
 	}

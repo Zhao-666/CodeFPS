@@ -2,8 +2,8 @@
 
 public class WatermelonGrenade : MonoBehaviour
 {
-    private float radius = 1.0F;
-    private float power = 1.0F;
+    private float radius = 25.0F;
+    private float power = 1500.0F;
 
     [Header("Explosion Prefabs")] [SerializeField]
     //Explosion prefab

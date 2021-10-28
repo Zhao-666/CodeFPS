@@ -169,6 +169,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		public AudioClip reloadSoundOutOfAmmo;
 		public AudioClip reloadSoundAmmoLeft;
 		public AudioClip aimSound;
+		public AudioClip cutWatermelon;
 	}
 	public soundClips SoundClips;
 
@@ -354,10 +355,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			anim.Play ("Knife Attack 1", 0, 0f);
 		}
 		//Play knife attack 2 animation when F key is pressed
-		// if (Input.GetKeyDown (KeyCode.F) && !isInspecting) 
-		// {
-		// 	anim.Play ("Knife Attack 2", 0, 0f);
-		// }
+		if (Input.GetKeyDown (KeyCode.V) && !isInspecting) 
+		{
+			anim.Play ("Knife Attack 2", 0, 0f);
+		}
 			
 		//Throw grenade when pressing G key
 		if (Input.GetKeyDown (KeyCode.G) && !isInspecting) 
@@ -684,10 +685,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	/**
 	 * 在MainAudioSource上播放音乐
 	 */
-	private void PlayAudioOnMainAudioSource(AudioClip audioClip, float delay = 0)
+	private void PlayAudioOnMainAudioSource(AudioClip audioClip, float time = 0)
 	{
 		mainAudioSource.clip = audioClip;
-		mainAudioSource.time = delay;
+		mainAudioSource.time = time;
 		mainAudioSource.Play();
 	}
 
@@ -768,12 +769,18 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	private void KnifeAttack()
 	{
 		Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-		if (Physics.Raycast(ray, out var raycastHit,1))
+		if (Physics.Raycast(ray, out var raycastHit,2))
 		{
 			GameObject go = raycastHit.collider.gameObject;
-			if (go.CompareTag("Watermelon"))
+			if (go.CompareTag("WatermelonGrenade"))
 			{
 				go.GetComponent<WatermelonGrenade>().Explosion();
+			}
+			
+			if (go.CompareTag("Watermelon"))
+			{
+				PlayAudioOnMainAudioSource(SoundClips.cutWatermelon,0.1f);
+				go.GetComponent<Watermelon>().Explode();
 			}
 		}
 	}
