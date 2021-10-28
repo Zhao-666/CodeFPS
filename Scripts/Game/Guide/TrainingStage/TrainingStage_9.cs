@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TrainingStage_9 : TrainingStageBase
 {
-    private bool useGrenade = true;
+    private bool useGrenade = false;
     private bool processOver = false;
     private bool watermelonIsNull = false;
 
