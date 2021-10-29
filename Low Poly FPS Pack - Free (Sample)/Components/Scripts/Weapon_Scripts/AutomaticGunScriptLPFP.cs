@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -20,6 +21,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	[Header("Gun Camera")]
 	//Main gun camera
 	public Camera gunCamera;
+
+	[Header("Sight bead")] [SerializeField]
+	//Sight bead in the canvas
+	private GameObject sightBead;
 
 	[Header("Gun Camera Options")]
 	//How fast the camera field of view changes when aiming 
@@ -212,6 +217,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//设置武器图标
 		currentWeaponIcon.sprite = weaponIcon;
 		
+		//设置准星
+		sightBead.SetActive(true);
+		sightBead.GetComponent<SightBeadPanelController>().Init(35);
+		
 		//播放上膛声音
 		PlayAudioOnMainAudioSource(SoundClips.reloadSoundOutOfAmmo, 1.5f);
 
@@ -232,6 +241,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	private void OnDisable()
 	{
+		sightBead.SetActive(false);
 		StopCoroutine(nameof(ReduceRotateBase));
 		StopCoroutine(nameof(ReduceRecoilForce));
 	}
@@ -288,6 +298,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			
 			//开镜状态将枪支回归原位
 			transform.localPosition = Vector3.zero;
+			
+			//隐藏准星
+			sightBead.GetComponent<CanvasGroup>().DOFade(0, 0.2f);
 		} 
 		else 
 		{
@@ -301,6 +314,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				
 			soundHasPlayed = false;
 			recoilForce = NormalRecoilForce;
+			
+			//显示准星
+			sightBead.GetComponent<CanvasGroup>().DOFade(1, 0.2f);
 		}
 		//Aiming end
 
@@ -494,6 +510,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 					Spawnpoints.casingSpawnPoint.rotation);
 				
 				AddRecoilForce();
+				
+				//Expand the sight bead
+				sightBead.GetComponent<SightBeadPanelController>().Expand();
 			}
 		}
 
@@ -547,8 +566,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			Input.GetKey (KeyCode.D) && !isRunning) 
 		{
 			anim.SetBool ("Walk", true);
+			sightBead.GetComponent<SightBeadPanelController>().CharacterMoving();
 		} else {
 			anim.SetBool ("Walk", false);
+			sightBead.GetComponent<SightBeadPanelController>().CharacterStop();
 		}
 
 		//Running when pressing down W and Left Shift key

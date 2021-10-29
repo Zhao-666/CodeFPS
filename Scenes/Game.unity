@@ -30347,11 +30347,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2464861865529349811, guid: 857c8e0682fd7554a82c7e2d43df7039,
-        type: 3}
-      propertyPath: SoundClips.cutWatermelon
-      value: 
-      objectReference: {fileID: 8300000, guid: bc02ce39d1b664d4dbf26ba8f236bf57, type: 3}
     - target: {fileID: 6769778766699985026, guid: 857c8e0682fd7554a82c7e2d43df7039,
         type: 3}
       propertyPath: m_LocalPosition.x
