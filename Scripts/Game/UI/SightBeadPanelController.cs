@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SightBeadPanelController : MonoBehaviour
@@ -23,6 +22,8 @@ public class SightBeadPanelController : MonoBehaviour
     //Current line expand value
     private int currentPos;
 
+    private bool characterMoving = false;
+
     void OnEnable()
     {
         StartCoroutine(nameof(Narrow));
@@ -31,6 +32,7 @@ public class SightBeadPanelController : MonoBehaviour
     void OnDisable()
     {
         StopCoroutine(nameof(Narrow));
+        characterMoving = false;
     }
 
     /**
@@ -63,8 +65,12 @@ public class SightBeadPanelController : MonoBehaviour
      */
     public void CharacterMoving()
     {
-        StopCoroutine(nameof(Narrow));
-        StartCoroutine(nameof(ExpandToMax));
+        if (!characterMoving)
+        {
+            characterMoving = true;
+            StopCoroutine(nameof(Narrow));
+            StartCoroutine(nameof(ExpandToMax));
+        }
     }
 
     /**
@@ -72,8 +78,12 @@ public class SightBeadPanelController : MonoBehaviour
      */
     public void CharacterStop()
     {
-        StopCoroutine(nameof(ExpandToMax));
-        StartCoroutine(nameof(Narrow));
+        if (characterMoving)
+        {
+            characterMoving = false;
+            StopCoroutine(nameof(ExpandToMax));
+            StartCoroutine(nameof(Narrow));
+        }
     }
 
     /**
@@ -130,7 +140,7 @@ public class SightBeadPanelController : MonoBehaviour
      */
     private IEnumerator ExpandToMax()
     {
-        while (currentPos<maxExpand)
+        while (currentPos < maxExpand)
         {
             yield return null;
             currentPos += PerNarrow;

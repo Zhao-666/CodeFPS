@@ -566,10 +566,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			Input.GetKey (KeyCode.D) && !isRunning) 
 		{
 			anim.SetBool ("Walk", true);
-			sightBead.GetComponent<SightBeadPanelController>().CharacterMoving();
+			isWalking = true;
 		} else {
 			anim.SetBool ("Walk", false);
-			sightBead.GetComponent<SightBeadPanelController>().CharacterStop();
+			isWalking = false;
 		}
 
 		//Running when pressing down W and Left Shift key
@@ -588,6 +588,15 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		else 
 		{
 			anim.SetBool ("Run", false);
+		}
+
+		if (isWalking || isRunning)
+		{
+			sightBead.GetComponent<SightBeadPanelController>().CharacterMoving();
+		}
+		else
+		{
+			sightBead.GetComponent<SightBeadPanelController>().CharacterStop();
 		}
 	}
 
