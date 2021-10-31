@@ -1,18 +1,44 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    private readonly Dictionary<string, GameObject> arms = new Dictionary<string, GameObject>();
+    private readonly Dictionary<string, GameObject> models = new Dictionary<string, GameObject>();
+
     [Header("Gun Arms")]
-    // AssaultRifle Gun
-    public GameObject assaultRifle;
-    // Handgun
-    public GameObject handGun;
+    // AssaultRifle Gun AK47
+    public GameObject ak47;
+
+    // Handgun Glock
+    public GameObject glock;
+
+    // G36C
+    public GameObject g36c;
+
+    [Header("Gun Models")]
+    //AK47
+    public GameObject ak47Model;
+
+    //Glock
+    public GameObject glockModel;
+
+    //G36C
+    public GameObject g36cModel;
+
     //当前枪支
     private GameObject currentGun;
 
-    private bool hasAssaultRifle;
-    private bool hasHandGun;
+    //主武器
+    private string mainGunName;
+
+    private GameObject mainGun;
+
+    //副武器
+    private string subGunName;
+    private GameObject subGun;
 
     [Header("Main Camera")]
     //Main camera
@@ -21,6 +47,7 @@ public class PlayerController : MonoBehaviour
     [Header("UI Components")]
     //UI Components
     public Text pickUpText;
+
     public Image pickUpIcon;
     public GameObject gunInfo;
 
@@ -28,29 +55,37 @@ public class PlayerController : MonoBehaviour
 
     private Ray ray;
     private RaycastHit raycastHit;
-    private GameObject rayWeapon;
+    private GameObject rayGun;
 
     void Awake()
     {
         pickUpText.enabled = false;
         pickUpIcon.enabled = false;
         gunInfo.SetActive(false);
+        arms.Add("AK47", ak47);
+        arms.Add("Glock", glock);
+        arms.Add("G36C", g36c);
+        models.Add("AK47", ak47Model);
+        models.Add("Glock", glockModel);
+        models.Add("G36C", g36cModel);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && hasAssaultRifle)
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ShowAssaultRifle();
+            if (currentGun == mainGun && subGun != null)
+            {
+                ShowGun(subGunName);
+            }
+            else if (currentGun == subGun && mainGun != null)
+            {
+                ShowGun(mainGunName);
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && hasHandGun)
-        {
-            ShowHandgun();
-        }
-
-        if (Input.GetKeyDown(KeyCode.F) && rayWeapon != null)
+        if (Input.GetKeyDown(KeyCode.F) && rayGun != null)
         {
             PickUpWeapon();
         }
@@ -60,25 +95,42 @@ public class PlayerController : MonoBehaviour
 
     private void PickUpWeapon()
     {
-        if (rayWeapon == null)
+        if (rayGun == null)
         {
             return;
         }
 
-        if (rayWeapon.name == "Assault_Rifle")
+        GunBase gb = rayGun.GetComponent<GunBase>();
+
+        //新拾取的枪支
+        if (mainGun == null)
         {
-            hasAssaultRifle = true;
-            gunInfo.SetActive(true);
-            ShowAssaultRifle();
+            mainGunName = gb.gunName;
+            mainGun = arms[gb.gunName];
         }
-        else if (rayWeapon.name == "Handgun")
+        else if (subGun == null)
         {
-            hasHandGun = true;
-            gunInfo.SetActive(true);
-            ShowHandgun();
+            subGunName = gb.gunName;
+            subGun = arms[gb.gunName];
         }
 
-        Destroy(rayWeapon);
+        //交换枪支
+        else if (currentGun == mainGun)
+        {
+            ChangeRayGunModel(mainGunName);
+            mainGunName = gb.gunName;
+            mainGun = arms[gb.gunName];
+        }
+        else if (currentGun == subGun)
+        {
+            ChangeRayGunModel(subGunName);
+            subGunName = gb.gunName;
+            subGun = arms[gb.gunName];
+        }
+
+        gunInfo.SetActive(true);
+        ShowGun(gb.gunName);
+        Destroy(rayGun);
     }
 
     private void CheckPickUpWeapon()
@@ -88,8 +140,8 @@ public class PlayerController : MonoBehaviour
         {
             if (raycastHit.collider.gameObject.CompareTag("Weapon"))
             {
-                rayWeapon = raycastHit.collider.gameObject;
-                GunBase gb = rayWeapon.GetComponent<GunBase>();
+                rayGun = raycastHit.collider.gameObject;
+                GunBase gb = rayGun.GetComponent<GunBase>();
                 pickUpText.enabled = true;
                 pickUpIcon.enabled = true;
                 pickUpText.text = pickUpStr + gb.gunName;
@@ -97,33 +149,34 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                rayWeapon = null;
+                rayGun = null;
                 pickUpText.enabled = false;
                 pickUpIcon.enabled = false;
             }
         }
         else
         {
-            rayWeapon = null;
+            rayGun = null;
             pickUpText.enabled = false;
             pickUpIcon.enabled = false;
         }
     }
 
-    private void ShowAssaultRifle()
+    private void ShowGun(string gunName)
     {
         HideCurrentGun();
-        assaultRifle.SetActive(true);
-        assaultRifle.GetComponent<AutomaticGunScriptLPFP>().Init();
-        currentGun = assaultRifle;
-    }
+        GameObject go = arms[gunName];
+        go.SetActive(true);
+        if (go.GetComponent<AutomaticGunScriptLPFP>())
+        {
+            go.GetComponent<AutomaticGunScriptLPFP>().Init();
+        }
+        else
+        {
+            go.GetComponent<HandgunScriptLPFP>().Init();
+        }
 
-    private void ShowHandgun()
-    {
-        HideCurrentGun();
-        handGun.SetActive(true);
-        handGun.GetComponent<HandgunScriptLPFP>().Init();
-        currentGun = handGun;
+        currentGun = go;
     }
 
     private void HideCurrentGun()
@@ -132,5 +185,10 @@ public class PlayerController : MonoBehaviour
         {
             currentGun.SetActive(false);
         }
+    }
+
+    private void ChangeRayGunModel(string gunName)
+    {
+        Instantiate(models[gunName], rayGun.transform.position, models[gunName].transform.rotation);
     }
 }

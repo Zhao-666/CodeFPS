@@ -13,6 +13,15 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	[Header("Arms")]
 	//Arm Transform
 	public Transform arms;
+	
+	[Header("Custom Gun Part")]
+	//Use to adaptation custom gun.
+	[SerializeField]
+	private Transform carga;
+	private Transform cargaOriginParent;
+	private Vector3 cargaOriginPosition;
+	[SerializeField]
+	private Transform leftHand;
 
 	[Header("Main Camera")]
 	//Main gun camera
@@ -220,6 +229,12 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//设置准星
 		sightBead.SetActive(true);
 		sightBead.GetComponent<SightBeadPanelController>().Init(35);
+
+		if (carga != null)
+		{
+			cargaOriginParent = carga.parent;
+			cargaOriginPosition = carga.transform.localPosition;
+		}
 		
 		//播放上膛声音
 		PlayAudioOnMainAudioSource(SoundClips.reloadSoundOutOfAmmo, 1.5f);
@@ -296,9 +311,16 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//开镜状态降低后坐力
 			recoilForce = AimingRecoilForce;
 			
-			//开镜状态将枪支回归原位
-			transform.localPosition = Vector3.zero;
-			
+			//开镜状态将枪支复位  应该抽象出一个BaseClass来实现，可是我懒，一共就几把枪
+			if (weaponName == "G36C")
+			{
+				transform.localPosition = new Vector3(0,-0.035f,0.1f);	
+			}
+			else
+			{
+				transform.localPosition = Vector3.zero;
+			}
+
 			//隐藏准星
 			sightBead.GetComponent<CanvasGroup>().DOFade(0, 0.2f);
 		} 
@@ -723,24 +745,14 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	}
 
 	/**
-	 * Call this function when reload animation was finish. 
-	 */
-	private void ReloadFinish()
-	{
-		//Restore ammo when reloading
-		currentAmmo = ammo;
-		outOfAmmo = false;
-	}
-
-	/**
 	 * Let the bullet position random.
 	 */
 	private void RandomBulletSpawnPoint()
 	{
 		int rotateBase = 1 + (bulletSpawnRotateBase * 1);
 		int randX = Random.Range(-1 * rotateBase, rotateBase);
-		int randY = Random.Range(-1 * rotateBase, rotateBase);
-		Vector3 pos = new Vector3(randX,randY,0);
+		int randY = Random.Range(-1 * rotateBase - 1, rotateBase);// 模型偏右，往左补偿 1
+		Vector3 pos = new Vector3(randX, randY,0);
 		Spawnpoints.bulletSpawnPoint.localRotation = Quaternion.Euler(pos);
 	}
 
@@ -812,6 +824,35 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				PlayAudioOnMainAudioSource(SoundClips.cutWatermelon,0.1f);
 				go.GetComponent<Watermelon>().Explode();
 			}
+		}
+	}
+	
+	/**
+	 * Call this function when reload animation was finish. 
+	 */
+	private void ReloadFinish()
+	{
+		//Restore ammo when reloading
+		currentAmmo = ammo;
+		outOfAmmo = false;
+		if (carga != null)
+		{
+			carga.SetParent(cargaOriginParent);
+			carga.transform.localPosition = cargaOriginPosition;
+			carga.transform.localRotation = Quaternion.identity;
+		}
+		// carga.transform.localPosition = Vector3.zero;
+	}
+
+	/**
+	 * Call this function when reload animation touch the carga.
+	 * Bind the carga and hand.
+	 */
+	private void TouchCarga()
+	{
+		if (leftHand != null && carga != null)
+		{
+			carga.SetParent(leftHand);
 		}
 	}
 }

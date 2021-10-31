@@ -544,6 +544,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.11392406
+        functionName: TouchCarga
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: dd38df9a0796d9842adfbe580ed6042e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -572,7 +580,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.556962
+      - time: 0.09943182
+        functionName: TouchCarga
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: dd38df9a0796d9842adfbe580ed6042e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.4941601
         functionName: ReloadFinish
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: dd38df9a0796d9842adfbe580ed6042e,
