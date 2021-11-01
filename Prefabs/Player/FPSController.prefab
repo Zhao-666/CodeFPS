@@ -7178,7 +7178,9 @@ MonoBehaviour:
   sightBead: {fileID: 677311782}
   fovSpeed: 15
   defaultFov: 40
-  aimFov: 15
+  aimFov: 12
+  defaultMainFov: 55
+  aimMainFov: 40
   weaponName: G36C
   weaponIcon: {fileID: 21300000, guid: 364206cb355dcf7479b2cdec20b8ec68, type: 3}
   weaponSway: 1
@@ -24280,6 +24282,8 @@ MonoBehaviour:
   fovSpeed: 15
   defaultFov: 40
   aimFov: 15
+  defaultMainFov: 55
+  aimMainFov: 55
   weaponName: AK47
   weaponIcon: {fileID: 21300000, guid: 364206cb355dcf7479b2cdec20b8ec68, type: 3}
   weaponSway: 1

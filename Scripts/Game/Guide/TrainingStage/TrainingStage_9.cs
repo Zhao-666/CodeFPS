@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public class TrainingStage_9 : TrainingStageBase
@@ -30,6 +31,10 @@ public class TrainingStage_9 : TrainingStageBase
     [Header("RagdollTrigger")] [SerializeField]
     //RagdollTrigger
     private GameObject ragdollTrigger;
+
+    [Header("Door")] [SerializeField]
+    //Door
+    private GameObject door;
 
     private GameObject currentWatermelon;
 
@@ -114,6 +119,7 @@ public class TrainingStage_9 : TrainingStageBase
         ShowChatText(19);
         yield return new WaitForSeconds(3);
         ShowChatText(20);
+        door.transform.DORotate(new Vector3(0, -90, 0),2);
         Over();
     }
 

@@ -45,6 +45,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	public float aimFov = 25.0f;
 
+	public float defaultMainFov = 55f;
+	public float aimMainFov = 55f;
+
 	[Header("UI Weapon Info")]
 	[Tooltip("Name of the current weapon, shown in the game UI.")]
 	public string weaponName;
@@ -230,6 +233,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		sightBead.SetActive(true);
 		sightBead.GetComponent<SightBeadPanelController>().Init(35);
 
+		//弹匣对象不为null
 		if (carga != null)
 		{
 			cargaOriginParent = carga.parent;
@@ -297,6 +301,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//When right click is released
 			gunCamera.fieldOfView = Mathf.Lerp(gunCamera.fieldOfView,
 				aimFov,fovSpeed * Time.deltaTime);
+			
+			mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView,
+				aimMainFov,fovSpeed * Time.deltaTime);
 
 			if (!soundHasPlayed) 
 			{
@@ -329,6 +336,9 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//When right click is released
 			gunCamera.fieldOfView = Mathf.Lerp(gunCamera.fieldOfView,
 				defaultFov,fovSpeed * Time.deltaTime);
+			
+			mainCamera.fieldOfView = Mathf.Lerp(mainCamera.fieldOfView,
+				defaultMainFov,fovSpeed * Time.deltaTime);
 
 			isAiming = false;
 			//Stop aiming
