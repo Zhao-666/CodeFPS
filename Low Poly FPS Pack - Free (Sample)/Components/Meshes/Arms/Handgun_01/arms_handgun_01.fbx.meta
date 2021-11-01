@@ -546,7 +546,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.77215195
+      - time: 0.63688624
         functionName: ReloadFinish
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: e56ac14cb72efeb4b92cf5cb025a97c0,
@@ -582,7 +582,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.7468355
+      - time: 0.481135
         functionName: ReloadFinish
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: e56ac14cb72efeb4b92cf5cb025a97c0,

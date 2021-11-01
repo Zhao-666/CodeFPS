@@ -8,6 +8,21 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 	//Animator component attached to weapon
 	Animator anim;
+	
+	[Header("Custom Gun Part")]
+	//Use to adaptation custom gun.
+	[SerializeField]
+	private Transform carga;
+	private Transform cargaOriginParent;
+	private Vector3 cargaOriginPosition;
+	private Vector3 cargaOriginRotation;
+	[SerializeField]
+	private Transform slider;
+	[SerializeField]
+	private Vector3 sliderMovePosition;
+	private Vector3 sliderOriginPosition;
+	[SerializeField]
+	private Transform leftHand;
 
 	[Header("Main Camera")]
 	//Main gun camera
@@ -192,7 +207,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		//设置准星
 		sightBead.SetActive(true);
 		sightBead.GetComponent<SightBeadPanelController>().Init(60,150);
-		
+
 		StartCoroutine(nameof(ReduceRotateBase));
 	}
 	
@@ -205,12 +220,34 @@ public class HandgunScriptLPFP : MonoBehaviour {
 
 		muzzleflashLight.enabled = false;
 		originBulletSpawnPointRotation = Spawnpoints.bulletSpawnPoint.transform.localRotation;
+		
+				
+		//弹匣对象不为null
+		if (carga != null)
+		{
+			cargaOriginParent = carga.parent;
+			cargaOriginPosition = carga.transform.localPosition;
+			cargaOriginRotation = carga.transform.localRotation.eulerAngles;
+		}
+
+		//滑块不为null
+		if (slider != null)
+		{
+			sliderOriginPosition = slider.transform.localPosition;
+		}
 	}
 	
 	private void OnDisable()
 	{
+		CargaReset();
 		sightBead.SetActive(false);
 		StopCoroutine(nameof(ReduceRotateBase));
+
+		if (slider != null)
+		{
+			//自制手枪需要重置此参数切枪回来才会进行回位
+			hasStartedSliderBack = false;
+		}
 	}
 
 	private void LateUpdate () {
@@ -258,8 +295,15 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			//开镜状态提高子弹精度
 			Spawnpoints.bulletSpawnPoint.localRotation = originBulletSpawnPointRotation;
 			
-			//开镜状态将枪支回归原位
-			transform.localPosition = Vector3.zero;
+			//开镜状态将枪支复位  应该抽象出一个BaseClass来实现，可是我懒，一共就几把枪
+			if (weaponName == "USP")
+			{
+				transform.localPosition = new Vector3(0,-0.008f,0.1f);	
+			}
+			else
+			{
+				transform.localPosition = Vector3.zero;
+			}
 			
 			//隐藏准星
 			sightBead.GetComponent<CanvasGroup>().DOFade(0, 0.2f);
@@ -359,6 +403,12 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			anim.SetBool ("Out Of Ammo Slider", true);
 			//Increase layer weight for blending to slider back pose
 			anim.SetLayerWeight (1, 1.0f);
+
+			//自制枪支模拟空弹动画
+			if (slider != null)
+			{
+				slider.transform.DOLocalMove(sliderMovePosition, 0.1f);
+			}
 		} 
 		else 
 		{
@@ -374,6 +424,10 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning
 		&& Cursor.lockState == CursorLockMode.Locked) 
 		{
+			if (slider != null)
+			{
+				StartCoroutine(SliderMoveBack());
+			}
 			anim.Play ("Fire", 0, 0f);
 	
 			muzzleParticles.Emit (1);
@@ -553,6 +607,12 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		anim.SetBool ("Out Of Ammo Slider", false);
 		//Increase layer weight for blending to slider back pose
 		anim.SetLayerWeight (1, 0.0f);
+		
+		//自制枪支模拟空弹动画
+		if (slider != null)
+		{
+			slider.transform.DOLocalMove(sliderOriginPosition, 0.3f);
+		}
 
 		hasStartedSliderBack = false;
 	}
@@ -577,7 +637,9 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		//Wait for set amount of time
 		yield return new WaitForSeconds (autoReloadDelay);
 
-		if (outOfAmmo == true) {
+		if (outOfAmmo == true)
+		{
+			TouchCarga();
 			//Play diff anim if out of ammo
 			anim.Play ("Reload Out Of Ammo", 0, 0f);
 
@@ -599,6 +661,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 	//Reload
 	private void Reload () {
 		
+		TouchCarga();
 		if (outOfAmmo == true) 
 		{
 			//Play diff anim if out of ammo
@@ -675,17 +738,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			isInspecting = false;
 		}
 	}
-	
-	/**
-	 * Call this function when reload animation was finish. 
-	 */
-	private void ReloadFinish()
-	{
-		//Restore ammo when reloading
-		currentAmmo = ammo;
-		outOfAmmo = false;
-	}
-	
+
 	/**
 	 * Let the bullet position random.
 	 */
@@ -729,6 +782,53 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			{
 				go.GetComponent<Watermelon>().Explode();
 			}
+		}
+	}
+	
+	/**
+	 * Call this function when reload animation was finish. 
+	 */
+	private void ReloadFinish()
+	{
+		//Restore ammo when reloading
+		currentAmmo = ammo;
+		outOfAmmo = false;
+		CargaReset();
+	}
+
+	/**
+	 * Call this function when reload animation touch the carga.
+	 * Bind the carga and hand.
+	 */
+	private void TouchCarga()
+	{
+		if (leftHand != null && carga != null)
+		{
+			carga.SetParent(leftHand);
+		}
+	}
+
+	/**
+	 * Reload finish then reset the slider. 
+	 */
+	private IEnumerator SliderMoveBack()
+	{
+		slider.transform.DOLocalMove(sliderMovePosition, 0.1f);
+		yield return new WaitForSeconds(0.1f);
+		slider.transform.DOLocalMove(sliderOriginPosition, 0.1f);
+	}
+	
+	/**
+	 * Reset the carga to gun.
+	 */
+	private void CargaReset()
+	{
+		if (carga != null)
+		{
+			//弹匣归位
+			carga.SetParent(cargaOriginParent);
+			carga.transform.localPosition = cargaOriginPosition;
+			carga.transform.localRotation = Quaternion.Euler(cargaOriginRotation);
 		}
 	}
 }

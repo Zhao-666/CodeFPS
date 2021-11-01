@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -9,14 +8,20 @@ public class PlayerController : MonoBehaviour
     private readonly Dictionary<string, GameObject> models = new Dictionary<string, GameObject>();
 
     [Header("Gun Arms")]
-    // AssaultRifle Gun AK47
+    //AK47
     public GameObject ak47;
 
-    // Handgun Glock
+    //Glock
     public GameObject glock;
 
-    // G36C
+    //G36C
     public GameObject g36c;
+
+    //USP
+    public GameObject usp;
+    
+    //MP5
+    public GameObject mp5;
 
     [Header("Gun Models")]
     //AK47
@@ -27,6 +32,12 @@ public class PlayerController : MonoBehaviour
 
     //G36C
     public GameObject g36cModel;
+
+    //USP
+    public GameObject uspModel;
+    
+    //MP5
+    public GameObject mp5Model;
 
     //当前枪支
     private GameObject currentGun;
@@ -65,9 +76,13 @@ public class PlayerController : MonoBehaviour
         arms.Add("AK47", ak47);
         arms.Add("Glock", glock);
         arms.Add("G36C", g36c);
+        arms.Add("USP", usp);
+        arms.Add("MP5", mp5);
         models.Add("AK47", ak47Model);
         models.Add("Glock", glockModel);
         models.Add("G36C", g36cModel);
+        models.Add("USP", uspModel);
+        models.Add("MP5", mp5Model);
     }
 
     // Update is called once per frame

@@ -20,6 +20,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	private Transform carga;
 	private Transform cargaOriginParent;
 	private Vector3 cargaOriginPosition;
+	private Vector3 cargaOriginRotation;
 	[SerializeField]
 	private Transform leftHand;
 
@@ -233,13 +234,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		sightBead.SetActive(true);
 		sightBead.GetComponent<SightBeadPanelController>().Init(35);
 
-		//弹匣对象不为null
-		if (carga != null)
-		{
-			cargaOriginParent = carga.parent;
-			cargaOriginPosition = carga.transform.localPosition;
-		}
-		
 		//播放上膛声音
 		PlayAudioOnMainAudioSource(SoundClips.reloadSoundOutOfAmmo, 1.5f);
 
@@ -256,10 +250,19 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 		muzzleflashLight.enabled = false;
 		originBulletSpawnPointRotation = Spawnpoints.bulletSpawnPoint.transform.localRotation;
+		
+		//弹匣对象不为null
+		if (carga != null)
+		{
+			cargaOriginParent = carga.parent;
+			cargaOriginPosition = carga.transform.localPosition;
+			cargaOriginRotation = carga.transform.localRotation.eulerAngles;
+		}
 	}
 
 	private void OnDisable()
 	{
+		CargaReset();
 		sightBead.SetActive(false);
 		StopCoroutine(nameof(ReduceRotateBase));
 		StopCoroutine(nameof(ReduceRecoilForce));
@@ -321,6 +324,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			//开镜状态将枪支复位  应该抽象出一个BaseClass来实现，可是我懒，一共就几把枪
 			if (weaponName == "G36C")
 			{
+				//G36C带瞄准具，需要往下偏移补偿
 				transform.localPosition = new Vector3(0,-0.035f,0.1f);	
 			}
 			else
@@ -845,13 +849,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//Restore ammo when reloading
 		currentAmmo = ammo;
 		outOfAmmo = false;
-		if (carga != null)
-		{
-			carga.SetParent(cargaOriginParent);
-			carga.transform.localPosition = cargaOriginPosition;
-			carga.transform.localRotation = Quaternion.identity;
-		}
-		// carga.transform.localPosition = Vector3.zero;
+		CargaReset();
 	}
 
 	/**
@@ -863,6 +861,20 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		if (leftHand != null && carga != null)
 		{
 			carga.SetParent(leftHand);
+		}
+	}
+
+	/**
+	 * Reset the carga to gun.
+	 */
+	private void CargaReset()
+	{
+		if (carga != null)
+		{
+			//弹匣归位
+			carga.SetParent(cargaOriginParent);
+			carga.transform.localPosition = cargaOriginPosition;
+			carga.transform.localRotation = Quaternion.Euler(cargaOriginRotation);
 		}
 	}
 }
