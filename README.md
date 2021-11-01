@@ -11,7 +11,7 @@
 **版本：BetaV0.4**
 
 场景：游戏开始界面
-![例图2](https://github.com/Zhao-666/CodeFPS/blob/master/Doc/DemoImage/BetaV0.4.png)
+![例图3](https://github.com/Zhao-666/CodeFPS/blob/master/Doc/DemoImage/BetaV0.4.png)
 
 **版本：BetaV0.2**
 
