@@ -230,12 +230,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e2da24fceb32c45a3059b4c1d82538, type: 3}
---- !u!1 &162496597 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3982397848248896473, guid: 857c8e0682fd7554a82c7e2d43df7039,
-    type: 3}
-  m_PrefabInstance: {fileID: 1670746688}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &552479957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,11 +1277,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3982397848248896473, guid: 857c8e0682fd7554a82c7e2d43df7039,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6769778766699985026, guid: 857c8e0682fd7554a82c7e2d43df7039,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1348,17 +1337,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FPSController
       objectReference: {fileID: 0}
-    - target: {fileID: 6772486322013291428, guid: 857c8e0682fd7554a82c7e2d43df7039,
-        type: 3}
-      propertyPath: mp5
-      value: 
-      objectReference: {fileID: 162496597}
-    - target: {fileID: 6772486322013291428, guid: 857c8e0682fd7554a82c7e2d43df7039,
-        type: 3}
-      propertyPath: mp5Model
-      value: 
-      objectReference: {fileID: 8337362891735786520, guid: 48e8035fed4a1a2479ba03e837a8d963,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 857c8e0682fd7554a82c7e2d43df7039, type: 3}
 --- !u!1 &1953560705

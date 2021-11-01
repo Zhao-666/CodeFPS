@@ -2,61 +2,61 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class StartPanelController : MonoBehaviour
 {
     public static StartPanelController Instance { get; private set; }
 
-    [Header("PanelParent")]
-    [SerializeField]
+    [Header("PanelParent")] [SerializeField]
     //The panel that use to place another panel;
     private GameObject panelParent;
 
-    [Header("UI Panel")]
-    [SerializeField]
+    [Header("UI Panel")] [SerializeField]
     //OptionPanel
     private GameObject optionPanel;
+
     [SerializeField]
     //LoadingPanel
     private GameObject loadingPanel;
+
     [SerializeField]
     //ProducerPanel
     private GameObject producerPanel;
+
     [SerializeField]
     //QuitPanel
     private GameObject quitPanel;
 
-    [Header("MenuBtn")]
-    [SerializeField]
+    [Header("MenuBtn")] [SerializeField]
     //Start button
     private GameObject startBtn;
+
     [SerializeField]
     //Options button
     private GameObject optionBtn;
+
     [SerializeField]
     //Producer button
     private GameObject producerBtn;
+
     [SerializeField]
     //Quit button
     private GameObject quitBtn;
 
-    [Header("Audio Source")]
-    [SerializeField]
+    [Header("Audio Source")] [SerializeField]
     //Audio Source
     private AudioSource audioSource;
-    
-    [Header("Audio Clip")]
-    [SerializeField]
+
+    [Header("Audio Clip")] [SerializeField]
     //Start button click sound
     private AudioClip startBtnClickSound;
+
     [SerializeField]
     //Normal button click sound
     private AudioClip normalBtnClickSound;
 
-    [Header("Menu CanvasGroup")]
-    [SerializeField]
+    [Header("Menu CanvasGroup")] [SerializeField]
     //Menu canvas group
     private CanvasGroup menuCanvasGroup;
 
@@ -82,7 +82,7 @@ public class StartPanelController : MonoBehaviour
     {
         menuCanvasGroup.DOFade(1, 0.5f);
     }
-    
+
     private void HideMenu()
     {
         menuCanvasGroup.DOFade(0, 0.2f);
