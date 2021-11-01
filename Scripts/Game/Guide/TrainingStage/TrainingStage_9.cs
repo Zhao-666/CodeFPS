@@ -19,7 +19,7 @@ public class TrainingStage_9 : TrainingStageBase
     [Header("Watermelon")] [SerializeField]
     //Watermelon game object
     private GameObject watermelon;
-    
+
     [Header("WatermelonGrenade")] [SerializeField]
     //WatermelonGrenade game object
     private GameObject watermelonGrenade;
@@ -44,7 +44,7 @@ public class TrainingStage_9 : TrainingStageBase
         watermelonGrenade.SetActive(false);
         watermelonTrigger.SetActive(false);
         ragdollTrigger.SetActive(false);
-        
+
         if (useGrenade)
         {
             currentWatermelon = watermelonGrenade;
@@ -75,7 +75,7 @@ public class TrainingStage_9 : TrainingStageBase
             if (useGrenade)
             {
                 soldier.SetActive(false);
-                StartCoroutine(ShowRagdollTrigger());   
+                StartCoroutine(ShowRagdollTrigger());
             }
             else
             {
@@ -87,6 +87,13 @@ public class TrainingStage_9 : TrainingStageBase
     //WatermelonTrigger/RagdollTrigger 触发此方法
     private void ArrivedArea()
     {
+        if (watermelonTrigger.activeSelf == false
+            && ragdollTrigger.activeSelf == false)
+        {
+            //其他脚本的Trigger也会触发这里
+            return;
+        }
+
         if (!watermelonIsNull)
         {
             //第一次触发
@@ -119,7 +126,7 @@ public class TrainingStage_9 : TrainingStageBase
         ShowChatText(19);
         yield return new WaitForSeconds(3);
         ShowChatText(20);
-        door.transform.DORotate(new Vector3(0, -90, 0),2);
+        door.transform.DORotate(new Vector3(0, -90, 0), 2);
         Over();
     }
 

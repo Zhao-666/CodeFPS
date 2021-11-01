@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,11 +12,8 @@ public class StartManager : MonoBehaviour
     public GameObject mainCamera;
 
     [Header("Guns")]
-    //Assault Rifle Gun
-    public GameObject assaultRifle;
-
-    //Handgun
-    public GameObject handGun;
+    //Gun list
+    public GameObject[] guns;
 
     [Header("UI SceneMask")]
     //SceneMask
@@ -26,8 +21,11 @@ public class StartManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(RotateGun(assaultRifle));
-        StartCoroutine(RotateGun(handGun));
+        foreach (GameObject gun in guns)
+        {
+            StartCoroutine(RotateGun(gun));
+        }
+
         StartCoroutine(SceneChange());
     }
 
@@ -45,16 +43,24 @@ public class StartManager : MonoBehaviour
     private IEnumerator SceneChange()
     {
         var localPosition = mainCamera.transform.localPosition;
-        Vector3 nextPos = new Vector3(GunDistance, localPosition.y, localPosition.z);
+        Vector3 nextPos = new Vector3(0, localPosition.y, localPosition.z);
+        int nextIndex = 1;
         while (true)
         {
             yield return new WaitForSeconds(6f);
             sceneMask.DOFade(1, 1);
             yield return new WaitForSeconds(1.5f);
+
+            //反复横跳
+            if (nextIndex >= guns.Length)
+            {
+                nextIndex = 0;
+            }
+
+            nextPos.x = nextIndex++ * GunDistance;
+            
             mainCamera.transform.localPosition = nextPos;
             sceneMask.DOFade(0, 1);
-            //反复横跳
-            nextPos.x = Math.Abs(nextPos.x - GunDistance) < 0.1f ? 0 : GunDistance;
         }
     }
 }

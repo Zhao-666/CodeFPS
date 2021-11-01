@@ -12,7 +12,7 @@ public class TrainingStage_1 : TrainingStageBase
     {
         shootingTrigger.SetActive(false);
     }
-    
+
     protected override void BeforeRun()
     {
         shootingTrigger.SetActive(true);
@@ -31,6 +31,11 @@ public class TrainingStage_1 : TrainingStageBase
     //ShootingTrigger 触发此方法
     private void ArrivedArea()
     {
+        if (shootingTrigger.activeSelf == false)
+        {
+            return;
+        }
+
         arrived = true;
         shootingTrigger.SetActive(false);
     }

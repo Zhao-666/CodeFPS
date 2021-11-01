@@ -236,7 +236,6 @@ namespace FPSControllerLPFP
             if (intersectsWall)
             {
                 _velocityX.Current = _velocityZ.Current = 0f;
-                return;
             }
 
             var smoothX = _velocityX.Update(velocity.x, movementSmoothness);
