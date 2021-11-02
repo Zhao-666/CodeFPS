@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -64,12 +63,12 @@ public class GuideManager : MonoBehaviour
                 Debug.Log(TrainingStagePrefix + currentStage + " script can't found.");
                 currentStage++;
             }
-            
+
             if (currentStage > finalStage)
             {
                 timeTrainingManager.SetActive(true);
                 ShowGuideTips(GuideTips.Tips.Count - 1);
-                Invoke(nameof(HideGuideTips),3);
+                Invoke(nameof(HideGuideTips), 3);
             }
         }
     }

@@ -96,9 +96,9 @@ public class SettingPanelController : MonoBehaviour
 
     private void ShowSettingPanel(GameObject showPanel)
     {
+        Time.timeScale = 0;
         gameObject.SetActive(true);
         currentShowPanel = Instantiate(showPanel, transform);
-        Time.timeScale = 0;
         UnlockMouse();
     }
 

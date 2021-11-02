@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vSync: 0
-  mouseSensitivity: 4
+  mouseSensitivity: 3.5
 --- !u!1 &40812617
 GameObject:
   m_ObjectHideFlags: 0

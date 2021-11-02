@@ -17,6 +17,14 @@ public class TrainingStage_5 : TrainingStageBase
     public TargetScript secondTarget;
     public TargetScript thirdTarget;
 
+    protected override void AwakeInit()
+    {
+        woodTarget.Down(true);
+        firstTarget.Down(true);
+        secondTarget.Down(true);
+        thirdTarget.Down(true);
+    }
+
     protected override void BeforeRun()
     {
         StartCoroutine(ShowChatText());

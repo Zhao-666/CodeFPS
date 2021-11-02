@@ -9,6 +9,12 @@ public class TrainingStage_3 : TrainingStageBase
     public TargetScript topTarget;
     public TargetScript firstTarget;
 
+    protected override void AwakeInit()
+    {
+        topTarget.Down(true);
+        firstTarget.Down(true);
+    }
+
     protected override void Process()
     {
         if (!hasShowTips && Time.time - runTime > 1)

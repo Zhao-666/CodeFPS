@@ -42,6 +42,10 @@ public class TimeTrainingManager : MonoBehaviour
         scoreText.GetComponent<CanvasGroup>().DOFade(0, 0);
         timeText.GetComponent<CanvasGroup>().DOFade(0, 0);
         targetScripts = targetGroup.GetComponentsInChildren<TargetScript>();
+        foreach (TargetScript targetScript in targetScripts)
+        {
+            targetScript.Down(true);
+        }
     }
 
     void Update()

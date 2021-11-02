@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TrainingStage_6 : TrainingStageBase
@@ -13,6 +12,14 @@ public class TrainingStage_6 : TrainingStageBase
 
     private TargetScript currentTarget;
     private int hasShotCount;
+
+    protected override void AwakeInit()
+    {
+        foreach (TargetScript target in targets)
+        {
+            target.Down(true);
+        }
+    }
 
     protected override void BeforeRun()
     {
@@ -41,7 +48,7 @@ public class TrainingStage_6 : TrainingStageBase
         currentTarget.Up();
         hasShotCount++;
     }
-    
+
     private IEnumerator ShowTwoChatText()
     {
         ShowChatText(9);

@@ -11,6 +11,13 @@ public class TrainingStage_4 : TrainingStageBase
     public TargetScript secondTarget;
     public TargetScript thirdTarget;
 
+    protected override void AwakeInit()
+    {
+        firstTarget.Down(true);
+        secondTarget.Down(true);
+        thirdTarget.Down(true);
+    }
+
     protected override void BeforeRun()
     {
         ShowChatText(3);
