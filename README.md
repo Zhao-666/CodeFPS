@@ -8,10 +8,10 @@
 
 想要试玩的同学，[点击这里下载](https://github.com/Zhao-666/CodeFPS/releases/download/BetaV0.4/CodeFPSBetaV0.4.rar)
 ## 效果图
-**版本：BetaV0.4**
+**版本：BetaV0.4.1**
 
 场景：游戏开始界面
-![例图3](https://github.com/Zhao-666/CodeFPS/blob/master/Doc/DemoImage/BetaV0.4_1.png)
+![例图3](https://github.com/Zhao-666/CodeFPS/blob/master/Doc/DemoImage/BetaV0.4.1.png)
 
 **版本：BetaV0.2**
 
@@ -57,6 +57,13 @@
 - Low Poly Western Saloon
 
 ### 版本规划
+#### Beta V0.4.1（已发布，2021-11-02）
+**主体功能**
+- 修复手枪状态下切西瓜没有声音的bug
+- 调整场景物件
+
+**GUI功能**
+- 优化文字颜色，提高亮度
 #### Beta V0.4（已发布，2021-11-01）
 **主体功能**
 - 增加G36C、USP、MP5枪械
@@ -201,6 +208,12 @@
 - 实战训练计时功能
 
 ## 更新日志
+### 2021-11-02
+1. 优化文字颜色，提高亮度（0.5h）
+2. 修复手枪状态下切西瓜没有声音的bug（0.5h）
+3. 场景优化（1h）
+4. 发布Beta v0.4.1版本
+
 ### 2021-11-01
 1. 优化G36C模型（1h）
     - 调节主摄像机FOV，增加视野距离。

@@ -14350,6 +14350,7 @@ MonoBehaviour:
     reloadSoundAmmoLeft: {fileID: 8300000, guid: b0d51244fd32fc647960320540b32f66,
       type: 3}
     aimSound: {fileID: 8300000, guid: acaebc89b98b82142bd2b24edb6081e4, type: 3}
+    cutWatermelon: {fileID: 8300000, guid: bc02ce39d1b664d4dbf26ba8f236bf57, type: 3}
 --- !u!82 &8564838498395025476
 AudioSource:
   m_ObjectHideFlags: 0
@@ -72571,6 +72572,7 @@ MonoBehaviour:
     reloadSoundAmmoLeft: {fileID: 8300000, guid: b0d51244fd32fc647960320540b32f66,
       type: 3}
     aimSound: {fileID: 8300000, guid: acaebc89b98b82142bd2b24edb6081e4, type: 3}
+    cutWatermelon: {fileID: 8300000, guid: bc02ce39d1b664d4dbf26ba8f236bf57, type: 3}
 --- !u!82 &8460314511011840837
 AudioSource:
   m_ObjectHideFlags: 0

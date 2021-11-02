@@ -177,6 +177,7 @@ public class HandgunScriptLPFP : MonoBehaviour {
 		public AudioClip reloadSoundOutOfAmmo;
 		public AudioClip reloadSoundAmmoLeft;
 		public AudioClip aimSound;
+		public AudioClip cutWatermelon;
 	}
 	public soundClips SoundClips;
 
@@ -780,9 +781,20 @@ public class HandgunScriptLPFP : MonoBehaviour {
 			
 			if (go.CompareTag("Watermelon"))
 			{
+				PlayAudioOnMainAudioSource(SoundClips.cutWatermelon,0.1f);
 				go.GetComponent<Watermelon>().Explode();
 			}
 		}
+	}
+	
+	/**
+	 * 在MainAudioSource上播放音乐
+	 */
+	private void PlayAudioOnMainAudioSource(AudioClip audioClip, float time = 0)
+	{
+		mainAudioSource.clip = audioClip;
+		mainAudioSource.time = time;
+		mainAudioSource.Play();
 	}
 	
 	/**
