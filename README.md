@@ -6,7 +6,7 @@
 将所有代码放入Unity的Assets目录中即可。
 为了方便开发渲染，Lightmap Resolution调得比较低，要提高画质可以稍微调高。
 
-想要试玩的同学，[点击这里下载](https://github.com/Zhao-666/CodeFPS/releases/download/BetaV0.4.1/CodeFPSBetaV0.4.1.rar)
+想要试玩的同学，[点击这里下载](https://github.com/Zhao-666/CodeFPS/releases/download/BetaV0.4.2/CodeFPSBetaV0.4.2.rar)
 ## 效果图
 **版本：BetaV0.4.1**
 
@@ -57,6 +57,12 @@
 - Low Poly Western Saloon
 
 ### 版本规划
+#### Beta V0.4.2（已发布，2021-11-02）
+**主体功能**
+- 新增武器训练场（仓库2号）
+
+**GUI功能**
+- 本次更新主要更新了版本号
 #### Beta V0.4.1（已发布，2021-11-02）
 **主体功能**
 - 修复手枪状态下切西瓜没有声音的bug
@@ -213,6 +219,9 @@
 2. 修复手枪状态下切西瓜没有声音的bug（0.5h）
 3. 场景优化（1h）
 4. 发布Beta v0.4.1版本
+5. 制作枪支训练场（1h）
+6. 发布Beta v0.4.2版本
+    - 因录像需要，修改了部分物体位置。
 
 ### 2021-11-01
 1. 优化G36C模型（1h）
