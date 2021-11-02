@@ -6,7 +6,7 @@
 将所有代码放入Unity的Assets目录中即可。
 为了方便开发渲染，Lightmap Resolution调得比较低，要提高画质可以稍微调高。
 
-想要试玩的同学，[点击这里下载](https://github.com/Zhao-666/CodeFPS/releases/download/BetaV0.4/CodeFPSBetaV0.4.rar)
+想要试玩的同学，[点击这里下载](https://github.com/Zhao-666/CodeFPS/releases/download/BetaV0.4.1/CodeFPSBetaV0.4.1.rar)
 ## 效果图
 **版本：BetaV0.4.1**
 
