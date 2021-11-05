@@ -70,6 +70,10 @@ namespace FPSControllerLPFP
         private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
         private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
 
+        private PlayerController playerController;
+        private bool inLadder;
+        private bool inLadderBottom;
+        
         /// Initializes the FpsController on start.
         private void Start()
         {
@@ -84,6 +88,7 @@ namespace FPSControllerLPFP
             _rotationY = new SmoothRotation(RotationYRaw);
             _velocityX = new SmoothVelocity();
             _velocityZ = new SmoothVelocity();
+            playerController = GetComponent<PlayerController>();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             ValidateRotationRestriction();
@@ -134,7 +139,7 @@ namespace FPSControllerLPFP
             Debug.LogWarning(message);
             return Mathf.Clamp(rotationRestriction, min, max);
         }
-			
+
         /// Checks if the character is on the ground.
         private void OnCollisionStay()
         {
@@ -151,7 +156,42 @@ namespace FPSControllerLPFP
 
             _isGrounded = true;
         }
-			
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Ladder"))
+            {
+                inLadder = true;
+                _rigidbody.isKinematic = true;
+                playerController.HolsterCurrentGunArm(true);
+            } 
+            
+            if (other.gameObject.CompareTag("LadderBottom"))
+            {
+                inLadderBottom = true;
+                if (inLadder)
+                {
+                    inLadder = false;
+                    _rigidbody.isKinematic = false;   
+                }
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Ladder"))
+            {
+                inLadder = false;
+                _rigidbody.isKinematic = false;
+                playerController.HolsterCurrentGunArm(false);
+            }
+            
+            if (other.gameObject.CompareTag("LadderBottom"))
+            {
+                inLadderBottom = false;
+            }
+        }
+
         /// Processes the character movement and the camera rotation every fixed framerate frame.
         private void FixedUpdate()
         {
@@ -228,6 +268,30 @@ namespace FPSControllerLPFP
 
         private void MoveCharacter()
         {
+            if (inLadder)
+            {
+                MoveInLadder();
+            }
+            else
+            {
+                NormalMove();
+            }
+        }
+
+        private void MoveInLadder()
+        {
+            if (input.Strafe > 0)
+            {
+                transform.Translate(new Vector3(0,0.1f,0),Space.Self);
+            }
+            else if(input.Strafe < 0 && transform.localPosition.y > 0)
+            {
+                transform.Translate(new Vector3(0,-0.1f,0),Space.Self);
+            }
+        }
+
+        private void NormalMove()
+        {
             var direction = new Vector3(input.Move, 0f, input.Strafe).normalized;
             var worldDirection = transform.TransformDirection(direction);
             var velocity = worldDirection * (input.Run ? runningSpeed : walkingSpeed);
@@ -242,7 +306,7 @@ namespace FPSControllerLPFP
             var smoothZ = _velocityZ.Update(velocity.z, movementSmoothness);
             var rigidbodyVelocity = _rigidbody.velocity;
             var force = new Vector3(smoothX - rigidbodyVelocity.x, 0f, smoothZ - rigidbodyVelocity.z);
-            _rigidbody.AddForce(force, ForceMode.VelocityChange);
+            _rigidbody.AddForce(force, ForceMode.VelocityChange);  
         }
 
         private bool CheckCollisionsWithWalls(Vector3 velocity)

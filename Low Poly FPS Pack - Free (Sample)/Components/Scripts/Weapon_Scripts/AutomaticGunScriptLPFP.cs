@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 // ----- Low Poly FPS Pack Free Version -----
-public class AutomaticGunScriptLPFP : MonoBehaviour {
+public class AutomaticGunScriptLPFP : GunScriptBase {
 
 	//Animator component attached to weapon
 	Animator anim;
@@ -212,7 +212,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	//后坐力计数
 	private float recoilForceCount;
 
-	public void Init () {
+	public override void Init () {
 		//Save the weapon name
 		storedWeaponName = weaponName;
 		//Get weapon name from string to text
@@ -262,6 +262,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	private void OnDisable()
 	{
+		holstered = false;
+		hasBeenHolstered = false;
 		CargaReset();
 		sightBead.SetActive(false);
 		StopCoroutine(nameof(ReduceRotateBase));
@@ -294,8 +296,8 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 		//Aiming
 		//Toggle camera FOV when right click is held down
-		if(Input.GetButton("Fire2") && !isReloading && !isRunning && !isInspecting
-		&& Cursor.lockState == CursorLockMode.Locked) 
+		if(Input.GetButton("Fire2") && !isReloading && !isRunning && !isInspecting && !holstered
+			&& Cursor.lockState == CursorLockMode.Locked) 
 		{
 			isAiming = true;
 			//Start aiming
@@ -350,7 +352,14 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 				
 			soundHasPlayed = false;
 			recoilForce = NormalRecoilForce;
-			
+		}
+		if (holstered)
+		{
+			//隐藏准星
+			sightBead.GetComponent<CanvasGroup>().DOFade(0, 0.2f);	
+		}
+		else
+		{
 			//显示准星
 			sightBead.GetComponent<CanvasGroup>().DOFade(1, 0.2f);
 		}
@@ -447,7 +456,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//AUtomatic fire
 		//Left click hold 
 		if (Input.GetMouseButton (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning
-		&& Cursor.lockState == CursorLockMode.Locked) 
+		    && !holstered && Cursor.lockState == CursorLockMode.Locked) 
 		{
 			//Shoot automatic
 			if (Time.time - lastFired > 1 / fireRate) 
@@ -559,30 +568,16 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		}
 
 		//Toggle weapon holster when E key is pressed
-		if (Input.GetKeyDown (KeyCode.E) && !hasBeenHolstered) 
+		if (Input.GetKeyDown (KeyCode.E) && !isEventHolster) 
 		{
-			holstered = true;
-
-			PlayAudioOnMainAudioSource(SoundClips.holsterSound);
-
-			hasBeenHolstered = true;
-		} 
-		else if (Input.GetKeyDown (KeyCode.E) && hasBeenHolstered) 
-		{
-			holstered = false;
-
-			PlayAudioOnMainAudioSource(SoundClips.takeOutSound);
-
-			hasBeenHolstered = false;
-		}
-		//Holster anim toggle
-		if (holstered == true) 
-		{
-			anim.SetBool ("Holster", true);
-		} 
-		else 
-		{
-			anim.SetBool ("Holster", false);
+			if (hasBeenHolstered)
+			{
+				Ready();	
+			}
+			else
+			{
+				Holster();
+			}
 		}
 
 		//Reload 
@@ -847,8 +842,16 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	private void ReloadFinish()
 	{
 		//Restore ammo when reloading
-		currentAmmo = ammo;
-		outOfAmmo = false;
+		if (!outOfAmmo)
+		{
+			//没有打光子弹的情况下加多一发
+			currentAmmo = ammo + 1;	
+		}
+		else
+		{
+			currentAmmo = ammo;
+			outOfAmmo = false;	
+		}
 		CargaReset();
 	}
 
@@ -876,6 +879,28 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 			carga.transform.localPosition = cargaOriginPosition;
 			carga.transform.localRotation = Quaternion.Euler(cargaOriginRotation);
 		}
+	}
+	
+	/**
+	 * Holster the gun.
+	 */
+	protected override void Holster()
+	{
+		holstered = true;
+		PlayAudioOnMainAudioSource(SoundClips.holsterSound);
+		hasBeenHolstered = true;
+		anim.SetBool ("Holster", true);
+	}
+
+	/**
+	 * Set ready the gun.
+	 */
+	protected override void Ready()
+	{
+		holstered = false;
+		PlayAudioOnMainAudioSource(SoundClips.takeOutSound);
+		hasBeenHolstered = false;
+		anim.SetBool ("Holster", false);
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----

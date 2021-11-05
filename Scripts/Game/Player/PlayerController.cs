@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     //USP
     public GameObject usp;
-    
+
     //MP5
     public GameObject mp5;
 
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     //USP
     public GameObject uspModel;
-    
+
     //MP5
     public GameObject mp5Model;
 
@@ -106,6 +107,19 @@ public class PlayerController : MonoBehaviour
         }
 
         CheckPickUpWeapon();
+    }
+
+    public void HolsterCurrentGunArm(bool setHolster)
+    {
+        if (currentGun == null)
+        {
+            return;
+        }
+        ShowAndHideCurrentGun(!setHolster);
+        if (!setHolster)
+        {
+            currentGun.GetComponent<GunScriptBase>().Init();
+        }
     }
 
     private void PickUpWeapon()
@@ -179,26 +193,18 @@ public class PlayerController : MonoBehaviour
 
     private void ShowGun(string gunName)
     {
-        HideCurrentGun();
+        ShowAndHideCurrentGun();
         GameObject go = arms[gunName];
         go.SetActive(true);
-        if (go.GetComponent<AutomaticGunScriptLPFP>())
-        {
-            go.GetComponent<AutomaticGunScriptLPFP>().Init();
-        }
-        else
-        {
-            go.GetComponent<HandgunScriptLPFP>().Init();
-        }
-
+        go.GetComponent<GunScriptBase>().Init();
         currentGun = go;
     }
 
-    private void HideCurrentGun()
+    private void ShowAndHideCurrentGun(bool isShow = false)
     {
         if (currentGun != null)
         {
-            currentGun.SetActive(false);
+            currentGun.SetActive(isShow);
         }
     }
 
