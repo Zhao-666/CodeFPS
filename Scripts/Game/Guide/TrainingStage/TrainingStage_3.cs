@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TrainingStage_3 : TrainingStageBase
+public class TrainingStage_3 : GuideStageBase
 {
     [Header("Shooting target")]
     //The target that can be shot

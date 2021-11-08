@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class TrainingStageBase : MonoBehaviour
+public abstract class GuideStageBase : MonoBehaviour
 {
     protected bool hasShowTips = false;
     private bool isRunning = false;

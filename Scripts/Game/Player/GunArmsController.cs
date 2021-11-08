@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class GunArmsController : MonoBehaviour
 {
     private readonly Dictionary<string, GameObject> arms = new Dictionary<string, GameObject>();
     private readonly Dictionary<string, GameObject> models = new Dictionary<string, GameObject>();

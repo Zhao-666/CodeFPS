@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TrainingStage_2 : TrainingStageBase
+public class TrainingStage_2 : GuideStageBase
 {
     [Header("AutomaticGunScriptLPFP")]
     //AutomaticGunScriptLPFP

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class TrainingStage_7 : TrainingStageBase
+public class TrainingStage_7 : GuideStageBase
 {
     [Header("Handgun")]
     //Handgun

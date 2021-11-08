@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FPSControllerLPFP
 {
@@ -11,7 +14,14 @@ namespace FPSControllerLPFP
     public class FpsControllerLPFP : MonoBehaviour
     {
 #pragma warning disable 649
-		[Header("Arms")]
+        [Header("MainCamera"), SerializeField] 
+        private Camera mainCamera;
+        
+        [Header("UI Components"),SerializeField]
+        //UI Components
+        private Text tipsText;
+
+        [Header("Arms")]
         [Tooltip("The transform component that holds the gun camera."), SerializeField]
         private Transform arms;
 
@@ -70,9 +80,13 @@ namespace FPSControllerLPFP
         private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
         private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
 
-        private PlayerController playerController;
+        private GunArmsController gunArmsController;
         private bool inLadder;
-        private bool inLadderBottom;
+
+        private Ray ray;
+        private RaycastHit raycastHit;
+        private GameObject specialAction;
+        private string ropeStr = "按下 <color=orange>F</color> 索降 ";
         
         /// Initializes the FpsController on start.
         private void Start()
@@ -88,7 +102,7 @@ namespace FPSControllerLPFP
             _rotationY = new SmoothRotation(RotationYRaw);
             _velocityX = new SmoothVelocity();
             _velocityZ = new SmoothVelocity();
-            playerController = GetComponent<PlayerController>();
+            gunArmsController = GetComponent<GunArmsController>();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             ValidateRotationRestriction();
@@ -163,12 +177,11 @@ namespace FPSControllerLPFP
             {
                 inLadder = true;
                 _rigidbody.isKinematic = true;
-                playerController.HolsterCurrentGunArm(true);
+                gunArmsController.HolsterCurrentGunArm(true);
             } 
             
             if (other.gameObject.CompareTag("LadderBottom"))
             {
-                inLadderBottom = true;
                 if (inLadder)
                 {
                     inLadder = false;
@@ -183,12 +196,7 @@ namespace FPSControllerLPFP
             {
                 inLadder = false;
                 _rigidbody.isKinematic = false;
-                playerController.HolsterCurrentGunArm(false);
-            }
-            
-            if (other.gameObject.CompareTag("LadderBottom"))
-            {
-                inLadderBottom = false;
+                gunArmsController.HolsterCurrentGunArm(false);
             }
         }
 
@@ -210,6 +218,12 @@ namespace FPSControllerLPFP
             arms.position = transform.position + transform.TransformVector(armPosition);
             Jump();
             PlayFootstepSounds();
+            CheckSpecialAction();
+            
+            if (Input.GetKey(KeyCode.F))
+            {
+                RunSpecialAction();
+            }
         }
 
         private void RotateCameraAndCharacter()
@@ -355,6 +369,59 @@ namespace FPSControllerLPFP
                     _audioSource.Pause();
                 }
             }
+        }
+
+        private void CheckSpecialAction()
+        {
+            ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out raycastHit, 3))
+            {
+                if (raycastHit.collider.gameObject.CompareTag("Rope"))
+                {
+                    tipsText.enabled = true;
+                    tipsText.text = ropeStr;
+                    specialAction = raycastHit.collider.gameObject;
+                }
+            }
+            else
+            {
+                tipsText.enabled = false;
+                specialAction = null;
+            }
+        }
+
+        private void RunSpecialAction()
+        {
+            if (specialAction == null)
+            {
+                return;
+            }
+            if (specialAction.CompareTag("Rope"))
+            {
+                SlideDownRope();
+            }
+        }
+
+        /**
+         * 滑下绳索
+         */
+        private void SlideDownRope()
+        {
+            Transform ropeBottom = specialAction.transform.Find("RopeBottom");
+            _rigidbody.isKinematic = true;
+            Sequence sequence = DOTween.Sequence();
+            sequence
+                .Append(
+                    transform.DOMoveZ(specialAction.transform.position.z, 0.3f)
+                    .SetEase(Ease.Linear))
+                .Append(transform.DOMoveY(ropeBottom.position.y,0.5f)
+                    .SetEase(Ease.Linear))
+                .AppendCallback(SlideDownCallback);
+        }
+
+        private void SlideDownCallback()
+        {
+            _rigidbody.isKinematic = false;
         }
 			
         /// A helper for assistance with smoothing the camera rotation.

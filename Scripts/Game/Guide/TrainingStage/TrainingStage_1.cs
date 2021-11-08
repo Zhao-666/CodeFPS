@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TrainingStage_1 : TrainingStageBase
+public class TrainingStage_1 : GuideStageBase
 {
     private bool arrived = false;
 

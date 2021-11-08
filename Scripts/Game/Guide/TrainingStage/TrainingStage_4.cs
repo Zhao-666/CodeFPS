@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TrainingStage_4 : TrainingStageBase
+public class TrainingStage_4 : GuideStageBase
 {
     private bool canShot;
     private bool settingPanelClosed;

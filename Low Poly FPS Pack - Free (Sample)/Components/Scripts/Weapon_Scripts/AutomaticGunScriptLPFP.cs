@@ -352,16 +352,16 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 				
 			soundHasPlayed = false;
 			recoilForce = NormalRecoilForce;
-		}
-		if (holstered)
-		{
-			//隐藏准星
-			sightBead.GetComponent<CanvasGroup>().DOFade(0, 0.2f);	
-		}
-		else
-		{
-			//显示准星
-			sightBead.GetComponent<CanvasGroup>().DOFade(1, 0.2f);
+			if (holstered)
+			{
+				//隐藏准星
+				sightBead.GetComponent<CanvasGroup>().DOFade(0, 0.2f);	
+			}
+			else
+			{
+				//显示准星
+				sightBead.GetComponent<CanvasGroup>().DOFade(1, 0.2f);
+			}
 		}
 		//Aiming end
 

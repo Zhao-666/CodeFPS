@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrainingStage_5 : TrainingStageBase
+public class TrainingStage_5 : GuideStageBase
 {
     private bool canShot;
 

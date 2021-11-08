@@ -2,7 +2,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class TrainingStage_9 : TrainingStageBase
+public class TrainingStage_9 : GuideStageBase
 {
     private bool useGrenade = false;
     private bool processOver = false;

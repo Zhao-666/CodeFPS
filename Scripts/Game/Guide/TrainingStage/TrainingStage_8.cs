@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrainingStage_8 : TrainingStageBase
+public class TrainingStage_8 : GuideStageBase
 {
     private bool isOver = false;
     private bool switchAssaultRifle = false;

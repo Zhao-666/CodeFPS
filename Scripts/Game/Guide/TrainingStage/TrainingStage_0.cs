@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TrainingStage_0 : TrainingStageBase
+public class TrainingStage_0 : GuideStageBase
 {
     [Header("Gun")]
     //Gun

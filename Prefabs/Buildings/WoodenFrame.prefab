@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 704441034}
   - component: {fileID: 704441035}
   m_Layer: 0
-  m_Name: Top
-  m_TagString: LadderBottom
+  m_Name: LadderTrigger
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704441033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.58, y: 11.9, z: 0.2}
+  m_LocalPosition: {x: 0.58, y: 6.41, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5869356888506360113}
@@ -39,10 +39,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704441033}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.01, z: 1}
+  m_Size: {x: 1, y: 11, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &953200208
 GameObject:
@@ -143,24 +143,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5869356888506662163}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1000003, y: 11.3, z: 0.01}
-  m_Center: {x: 0.55000013, y: 6.3, z: -0.3}
---- !u!114 &1203822534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5869356888506662163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d86e0bb03a07c3f4c8a344ba4bfa697d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  top: {fileID: 0}
+  m_Size: {x: 1.1000003, y: 0.1, z: 1.2}
+  m_Center: {x: 0.55000013, y: 11.85, z: 0.2}
 --- !u!1001 &5869356887865210564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,7 +230,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 58edda673ebb2514299a36a7981424bc, type: 3}
       propertyPath: m_TagString
-      value: Ladder
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 58edda673ebb2514299a36a7981424bc, type: 3}
+      propertyPath: m_Name
+      value: Top
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 58edda673ebb2514299a36a7981424bc, type: 3}
       propertyPath: m_Name

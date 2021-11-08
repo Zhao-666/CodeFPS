@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class TrainingStage_6 : TrainingStageBase
+public class TrainingStage_6 : GuideStageBase
 {
     private bool canShot;
     private const int MaxShotCount = 10;
