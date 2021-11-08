@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AreaTrigger : MonoBehaviour
 {
@@ -7,7 +6,7 @@ public class AreaTrigger : MonoBehaviour
     {
         if (other.gameObject.name == "FPSController")
         {
-            SendMessageUpwards("ArrivedArea");
+            SendMessageUpwards("ArrivedArea", gameObject);
         }
     }
 
@@ -15,7 +14,7 @@ public class AreaTrigger : MonoBehaviour
     {
         if (other.gameObject.name == "FPSController")
         {
-            SendMessageUpwards("LeftArea");
+            SendMessageUpwards("LeftArea", gameObject);
         }
     }
 }

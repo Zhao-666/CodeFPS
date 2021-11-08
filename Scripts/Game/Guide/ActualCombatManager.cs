@@ -1,18 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
-public class ActualCombatManager : MonoBehaviour
+public class ActualCombatManager : GuideManagerBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected override string StagePrefix => "CombatStage_";
+    protected override List<string> ChatTexts => CombatChatText.ChatTexts;
+    protected override List<string> GuideTips => CombatTips.Tips;
 }

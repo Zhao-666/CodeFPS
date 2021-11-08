@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public abstract class GuideManagerBase : MonoBehaviour
 {
     protected abstract string StagePrefix { get; }
+    protected abstract List<string> ChatTexts { get; }
+    protected abstract List<string> GuideTips { get; }
+    
     protected int currentStage = 0;
     protected int runningStage = -1;
     protected int finalStage = 10;
@@ -96,7 +99,7 @@ public abstract class GuideManagerBase : MonoBehaviour
      */
     protected void ShowGuideTips(int index)
     {
-        guideText.text = TrainingTips.Tips[index];
+        guideText.text = GuideTips[index];
         guideTips.GetComponent<CanvasGroup>().DOFade(1, 1);
     }
 
@@ -110,7 +113,7 @@ public abstract class GuideManagerBase : MonoBehaviour
      */
     protected void PublishChatText(int index)
     {
-        ChatPanelController.Instance.PublishText(TrainingChatText.ChatText[index]);
+        ChatPanelController.Instance.PublishText(ChatTexts[index]);
     }
 
     /**

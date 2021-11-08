@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-public static class TrainingChatText
+public class TrainingChatText
 {
-    public static List<string> ChatText { get; } = new List<string>()
+    public static List<string> ChatTexts { get; } = new List<string>()
     {
         "<color=#00A45B>盖兹：</color>你知道规矩的。去1号位准备瞄准射击。",
         "<color=#00A45B>盖兹：</color>用你的步枪进行瞄准，索普。",
@@ -15,7 +15,7 @@ public static class TrainingChatText
         "<color=#00A45B>盖兹：</color>子弹会穿透像木板，塑料和薄金属板这样的材质。",
         "<color=#00A45B>盖兹：</color>现在我会让靶子一个一个的弹出。",
         "<color=#00A45B>盖兹：</color>尽量快的击倒它们。",
-        
+
         "<color=#00A45B>盖兹：</color>干得好伙计！",
         "<color=#00A45B>盖兹：</color>从武器库那里拿一把副武器。",
         "<color=#00A45B>盖兹：</color>很好，现在切换到步枪。",

@@ -62,6 +62,7 @@ public abstract class GuideStageBase : MonoBehaviour
     {
         isRunning = false;
         SendMessageUpwards("NextStage");
+        StopAllCoroutines();
         Destroy(this);
     }
 

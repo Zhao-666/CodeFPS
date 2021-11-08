@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public static class TrainingTips
+public class TrainingTips
 {
     public static List<string> Tips { get; } = new List<string>()
     {

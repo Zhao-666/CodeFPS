@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class TrainingManager : GuideManagerBase
 {
     protected override string StagePrefix => "TrainingStage_";
+    protected override List<string> ChatTexts => TrainingChatText.ChatTexts;
+    protected override List<string> GuideTips => TrainingTips.Tips;
 
     [Header("TimeTrainingManager")]
     //TimeTrainingManager
     public GameObject timeTrainingManager;
-    
+
     protected override void StartInit()
     {
         timeTrainingManager.SetActive(false);
