@@ -80,7 +80,7 @@ namespace FPSControllerLPFP
         private readonly RaycastHit[] _groundCastResults = new RaycastHit[8];
         private readonly RaycastHit[] _wallCastResults = new RaycastHit[8];
 
-        private GunArmsController gunArmsController;
+        private WeaponController weaponController;
         private bool inLadder;
 
         private Ray ray;
@@ -102,7 +102,7 @@ namespace FPSControllerLPFP
             _rotationY = new SmoothRotation(RotationYRaw);
             _velocityX = new SmoothVelocity();
             _velocityZ = new SmoothVelocity();
-            gunArmsController = GetComponent<GunArmsController>();
+            weaponController = GetComponent<WeaponController>();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             ValidateRotationRestriction();
@@ -177,7 +177,7 @@ namespace FPSControllerLPFP
             {
                 inLadder = true;
                 _rigidbody.isKinematic = true;
-                gunArmsController.HolsterCurrentGunArm(true);
+                weaponController.HolsterCurrentGunArm(true);
             } 
             
             if (other.gameObject.CompareTag("LadderBottom"))
@@ -196,7 +196,7 @@ namespace FPSControllerLPFP
             {
                 inLadder = false;
                 _rigidbody.isKinematic = false;
-                gunArmsController.HolsterCurrentGunArm(false);
+                weaponController.HolsterCurrentGunArm(false);
             }
         }
 
@@ -398,6 +398,7 @@ namespace FPSControllerLPFP
             }
             if (specialAction.CompareTag("Rope"))
             {
+                specialAction.GetComponent<RopeController>().PlayerUse();
                 SlideDownRope();
             }
         }
@@ -407,12 +408,13 @@ namespace FPSControllerLPFP
          */
         private void SlideDownRope()
         {
-            Transform ropeBottom = specialAction.transform.Find("RopeBottom");
             _rigidbody.isKinematic = true;
+            weaponController.HolsterCurrentGunArm(true);
+            
+            Transform ropeBottom = specialAction.transform.Find("RopeBottom");
             Sequence sequence = DOTween.Sequence();
             sequence
-                .Append(
-                    transform.DOMoveZ(specialAction.transform.position.z, 0.3f)
+                .Append(transform.DOMoveZ(specialAction.transform.position.z, 0.3f)
                     .SetEase(Ease.Linear))
                 .Append(transform.DOMoveY(ropeBottom.position.y,0.5f)
                     .SetEase(Ease.Linear))
@@ -422,6 +424,7 @@ namespace FPSControllerLPFP
         private void SlideDownCallback()
         {
             _rigidbody.isKinematic = false;
+            weaponController.HolsterCurrentGunArm(false);
         }
 			
         /// A helper for assistance with smoothing the camera rotation.

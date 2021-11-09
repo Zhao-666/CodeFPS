@@ -151,6 +151,7 @@ public class HandgunScriptLPFP : GunScriptBase {
 		public Transform bulletPrefab;
 		public Transform casingPrefab;
 		public Transform grenadePrefab;
+		public Transform flashPrefab;
 	}
 	public prefabs Prefabs;
 	
@@ -395,6 +396,15 @@ public class HandgunScriptLPFP : GunScriptBase {
 			//Play grenade throw animation
 			anim.Play("GrenadeThrow", 0, 0.0f);
 		}
+		
+		//Author: MaxxxZhao
+		//Throw grenade when pressing Alpha4 key
+		if (Input.GetKeyDown (KeyCode.Alpha4) && !isInspecting) 
+		{
+			StartCoroutine (FlashSpawnDelay());
+			//Play grenade throw animation
+			anim.Play("GrenadeThrow", 0, 0.0f);
+		}
 
 		//If out of ammo
 		if (currentAmmo == 0) 
@@ -615,6 +625,19 @@ public class HandgunScriptLPFP : GunScriptBase {
 		yield return new WaitForSeconds (grenadeSpawnDelay);
 		//Spawn grenade prefab at spawnpoint
 		Instantiate(Prefabs.grenadePrefab, 
+			Spawnpoints.grenadeSpawnPoint.transform.position, 
+			Spawnpoints.grenadeSpawnPoint.transform.rotation);
+	}
+	
+	/**
+	 * Author: MaxxxZhao
+	 */
+	private IEnumerator FlashSpawnDelay () {
+		
+		//Wait for set amount of time before spawning grenade
+		yield return new WaitForSeconds (grenadeSpawnDelay);
+		//Spawn grenade prefab at spawnpoint
+		Instantiate(Prefabs.flashPrefab, 
 			Spawnpoints.grenadeSpawnPoint.transform.position, 
 			Spawnpoints.grenadeSpawnPoint.transform.rotation);
 	}

@@ -10,9 +10,9 @@ public class CombatStage_0 : GuideStageBase
     //When player near door that the stage start.
     private GameObject doorTrigger;
 
-    [Header("RopeTopTrigger"), SerializeField]
-    //When player climb up to the top of the rope.
-    private GameObject ropeTopTrigger;
+    [Header("LadderTopTrigger"), SerializeField]
+    //When player climb up to the top of the ladder.
+    private GameObject ladderTopTrigger;
 
     protected override void Process()
     {
@@ -30,10 +30,10 @@ public class CombatStage_0 : GuideStageBase
             doorTrigger.SetActive(false);
             StartCoroutine(ShowGuideText());
         }
-        else if (trigger == ropeTopTrigger)
+        else if (trigger == ladderTopTrigger)
         {
             arrivedRopeTop = true;
-            ropeTopTrigger.SetActive(false);
+            ladderTopTrigger.SetActive(false);
         }
     }
 
@@ -42,8 +42,8 @@ public class CombatStage_0 : GuideStageBase
         int max = 5;
         for (int i = 0; i < max; i++)
         {
-            yield return new WaitForSeconds(3);
             ShowChatText(i);
+            yield return new WaitForSeconds(3);
         }
 
         chatOver = true;

@@ -7849,6 +7849,8 @@ MonoBehaviour:
       type: 3}
     grenadePrefab: {fileID: 4191440083646698, guid: 7b04fe350ed10a741a1e245447860d9e,
       type: 3}
+    flashPrefab: {fileID: 2841835445280664516, guid: aa5dc6a3d9e51614b81cedc6235909eb,
+      type: 3}
   Spawnpoints:
     casingSpawnPoint: {fileID: 550136588}
     bulletSpawnPoint: {fileID: 2057432011}
@@ -14336,6 +14338,8 @@ MonoBehaviour:
     casingPrefab: {fileID: 4924048156253418, guid: b1995a53a949fac4db5722fc1df9efe4,
       type: 3}
     grenadePrefab: {fileID: 4191440083646698, guid: 7b04fe350ed10a741a1e245447860d9e,
+      type: 3}
+    flashPrefab: {fileID: 2841835445280664516, guid: aa5dc6a3d9e51614b81cedc6235909eb,
       type: 3}
   Spawnpoints:
     casingSpawnPoint: {fileID: 3953000345339203283}
@@ -35889,6 +35893,8 @@ MonoBehaviour:
       type: 3}
     grenadePrefab: {fileID: 4191440083646698, guid: 7b04fe350ed10a741a1e245447860d9e,
       type: 3}
+    flashPrefab: {fileID: 2841835445280664516, guid: aa5dc6a3d9e51614b81cedc6235909eb,
+      type: 3}
   Spawnpoints:
     casingSpawnPoint: {fileID: 7291748912930159355}
     bulletSpawnPoint: {fileID: 1375789472299012785}
@@ -36272,6 +36278,8 @@ MonoBehaviour:
     casingPrefab: {fileID: 4420745226056240, guid: 7be59128a5ee3424faf33d7a408c0b2e,
       type: 3}
     grenadePrefab: {fileID: 4191440083646698, guid: 7b04fe350ed10a741a1e245447860d9e,
+      type: 3}
+    flashPrefab: {fileID: 2841835445280664516, guid: aa5dc6a3d9e51614b81cedc6235909eb,
       type: 3}
   Spawnpoints:
     casingSpawnPoint: {fileID: 3643150900964155656}
@@ -72638,6 +72646,8 @@ MonoBehaviour:
     casingPrefab: {fileID: 4924048156253418, guid: b1995a53a949fac4db5722fc1df9efe4,
       type: 3}
     grenadePrefab: {fileID: 4191440083646698, guid: 7b04fe350ed10a741a1e245447860d9e,
+      type: 3}
+    flashPrefab: {fileID: 2841835445280664516, guid: aa5dc6a3d9e51614b81cedc6235909eb,
       type: 3}
   Spawnpoints:
     casingSpawnPoint: {fileID: 4867005547528962484}

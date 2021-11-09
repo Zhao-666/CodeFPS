@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GunArmsController : MonoBehaviour
+public class WeaponController : MonoBehaviour
 {
     private readonly Dictionary<string, GameObject> arms = new Dictionary<string, GameObject>();
     private readonly Dictionary<string, GameObject> models = new Dictionary<string, GameObject>();
@@ -115,6 +114,7 @@ public class GunArmsController : MonoBehaviour
         {
             return;
         }
+
         ShowAndHideCurrentGun(!setHolster);
         if (!setHolster)
         {

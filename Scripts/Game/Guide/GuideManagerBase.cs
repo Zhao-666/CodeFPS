@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,10 +8,10 @@ public abstract class GuideManagerBase : MonoBehaviour
     protected abstract string StagePrefix { get; }
     protected abstract List<string> ChatTexts { get; }
     protected abstract List<string> GuideTips { get; }
-    
-    protected int currentStage = 0;
-    protected int runningStage = -1;
-    protected int finalStage = 10;
+
+    protected virtual int CurrentStage { get; set; } = 0;
+    protected virtual int FinalStage { get; } = 20;//为什么不用长度：有可能跳过中间步骤，实际number有可能大于长度
+    private int runningStage = -1;
 
     [Header("StageObject")]
     //StageObject
@@ -26,7 +25,7 @@ public abstract class GuideManagerBase : MonoBehaviour
     public GameObject guideTips;
 
     private Text guideText;
-    
+
     /**
      * Start初始化
      */
@@ -61,24 +60,24 @@ public abstract class GuideManagerBase : MonoBehaviour
      */
     private void CheckStage()
     {
-        if (currentStage <= finalStage && currentStage != runningStage)
+        if (CurrentStage <= FinalStage && CurrentStage != runningStage)
         {
-            runningStage = currentStage;
+            runningStage = CurrentStage;
             //阶段参考《流程规划-训练场流程规划》
             GuideStageBase tsb;
-            guideStageBases.TryGetValue(StagePrefix + currentStage, out tsb);
+            guideStageBases.TryGetValue(StagePrefix + CurrentStage, out tsb);
             if (tsb != null)
             {
-                Debug.Log("Run " + StagePrefix + currentStage);
+                Debug.Log("Run " + StagePrefix + CurrentStage);
                 tsb.Run();
             }
             else
             {
-                Debug.Log(StagePrefix + currentStage + " script can't found.");
-                currentStage++;
+                Debug.Log(StagePrefix + CurrentStage + " script can't found.");
+                CurrentStage++;
             }
 
-            if (currentStage > finalStage)
+            if (CurrentStage > FinalStage)
             {
                 GuideOver();
             }
@@ -90,7 +89,7 @@ public abstract class GuideManagerBase : MonoBehaviour
      */
     protected void NextStage()
     {
-        currentStage++;
+        CurrentStage++;
         HideGuideTips();
     }
 
