@@ -38,6 +38,7 @@ public class CombatStage_4 : GuideStageBase
     {
         if (arrivedTrigger4 && flash == null && !targetsUp)
         {
+            StartCoroutine(ShowChatText());
             targetsUp = true;
             target1.Up();
             target2.Up();
@@ -45,7 +46,6 @@ public class CombatStage_4 : GuideStageBase
 
         if (flash == null && arrivedTrigger3 && arrivedTrigger4 && target1.isHit && target2.isHit)
         {
-            ShowChatText(17);
             Over();
         }
     }
@@ -62,7 +62,6 @@ public class CombatStage_4 : GuideStageBase
         }
         else if (trigger == position4Trigger)
         {
-            StartCoroutine(ShowChatText());
             position4Trigger.SetActive(false);
             flash = trigger.GetComponent<GuideTrigger>().TriggerObject;
             arrivedTrigger4 = true;

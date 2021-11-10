@@ -5,6 +5,7 @@ public class CombatStage_5 : GuideStageBase
     private bool arrivedTrigger = false;
     private bool leftTrigger = false;
     private bool targetUp = false;
+    private bool hasShowChat = false;
     
     [Header("PositionTrigger"), SerializeField]
     //When player move to the enter.
@@ -26,13 +27,15 @@ public class CombatStage_5 : GuideStageBase
 
     protected override void BeforeRun()
     {
+        ShowChatText(17);
         position5Trigger.SetActive(true);
     }
 
     protected override void Process()
     {
-        if (arrivedTrigger && target1.isHit && target2.isHit && !leftTrigger && targetUp)
+        if (arrivedTrigger && target1.isHit && target2.isHit && !leftTrigger && targetUp && !hasShowChat)
         {
+            hasShowChat = true;
             ShowChatText(19);
         }
 

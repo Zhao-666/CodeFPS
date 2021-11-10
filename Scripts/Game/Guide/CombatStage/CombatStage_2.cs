@@ -17,9 +17,10 @@ public class CombatStage_2 : GuideStageBase
     //The targets on the level 2.
     [SerializeField]
     private TargetScript firstTarget;
-
-    [SerializeField] private TargetScript secondTarget;
-    [SerializeField] private TargetScript thirdTarget;
+    [SerializeField] 
+    private TargetScript secondTarget;
+    [SerializeField] 
+    private TargetScript thirdTarget;
 
     protected override void StartInit()
     {

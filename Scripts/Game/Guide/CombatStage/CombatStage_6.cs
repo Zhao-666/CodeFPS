@@ -36,11 +36,11 @@ public class CombatStage_6 : GuideStageBase
             targetsUp = true;
             target1.Up();
             target2.Up();
+            ShowChatText(21);
         }
         
         if (flash == null && arrivedTrigger && target1.isHit && target2.isHit)
         {
-            ShowChatText(21);
             Over();
         }
     }
@@ -52,6 +52,7 @@ public class CombatStage_6 : GuideStageBase
         {
             flash = trigger.GetComponent<GuideTrigger>().TriggerObject;
             arrivedTrigger = true;
+            position6Trigger.SetActive(false);
         }
     }
 }

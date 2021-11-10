@@ -16,26 +16,33 @@ public class CombatChatText
         "<color=#00A45B>普莱斯队长：</color>然后根据我的指示攻击3号和4号位。",
         "<color=#00A45B>普莱斯队长：</color>准备好了就攀上绳子。",
 
+        //10
         "<color=#00A45B>普莱斯队长：</color>出发。",
         "<color=#00A45B>普莱斯队长：</color>击倒目标。",
         "<color=#00A45B>普莱斯队长：</color>2号位！",
 
+        //13
         "<color=#00A45B>普莱斯队长：</color>击倒目标。",
 
+        //14
         "<color=#00A45B>普莱斯队长：</color>向门里投掷闪光弹。",
         "<color=#00A45B>普莱斯队长：</color>4号位！",
         "<color=#00A45B>普莱斯队长：</color>击倒目标。",
+        
+        //17
         "<color=#00A45B>普莱斯队长：</color>5号位！",
-
         "<color=#00A45B>普莱斯队长：</color>击倒目标。",
         "<color=#00A45B>普莱斯队长：</color>6号位！",
         "<color=#00A45B>普莱斯队长：</color>向门里投掷闪光弹。",
         
+        //21
         "<color=#00A45B>普莱斯队长：</color>击倒目标。",
 
+        //22
         "<color=#00A45B>普莱斯队长：</color>最后位置！",
         "<color=#00A45B>普莱斯队长：</color>加速跑到终点！",
 
+        //24
         "<color=#00A45B>普莱斯队长：</color>干得不错，不过我见过更好的。",
         "<color=#00A45B>普莱斯队长：</color>如果你还想来一次的话就爬上梯子。",
         "<color=#00A45B>普莱斯队长：</color>要么到监视器这边来总结一下。",
