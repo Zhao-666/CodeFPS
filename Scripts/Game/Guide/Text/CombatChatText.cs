@@ -10,6 +10,7 @@ public class CombatChatText
         "<color=#00A45B>普莱斯队长：</color>盖兹保持着19秒的全队记录。祝你好运。",
         "<color=#00A45B>普莱斯队长：</color>爬上那边的梯子。",
 
+        //5
         "<color=#00A45B>普莱斯队长：</color>捡起MP5和闪光弹。",
         "<color=#00A45B>普莱斯队长：</color>一旦我给出命令，你要顺绳子索降，跑向1号位。",
         "<color=#00A45B>普莱斯队长：</color>然后进门顺楼梯下到2号位。",

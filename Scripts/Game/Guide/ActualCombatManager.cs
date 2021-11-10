@@ -10,7 +10,7 @@ public class ActualCombatManager : GuideManagerBase
     protected override List<string> ChatTexts => CombatChatText.ChatTexts;
     protected override List<string> GuideTips => CombatTips.Tips;
 
-    protected override int CurrentStage { get; set; } = 6;
+    protected override int CurrentStage { get; set; } = 0;
 
     protected override void GuideOver()
     {

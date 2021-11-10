@@ -55,6 +55,7 @@ public class CombatStage_4 : GuideStageBase
     {
         if (trigger == position3Trigger)
         {
+            ShowTips(1);
             ShowChatText(14);
             position3Trigger.SetActive(false);
             position4Trigger.SetActive(true);

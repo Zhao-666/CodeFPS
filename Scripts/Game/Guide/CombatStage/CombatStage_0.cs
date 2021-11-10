@@ -3,20 +3,20 @@ using UnityEngine;
 
 public class CombatStage_0 : GuideStageBase
 {
-    private bool arrivedRopeTop = false;
+    private bool arrivedRopeBottom = false;
     private bool chatOver = false;
     
     [Header("DoorTrigger"), SerializeField]
     //When player near door that the stage start.
     private GameObject doorTrigger;
 
-    [Header("LadderTopTrigger"), SerializeField]
-    //When player climb up to the top of the ladder.
-    private GameObject ladderTopTrigger;
+    [Header("LadderBottomTrigger"), SerializeField]
+    //When player walk to the ladder bottom.
+    private GameObject ladderBottomTrigger;
 
     protected override void Process()
     {
-        if (chatOver && arrivedRopeTop)
+        if (chatOver && arrivedRopeBottom)
         {
             Over();
         }
@@ -30,10 +30,11 @@ public class CombatStage_0 : GuideStageBase
             doorTrigger.SetActive(false);
             StartCoroutine(ShowGuideText());
         }
-        else if (trigger == ladderTopTrigger)
+        else if (trigger == ladderBottomTrigger)
         {
-            arrivedRopeTop = true;
-            ladderTopTrigger.SetActive(false);
+            ShowTips(0);
+            arrivedRopeBottom = true;
+            ladderBottomTrigger.SetActive(false);
         }
     }
 

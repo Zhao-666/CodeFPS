@@ -15,6 +15,7 @@ public class CombatStage_7 : GuideStageBase
     protected override void BeforeRun()
     {
         position7Trigger.SetActive(true);
+        ShowTips(2);
         StartCoroutine(ShowChatText());
     }
 

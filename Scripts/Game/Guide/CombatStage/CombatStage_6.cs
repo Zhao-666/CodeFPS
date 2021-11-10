@@ -26,6 +26,7 @@ public class CombatStage_6 : GuideStageBase
 
     protected override void BeforeRun()
     {
+        ShowTips(1);
         position6Trigger.SetActive(true);
     }
 

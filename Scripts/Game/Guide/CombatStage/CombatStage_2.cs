@@ -41,6 +41,7 @@ public class CombatStage_2 : GuideStageBase
         {
             ropeUsed = true;
             ShowChatText(10);
+            ropeController.HideBoxCollider();
         }
         
         if (arrivedTrigger && firstTarget.isHit && secondTarget.isHit && thirdTarget.isHit)
@@ -56,7 +57,6 @@ public class CombatStage_2 : GuideStageBase
         if (trigger == position1Trigger)
         {
             position1Trigger.SetActive(false);
-            ropeController.HideBoxCollider();
             arrivedTrigger = true;
             firstTarget.Up();
             secondTarget.Up();
