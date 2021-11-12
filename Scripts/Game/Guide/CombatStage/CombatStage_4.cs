@@ -50,6 +50,14 @@ public class CombatStage_4 : GuideStageBase
         }
     }
 
+    protected override void ResetOverCondition()
+    {
+        base.ResetOverCondition();
+        arrivedTrigger3 = false;
+        arrivedTrigger4 = false;
+        targetsUp = false;
+    }
+
     //trigger 触发此方法
     private void ArrivedArea(GameObject trigger)
     {

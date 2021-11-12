@@ -51,6 +51,12 @@ public class CombatStage_2 : GuideStageBase
         }
     }
 
+    protected override void ResetOverCondition()
+    {
+        ropeUsed = false;
+        arrivedTrigger = false;
+    }
+
     //ropeBottomTrigger 触发此方法
     private void ArrivedArea(GameObject trigger)
     {

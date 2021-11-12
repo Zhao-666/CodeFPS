@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class ActualCombatManager : GuideManagerBase
 {
-    private bool finishCombat = false;
-    
     protected override string StagePrefix => "CombatStage_";
     protected override List<string> ChatTexts => CombatChatText.ChatTexts;
     protected override List<string> GuideTips => CombatTips.Tips;
 
-    protected override int CurrentStage { get; set; } = 0;
+    // protected override int CurrentStage { get; set; } = 7;    //Debug用
 
     protected override void GuideOver()
     {
+        base.GuideOver();
         StartCoroutine(ShowChatText());
-        finishCombat = true;
     }
 
     private IEnumerator ShowChatText()
@@ -25,5 +23,6 @@ public class ActualCombatManager : GuideManagerBase
         PublishChatText(25);
         yield return new WaitForSeconds(2);
         PublishChatText(26);
+        RestartGuide(1);
     }
 }

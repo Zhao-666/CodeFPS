@@ -46,7 +46,6 @@ GameObject:
   - component: {fileID: 40574665}
   - component: {fileID: 40574668}
   - component: {fileID: 40574667}
-  - component: {fileID: 40574666}
   m_Layer: 8
   m_Name: Sphere (2)
   m_TagString: Untagged
@@ -113,19 +112,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &40574666
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40574664}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &99249671
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,7 +6021,6 @@ GameObject:
   - component: {fileID: 662017585}
   - component: {fileID: 662017588}
   - component: {fileID: 662017587}
-  - component: {fileID: 662017586}
   m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
@@ -6102,19 +6087,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &662017586
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 662017584}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &677311782
 GameObject:
   m_ObjectHideFlags: 0
@@ -8217,7 +8189,6 @@ GameObject:
   - component: {fileID: 1626716821}
   - component: {fileID: 1626716824}
   - component: {fileID: 1626716823}
-  - component: {fileID: 1626716822}
   m_Layer: 8
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -8284,19 +8255,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &1626716822
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626716820}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1673954457
 GameObject:
   m_ObjectHideFlags: 0

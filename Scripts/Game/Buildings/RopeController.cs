@@ -29,6 +29,7 @@ public class RopeController : MonoBehaviour
         boxCollider.enabled = false;
         emissionTween.TogglePause();
         material.DOColor(Color.black, "_EmissionColor", 0);
+        playerUsed = false;
     }
 
     public void ShowBoxCollider()

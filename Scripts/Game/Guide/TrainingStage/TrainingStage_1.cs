@@ -28,6 +28,12 @@ public class TrainingStage_1 : GuideStageBase
         }
     }
 
+    protected override void ResetOverCondition()
+    {
+        base.ResetOverCondition();
+        arrived = false;
+    }
+
     //ShootingTrigger 触发此方法
     private void ArrivedArea()
     {

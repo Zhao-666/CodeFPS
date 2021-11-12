@@ -3,14 +3,29 @@
 public abstract class GuideStageBase : MonoBehaviour
 {
     protected bool hasShowTips = false;
-    private bool isRunning = false;
     protected float runTime;
+    protected bool overOnce; //是否结束了一次
+    private bool isRunning = false;
 
     /**
      * 当前阶段逻辑
      */
     protected abstract void Process();
 
+    /**
+     * 阶段运行前调用此方法
+     */
+    protected virtual void BeforeRun()
+    {
+    }
+    
+    /**
+     * 重置结束判断条件
+     */
+    protected virtual void ResetOverCondition()
+    {
+    }
+    
     /**
      * Awake初始化
      */
@@ -24,15 +39,7 @@ public abstract class GuideStageBase : MonoBehaviour
     protected virtual void StartInit()
     {
     }
-
-    /**
-     * 阶段运行前调用此方法
-     */
-    protected virtual void BeforeRun()
-    {
-        
-    }
-
+    
     private void Awake()
     {
         AwakeInit();
@@ -51,11 +58,12 @@ public abstract class GuideStageBase : MonoBehaviour
         }
     }
 
-    public void Run()
+    public void Run(bool over = false)
     {
         BeforeRun();
         runTime = Time.time;
         isRunning = true;
+        overOnce = over;
     }
 
     protected void Over()
@@ -63,13 +71,17 @@ public abstract class GuideStageBase : MonoBehaviour
         isRunning = false;
         SendMessageUpwards("NextStage");
         StopAllCoroutines();
-        Destroy(this);
+        ResetOverCondition();
     }
 
-    protected void ShowTips(int index)
+    protected void ShowTips(int index, int delayTime = 0)
     {
         SendMessageUpwards("ShowGuideTips", index);
         hasShowTips = true;
+        if (delayTime != 0)
+        {
+            Invoke(nameof(HideTips), delayTime);
+        }
     }
 
     protected void HideTips()

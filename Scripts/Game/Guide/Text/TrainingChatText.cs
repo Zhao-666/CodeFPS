@@ -25,6 +25,6 @@ public class TrainingChatText
         "<color=#00A45B>盖兹：</color>使用匕首比换到手枪要更快。",
         "<color=#00A45B>盖兹：</color>切开西瓜。",
         "<color=#00A45B>盖兹：</color>你切水果的本事真棒！",
-        "<color=#00A45B>盖兹：</color>普莱斯队长要见你。（未开发）",
+        "<color=#00A45B>盖兹：</color>普莱斯队长要见你。",
     };
 }

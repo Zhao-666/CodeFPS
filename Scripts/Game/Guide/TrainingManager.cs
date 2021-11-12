@@ -13,11 +13,13 @@ public class TrainingManager : GuideManagerBase
 
     protected override void StartInit()
     {
+        base.StartInit();
         timeTrainingManager.SetActive(false);
     }
 
     protected override void GuideOver()
     {
+        base.GuideOver();
         timeTrainingManager.SetActive(true);
         ShowGuideTips(TrainingTips.Tips.Count - 1);
         Invoke(nameof(HideGuideTips), 3);

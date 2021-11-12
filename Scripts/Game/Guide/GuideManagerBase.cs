@@ -5,14 +5,6 @@ using UnityEngine.UI;
 
 public abstract class GuideManagerBase : MonoBehaviour
 {
-    protected abstract string StagePrefix { get; }
-    protected abstract List<string> ChatTexts { get; }
-    protected abstract List<string> GuideTips { get; }
-
-    protected virtual int CurrentStage { get; set; } = 0;
-    protected virtual int FinalStage { get; } = 20;//为什么不用长度：有可能跳过中间步骤，实际number有可能大于长度
-    private int runningStage = -1;
-
     [Header("StageObject")]
     //StageObject
     public GameObject stageObject;
@@ -25,6 +17,16 @@ public abstract class GuideManagerBase : MonoBehaviour
     public GameObject guideTips;
 
     private Text guideText;
+    
+    protected abstract string StagePrefix { get; }
+    protected abstract List<string> ChatTexts { get; }
+    protected abstract List<string> GuideTips { get; }
+
+    protected virtual int CurrentStage { get; set; } = 0;
+    protected virtual int FinalStage { get; } = 20;//为什么不用长度：有可能跳过中间步骤，实际number有可能大于长度
+    private int runningStage = -1;
+
+    private bool overOnce = false;//是否结束了一次
 
     /**
      * Start初始化
@@ -38,6 +40,7 @@ public abstract class GuideManagerBase : MonoBehaviour
      */
     protected virtual void GuideOver()
     {
+        overOnce = true;
     }
 
     // Start is called before the first frame update
@@ -47,6 +50,15 @@ public abstract class GuideManagerBase : MonoBehaviour
         guideText = guideTips.transform.Find("GuideText").GetComponent<Text>();
         SetGuideStageScript();
         StartInit();
+    }
+
+    /**
+     * 重新开始教程
+     */
+    protected void RestartGuide(int startStage = 0)
+    {
+        CurrentStage = startStage;
+        runningStage = -1;
     }
 
     // Update is called once per frame
@@ -69,7 +81,7 @@ public abstract class GuideManagerBase : MonoBehaviour
             if (tsb != null)
             {
                 Debug.Log("Run " + StagePrefix + CurrentStage);
-                tsb.Run();
+                tsb.Run(overOnce);
             }
             else
             {

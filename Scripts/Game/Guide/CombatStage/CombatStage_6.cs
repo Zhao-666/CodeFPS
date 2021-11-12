@@ -46,6 +46,13 @@ public class CombatStage_6 : GuideStageBase
         }
     }
 
+    protected override void ResetOverCondition()
+    {
+        base.ResetOverCondition();
+        arrivedTrigger = false;
+        targetsUp = false;
+    }
+
     //trigger 触发此方法
     private void ArrivedArea(GameObject trigger)
     {

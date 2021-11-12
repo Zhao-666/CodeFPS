@@ -594,7 +594,7 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 		//Reload 
 		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
 		{
-			if (currentAmmo != ammo)
+			if (currentAmmo < ammo)
 			{
 				//Reload
 				Reload ();

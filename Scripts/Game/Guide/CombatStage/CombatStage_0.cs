@@ -14,6 +14,20 @@ public class CombatStage_0 : GuideStageBase
     //When player walk to the ladder bottom.
     private GameObject ladderBottomTrigger;
 
+    protected override void AwakeInit()
+    {
+        base.AwakeInit();
+        doorTrigger.SetActive(false);
+        ladderBottomTrigger.SetActive(false);
+    }
+
+    protected override void BeforeRun()
+    {
+        base.BeforeRun();
+        doorTrigger.SetActive(true);
+        ladderBottomTrigger.SetActive(true);
+    }
+
     protected override void Process()
     {
         if (chatOver && arrivedRopeBottom)
@@ -32,7 +46,7 @@ public class CombatStage_0 : GuideStageBase
         }
         else if (trigger == ladderBottomTrigger)
         {
-            ShowTips(0);
+            ShowTips(0,2);
             arrivedRopeBottom = true;
             ladderBottomTrigger.SetActive(false);
         }
