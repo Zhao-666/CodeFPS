@@ -32,6 +32,7 @@ public class CombatStage_1 : GuideStageBase
     {
         if (chatOver && mp5Model == null)
         {
+            ropeController.ShowBoxCollider();
             Over();
         }
     }
@@ -71,6 +72,5 @@ public class CombatStage_1 : GuideStageBase
         }
 
         chatOver = true;
-        ropeController.ShowBoxCollider();
     }
 }

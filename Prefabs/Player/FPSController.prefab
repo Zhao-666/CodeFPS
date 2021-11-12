@@ -7784,7 +7784,7 @@ MonoBehaviour:
   defaultMainFov: 55
   aimMainFov: 40
   weaponName: G36C
-  weaponIcon: {fileID: 21300000, guid: 364206cb355dcf7479b2cdec20b8ec68, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 23334772ad0dc9c4289144b15850f642, type: 3}
   weaponSway: 1
   swayAmount: 0.02
   maxSwayAmount: 0.04
@@ -14260,7 +14260,7 @@ MonoBehaviour:
   defaultFov: 40
   aimFov: 16
   weaponName: Glock
-  weaponIcon: {fileID: 21300000, guid: d6e4dc2ab496ac845a119b14c5abbb91, type: 3}
+  weaponIcon: {fileID: 21300000, guid: ba410e102b3411a4d822ebfc1b904450, type: 3}
   weaponSway: 1
   swayAmount: 0.02
   maxSwayAmount: 0.04
@@ -35814,7 +35814,7 @@ MonoBehaviour:
   defaultMainFov: 55
   aimMainFov: 55
   weaponName: MP5
-  weaponIcon: {fileID: 21300000, guid: 364206cb355dcf7479b2cdec20b8ec68, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 2adff0ebff8360041acf3a3c83527193, type: 3}
   weaponSway: 1
   swayAmount: 0.02
   maxSwayAmount: 0.04
@@ -36200,7 +36200,7 @@ MonoBehaviour:
   defaultMainFov: 55
   aimMainFov: 55
   weaponName: AK47
-  weaponIcon: {fileID: 21300000, guid: 364206cb355dcf7479b2cdec20b8ec68, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 35749ac7754dab14cbe5dccee0636d4a, type: 3}
   weaponSway: 1
   swayAmount: 0.02
   maxSwayAmount: 0.04
@@ -45137,9 +45137,9 @@ MonoBehaviour:
   runningSpeed: 9
   movementSmoothness: 0.125
   jumpForce: 42
-  rotationSmoothness: 0.05
-  minVerticalAngle: -90
-  maxVerticalAngle: 90
+  rotationSmoothness: 0.02
+  minVerticalAngle: -89
+  maxVerticalAngle: 89
   input:
     rotateX: Mouse X
     rotateY: Mouse Y
@@ -45762,8 +45762,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 140, y: 120}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: 140, y: 110}
+  m_SizeDelta: {x: 200, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6838718272688339758
 CanvasRenderer:
@@ -45791,7 +45791,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 364206cb355dcf7479b2cdec20b8ec68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35749ac7754dab14cbe5dccee0636d4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -72568,7 +72568,7 @@ MonoBehaviour:
   defaultFov: 40
   aimFov: 16
   weaponName: USP
-  weaponIcon: {fileID: 21300000, guid: d6e4dc2ab496ac845a119b14c5abbb91, type: 3}
+  weaponIcon: {fileID: 21300000, guid: 5b6330738a4da4c44a752c32b7af52eb, type: 3}
   weaponSway: 1
   swayAmount: 0.02
   maxSwayAmount: 0.04

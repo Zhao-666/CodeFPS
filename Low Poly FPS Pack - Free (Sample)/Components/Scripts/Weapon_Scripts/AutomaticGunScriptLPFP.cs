@@ -782,9 +782,9 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 	 */
 	private void RandomBulletSpawnPoint()
 	{
-		int rotateBase = 1 + (bulletSpawnRotateBase * 1);
-		int randX = Random.Range(-1 * rotateBase, rotateBase);
-		int randY = Random.Range(-1 * rotateBase - 1, rotateBase);// 模型偏右，往左补偿 1
+		var rotateBase = 1 + (bulletSpawnRotateBase * 0.5f);
+		var randX = Random.Range(-1 * rotateBase, rotateBase);
+		var randY = Random.Range(-1 * rotateBase - 1, rotateBase);// 模型偏右，往左补偿 1
 		Vector3 pos = new Vector3(randX, randY,0);
 		Spawnpoints.bulletSpawnPoint.localRotation = Quaternion.Euler(pos);
 	}
@@ -827,7 +827,7 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 
 	private void AddRecoilForce()
 	{
-		float yAxisForce = recoilForce / 2;
+		float yAxisForce = recoilForce / 3;
 		if (recoilForceCount < recoilForce * 10)//这个值影响多少颗子弹达到最高
 		{
 			int rand = Random.Range(-1, 2);
