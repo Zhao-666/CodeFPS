@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc11c8a52c117f0499150e7e2765343e
+guid: a2d79b5f00f328548aa07ac4fbd341be
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -17,15 +17,16 @@ ModelImporter:
     100022: Cube_(19)
     100024: Cube_(2)
     100026: Cube_(20)
-    100028: Cube_(3)
-    100030: Cube_(4)
-    100032: Cube_(5)
-    100034: Cube_(6)
-    100036: Cube_(7)
-    100038: Cube_(8)
-    100040: Cube_(9)
-    100042: //RootNode
-    100044: Stairs
+    100028: Cube_(21)
+    100030: Cube_(3)
+    100032: Cube_(4)
+    100034: Cube_(5)
+    100036: Cube_(6)
+    100038: Cube_(7)
+    100040: Cube_(8)
+    100042: Cube_(9)
+    100044: //RootNode
+    100046: Stairs
     400000: Cube
     400002: Cube_(1)
     400004: Cube_(10)
@@ -40,15 +41,16 @@ ModelImporter:
     400022: Cube_(19)
     400024: Cube_(2)
     400026: Cube_(20)
-    400028: Cube_(3)
-    400030: Cube_(4)
-    400032: Cube_(5)
-    400034: Cube_(6)
-    400036: Cube_(7)
-    400038: Cube_(8)
-    400040: Cube_(9)
-    400042: //RootNode
-    400044: Stairs
+    400028: Cube_(21)
+    400030: Cube_(3)
+    400032: Cube_(4)
+    400034: Cube_(5)
+    400036: Cube_(6)
+    400038: Cube_(7)
+    400040: Cube_(8)
+    400042: Cube_(9)
+    400044: //RootNode
+    400046: Stairs
     2100000: Wood
     2300000: Cube
     2300002: Cube_(1)
@@ -64,14 +66,15 @@ ModelImporter:
     2300022: Cube_(19)
     2300024: Cube_(2)
     2300026: Cube_(20)
-    2300028: Cube_(3)
-    2300030: Cube_(4)
-    2300032: Cube_(5)
-    2300034: Cube_(6)
-    2300036: Cube_(7)
-    2300038: Cube_(8)
-    2300040: Cube_(9)
-    2300042: Stairs
+    2300028: Cube_(21)
+    2300030: Cube_(3)
+    2300032: Cube_(4)
+    2300034: Cube_(5)
+    2300036: Cube_(6)
+    2300038: Cube_(7)
+    2300040: Cube_(8)
+    2300042: Cube_(9)
+    2300044: Stairs
     3300000: Cube
     3300002: Cube_(1)
     3300004: Cube_(10)
@@ -86,14 +89,15 @@ ModelImporter:
     3300022: Cube_(19)
     3300024: Cube_(2)
     3300026: Cube_(20)
-    3300028: Cube_(3)
-    3300030: Cube_(4)
-    3300032: Cube_(5)
-    3300034: Cube_(6)
-    3300036: Cube_(7)
-    3300038: Cube_(8)
-    3300040: Cube_(9)
-    3300042: Stairs
+    3300028: Cube_(21)
+    3300030: Cube_(3)
+    3300032: Cube_(4)
+    3300034: Cube_(5)
+    3300036: Cube_(6)
+    3300038: Cube_(7)
+    3300040: Cube_(8)
+    3300042: Cube_(9)
+    3300044: Stairs
     4300000: Cube
     4300002: Cube_(1)
     4300004: Cube_(10)
@@ -108,14 +112,15 @@ ModelImporter:
     4300022: Cube_(19)
     4300024: Cube_(2)
     4300026: Cube_(20)
-    4300028: Cube_(3)
-    4300030: Cube_(4)
-    4300032: Cube_(5)
-    4300034: Cube_(6)
-    4300036: Cube_(7)
-    4300038: Cube_(8)
-    4300040: Cube_(9)
-    4300042: Stairs
+    4300028: Cube_(21)
+    4300030: Cube_(3)
+    4300032: Cube_(4)
+    4300034: Cube_(5)
+    4300036: Cube_(6)
+    4300038: Cube_(7)
+    4300040: Cube_(8)
+    4300042: Cube_(9)
+    4300044: Stairs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -156,7 +161,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
