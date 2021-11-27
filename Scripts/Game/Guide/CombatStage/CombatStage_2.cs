@@ -22,6 +22,13 @@ public class CombatStage_2 : GuideStageBase
     [SerializeField] 
     private TargetScript thirdTarget;
 
+    [Header("Soldiers"), SerializeField]
+    //The soldiers game object
+    private GameObject soldiers;
+    
+    private Vector3 soldiersNewPos = new Vector3(-5,0,3);
+    private Vector3 soldiersNewRot = new Vector3(0,-60,0);
+
     protected override void StartInit()
     {
         position1Trigger.SetActive(false);
@@ -62,6 +69,7 @@ public class CombatStage_2 : GuideStageBase
     {
         if (trigger == position1Trigger)
         {
+            MoveSoldiers();
             position1Trigger.SetActive(false);
             arrivedTrigger = true;
             firstTarget.Up();
@@ -69,5 +77,12 @@ public class CombatStage_2 : GuideStageBase
             thirdTarget.Up();
             ShowChatText(11);
         }
+    }
+
+    //Move the soldiers to new position.
+    private void MoveSoldiers()
+    {
+        soldiers.transform.localPosition = soldiersNewPos;
+        soldiers.transform.localRotation = Quaternion.Euler(soldiersNewRot); 
     }
 }

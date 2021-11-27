@@ -247,6 +247,9 @@ bilibili演示视频：
 - 实战训练计时功能
 
 ## 更新日志
+### 2021-11-27
+1. 优化切西瓜时的文字展示顺序（0.5h）
+
 ### 2021-11-18
 1. 研究Lighting系统（3h）
     - [灯光Mode区别](https://blog.csdn.net/wangjiangrong/article/details/100096586)

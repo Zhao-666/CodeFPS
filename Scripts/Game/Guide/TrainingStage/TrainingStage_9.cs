@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrainingStage_9 : GuideStageBase
 {
     private bool useGrenade = false;
+    private bool showChatOver = false;
     private bool processOver = false;
     private bool watermelonIsNull = false;
 
@@ -69,7 +70,7 @@ public class TrainingStage_9 : GuideStageBase
             watermelonIsNull = true;
         }
 
-        if (watermelonIsNull && !processOver)
+        if (watermelonIsNull && !processOver && showChatOver)
         {
             processOver = true;
             if (useGrenade)
@@ -117,6 +118,7 @@ public class TrainingStage_9 : GuideStageBase
         ShowChatText(17);
         yield return new WaitForSeconds(2);
         ShowChatText(18);
+        showChatOver = true;
     }
 
     private IEnumerator ShowOverChatText()

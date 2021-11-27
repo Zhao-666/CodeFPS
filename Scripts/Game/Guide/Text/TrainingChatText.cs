@@ -16,6 +16,7 @@ public class TrainingChatText
         "<color=#00A45B>盖兹：</color>现在我会让靶子一个一个的弹出。",
         "<color=#00A45B>盖兹：</color>尽量快的击倒它们。",
 
+        //11
         "<color=#00A45B>盖兹：</color>干得好伙计！",
         "<color=#00A45B>盖兹：</color>从武器库那里拿一把副武器。",
         "<color=#00A45B>盖兹：</color>很好，现在切换到步枪。",
