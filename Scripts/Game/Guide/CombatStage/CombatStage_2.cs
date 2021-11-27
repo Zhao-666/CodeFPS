@@ -49,6 +49,7 @@ public class CombatStage_2 : GuideStageBase
             ropeUsed = true;
             ShowChatText(10);
             ropeController.HideBoxCollider();
+            SendMessageUpwards("StartTraining");
         }
         
         if (arrivedTrigger && firstTarget.isHit && secondTarget.isHit && thirdTarget.isHit)

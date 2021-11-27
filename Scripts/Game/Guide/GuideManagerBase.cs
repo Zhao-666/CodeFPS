@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,11 +29,22 @@ public abstract class GuideManagerBase : MonoBehaviour
 
     private bool overOnce = false;//是否结束了一次
 
-    /**
-     * Start初始化
-     */
-    protected virtual void StartInit()
+    protected virtual void Awake()
     {
+    }
+
+    // Start is called before the first frame update
+    protected virtual void Start()
+    {
+        guideTips.GetComponent<CanvasGroup>().DOFade(0, 0);
+        guideText = guideTips.transform.Find("GuideText").GetComponent<Text>();
+        SetGuideStageScript();
+    }
+
+    // Update is called once per frame
+    protected virtual void Update()
+    {
+        CheckStage();
     }
 
     /**
@@ -42,16 +54,7 @@ public abstract class GuideManagerBase : MonoBehaviour
     {
         overOnce = true;
     }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        guideTips.GetComponent<CanvasGroup>().DOFade(0, 0);
-        guideText = guideTips.transform.Find("GuideText").GetComponent<Text>();
-        SetGuideStageScript();
-        StartInit();
-    }
-
+    
     /**
      * 重新开始教程
      */
@@ -59,12 +62,6 @@ public abstract class GuideManagerBase : MonoBehaviour
     {
         CurrentStage = startStage;
         runningStage = -1;
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        CheckStage();
     }
 
     /**

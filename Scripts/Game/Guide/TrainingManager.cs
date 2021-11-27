@@ -11,9 +11,9 @@ public class TrainingManager : GuideManagerBase
     //TimeTrainingManager
     public GameObject timeTrainingManager;
 
-    protected override void StartInit()
+    protected override void Start()
     {
-        base.StartInit();
+        base.Start();
         timeTrainingManager.SetActive(false);
     }
 

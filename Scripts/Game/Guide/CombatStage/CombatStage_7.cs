@@ -30,6 +30,7 @@ public class CombatStage_7 : GuideStageBase
         if (trigger == position7Trigger)
         {
             position7Trigger.SetActive(false);
+            SendMessageUpwards("FinishTraining");
             Over();
         }
     }
