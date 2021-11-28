@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.76.0 commit date:2015-11-03, commit time:10:56, hash:f337fea</authoring_tool>
+    </contributor>
+    <created>2016-04-25T17:22:13</created>
+    <modified>2016-04-25T17:22:13</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images/>
+  <library_effects>
+    <effect id="Wood-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.64 0.64 0.64 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Wood-material" name="Wood">
+      <instance_effect url="#Wood-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Fence_Type1_01_mesh-mesh" name="Fence Type1 01_mesh">
+      <mesh>
+        <source id="Fence_Type1_01_mesh-mesh-positions">
+          <float_array id="Fence_Type1_01_mesh-mesh-positions-array" count="96">-0.1006992 -0.1006987 0.1006987 -0.1006992 1.302289 0.1006987 -0.1006992 -0.1006987 -0.1006987 -0.1006992 1.302289 -0.1006988 0.1006982 -0.1006987 0.1006987 0.1006982 1.302289 0.1006987 0.1006982 -0.1006987 -0.1006987 0.1006982 1.302289 -0.1006988 1.894852 -0.1006987 0.1006987 1.894852 1.302289 0.1006987 1.894852 -0.1006987 -0.1006987 1.894852 1.302289 -0.1006988 2.09625 -0.1006987 0.1006987 2.09625 1.302289 0.1006987 2.09625 -0.1006987 -0.1006987 2.09625 1.302289 -0.1006988 0.01200038 0.799427 0.04943799 0.0219419 1.24935 0.04943799 0.01200038 0.799427 -0.04943805 0.0219419 1.24935 -0.04943811 1.904756 0.7480474 0.04943799 1.914698 1.19797 0.04943799 1.904756 0.7480474 -0.04943805 1.914698 1.19797 -0.04943811 0.0220707 0.199518 0.04943805 0.01189821 0.6494347 0.04943799 0.0220707 0.199518 -0.04943805 0.01189821 0.6494347 -0.04943805 1.9148 0.2520927 0.04943805 1.904628 0.7020093 0.04943799 1.9148 0.2520927 -0.04943805 1.904628 0.7020093 -0.04943805</float_array>
+          <technique_common>
+            <accessor source="#Fence_Type1_01_mesh-mesh-positions-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Fence_Type1_01_mesh-mesh-normals">
+          <float_array id="Fence_Type1_01_mesh-mesh-normals-array" count="63">-1 0 0 0 0 -1 1 0 0 0 0 1 0 -1 0 0 1 0 0 0 -1 0 0 1 0 -1 0 -0.999756 0.02209061 0 0 0 -1 0.999756 -0.02209043 0 0 0 1 -0.02713537 -0.9996318 0 0.02713537 0.9996318 0 -0.9997446 -0.02260386 0 0 0 -1 0.9997446 0.02260351 0 0 0 1 0.0277664 -0.9996145 0 -0.0277664 0.9996145 0</float_array>
+          <technique_common>
+            <accessor source="#Fence_Type1_01_mesh-mesh-normals-array" count="21" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Fence_Type1_01_mesh-mesh-map-0">
+          <float_array id="Fence_Type1_01_mesh-mesh-map-0-array" count="192">0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7206524 0.7624298 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743 0.7537232 0.23743</float_array>
+          <technique_common>
+            <accessor source="#Fence_Type1_01_mesh-mesh-map-0-array" count="96" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Fence_Type1_01_mesh-mesh-vertices">
+          <input semantic="POSITION" source="#Fence_Type1_01_mesh-mesh-positions"/>
+        </vertices>
+        <polylist material="Wood-material" count="24">
+          <input semantic="VERTEX" source="#Fence_Type1_01_mesh-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Fence_Type1_01_mesh-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Fence_Type1_01_mesh-mesh-map-0" offset="2" set="0"/>
+          <vcount>4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 </vcount>
+          <p>1 0 0 3 0 1 2 0 2 0 0 3 3 1 4 7 1 5 6 1 6 2 1 7 7 2 8 5 2 9 4 2 10 6 2 11 5 3 12 1 3 13 0 3 14 4 3 15 0 4 16 2 4 17 6 4 18 4 4 19 5 5 20 7 5 21 3 5 22 1 5 23 9 0 24 11 0 25 10 0 26 8 0 27 11 6 28 15 6 29 14 6 30 10 6 31 15 2 32 13 2 33 12 2 34 14 2 35 13 7 36 9 7 37 8 7 38 12 7 39 8 8 40 10 8 41 14 8 42 12 8 43 13 5 44 15 5 45 11 5 46 9 5 47 17 9 48 19 9 49 18 9 50 16 9 51 19 10 52 23 10 53 22 10 54 18 10 55 23 11 56 21 11 57 20 11 58 22 11 59 21 12 60 17 12 61 16 12 62 20 12 63 16 13 64 18 13 65 22 13 66 20 13 67 21 14 68 23 14 69 19 14 70 17 14 71 25 15 72 27 15 73 26 15 74 24 15 75 27 16 76 31 16 77 30 16 78 26 16 79 31 17 80 29 17 81 28 17 82 30 17 83 29 18 84 25 18 85 24 18 86 28 18 87 24 19 88 26 19 89 30 19 90 28 19 91 29 20 92 31 20 93 27 20 94 25 20 95</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Fence_Type1_01_mesh" name="Fence_Type1_01_mesh" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -4.37114e-8 -1 0 0 1 -4.37114e-8 0 0 0 0 1</matrix>
+        <instance_geometry url="#Fence_Type1_01_mesh-mesh" name="Fence_Type1_01_mesh">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Wood-material" target="#Wood-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

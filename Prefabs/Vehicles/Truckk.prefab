@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 6408870714691602100}
   - component: {fileID: 6408870714692896404}
   - component: {fileID: 6408870714694026324}
-  - component: {fileID: 1099003519590448658}
+  - component: {fileID: 8094238761663368527}
   m_Layer: 0
   m_Name: Truckk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &6408870714691602100
 Transform:
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1099003519590448658
-BoxCollider:
+--- !u!64 &8094238761663368527
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +94,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.18522897, y: 0.028506508, z: 0.07469737}
-  m_Center: {x: 0.03172963, y: 0, z: -0.018143838}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: e625872ed213c4c489bde4843cafd7d7, type: 3}

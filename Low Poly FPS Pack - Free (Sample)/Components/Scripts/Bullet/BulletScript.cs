@@ -19,23 +19,44 @@ public class BulletScript : MonoBehaviour {
 	[Header("Impact Effect Prefabs")]
 	public Transform [] metalImpactPrefabs;
 
+	private Rigidbody rigidbody;
+	private Vector3 velocity;
 	private Ray ray;
-	private RaycastHit[] raycastHits = new RaycastHit[3];
 
 	private void Awake()
 	{
-		CheckPermeableTarget();
+		// CheckPermeableTarget();
+		rigidbody = GetComponent<Rigidbody>();
 	}
 
 	private void Start () 
 	{
 		//Start destroy timer
 		StartCoroutine (DestroyAfter ());
+		velocity = rigidbody.velocity;
+	}
+
+	private void Update()
+	{
+		velocity = rigidbody.velocity;
 	}
 
 	//If the bullet collides with anything
-	private void OnCollisionEnter (Collision collision) 
+	private void OnCollisionEnter (Collision collision)
 	{
+		Debug.Log(collision.gameObject.tag);
+		
+		if (collision.transform.CompareTag("WoodTarget"))
+		{
+			Instantiate (metalImpactPrefabs [Random.Range(0, metalImpactPrefabs.Length)],
+				transform.position, 
+				Quaternion.LookRotation (collision.contacts [0].normal),
+				collision.gameObject.transform);
+			transform.Translate(new Vector3(0,0,0.1f),Space.Self);
+			rigidbody.velocity = velocity;
+			return;
+		}
+
 		//If destroy on impact is false, start 
 		//coroutine with random destroy timer
 		if (!destroyOnImpact) 
@@ -49,8 +70,8 @@ public class BulletScript : MonoBehaviour {
 		}
 
 		//If bullet collides with "Metal" tag
-		if (collision.transform.tag == "Metal"
-		|| collision.transform.tag == "Target") 
+		if (collision.transform.CompareTag("Metal")
+		|| collision.transform.CompareTag("Target")) 
 		{
 			//Instantiate random impact prefab from array
 			Instantiate (metalImpactPrefabs [Random.Range(0, metalImpactPrefabs.Length)],
@@ -62,7 +83,7 @@ public class BulletScript : MonoBehaviour {
 		}
 
 		//If bullet collides with "Target" tag
-		if (collision.transform.tag == "Target") 
+		if (collision.transform.CompareTag("Target")) 
 		{
 			//Toggle "isHit" on target object
 			collision.transform.gameObject.GetComponent
@@ -72,7 +93,7 @@ public class BulletScript : MonoBehaviour {
 		}
 			
 		//If bullet collides with "ExplosiveBarrel" tag
-		if (collision.transform.tag == "ExplosiveBarrel") 
+		if (collision.transform.CompareTag("ExplosiveBarrel")) 
 		{
 			//Toggle "explode" on explosive barrel object
 			collision.transform.gameObject.GetComponent
@@ -97,28 +118,6 @@ public class BulletScript : MonoBehaviour {
 		yield return new WaitForSeconds (destroyAfter);
 		//Destroy bullet object
 		Destroy (gameObject);
-	}
-
-	private void CheckPermeableTarget()
-	{
-		ray = new Ray(transform.position,transform.forward);
-		int hitsCount = Physics.RaycastNonAlloc(ray, raycastHits);
-		if (hitsCount > 0)
-		{
-			foreach (RaycastHit raycastHit in raycastHits)
-			{
-				if (raycastHit.collider != null)
-				{
-					GameObject go = raycastHit.collider.gameObject;
-					if (go != null && go.CompareTag("WoodTarget"))
-					{
-						Instantiate (metalImpactPrefabs [Random.Range(0, metalImpactPrefabs.Length)],
-							raycastHit.point, Quaternion.LookRotation (raycastHit.normal),
-							go.transform);
-					}
-				}
-			}
-		}
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----
