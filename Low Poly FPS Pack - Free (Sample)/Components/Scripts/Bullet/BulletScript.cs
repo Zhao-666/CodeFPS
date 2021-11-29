@@ -44,8 +44,6 @@ public class BulletScript : MonoBehaviour {
 	//If the bullet collides with anything
 	private void OnCollisionEnter (Collision collision)
 	{
-		Debug.Log(collision.gameObject.tag);
-		
 		if (collision.transform.CompareTag("WoodTarget"))
 		{
 			Instantiate (metalImpactPrefabs [Random.Range(0, metalImpactPrefabs.Length)],

@@ -12,8 +12,13 @@ bilibili演示视频：
 将所有代码放入Unity的Assets目录中即可。
 为了方便开发渲染，Lightmap Resolution调得比较低，要提高画质可以稍微调高。
 
-想要试玩的同学，[点击这里下载](https://github.com/Zhao-666/CodeFPS/releases/download/BetaV0.5/CodeFPSBetaV0.5.rar)
+想要试玩的同学，[点击这里下载](https://github.com/Zhao-666/CodeFPS/releases/download/BetaV0.6/CodeFPSBetaV0.6.rar)
 ## 效果图
+**版本：BetaV0.6**
+
+场景：场景外景
+![例图4](https://github.com/Zhao-666/CodeFPS/blob/master/Doc/DemoImage/BetaV0.6.png)
+
 **版本：BetaV0.5**
 
 场景：实战训练场
@@ -69,6 +74,16 @@ bilibili演示视频：
 - Low Poly Office
 
 ### 版本规划
+#### Beta V0.6（已发布，2021-11-29）
+**主体功能**
+- 实现实战训练计时功能
+- 实战训练场场景搭建
+- 实战训练场灯光渲染
+- 导入游戏外景
+- 使用Rigidbody.velocity重构子弹穿透效果
+- 优化画面渲染
+- 优化切西瓜时的文字展示顺序
+
 #### Beta V0.5（已发布，2021-11-13）
 **主体功能**
 - 制作闪光弹预制体、木架模型、训练场模型
@@ -242,11 +257,13 @@ bilibili演示视频：
 - 实战场景搭建
     - 木架模型建模（已完成，4h）
     - 实战训练场模型建模（已完成，8h）
-    - 实战训练场场景搭建（进行中，22h）
+    - 实战训练场场景搭建（已完成，22h）
     - 流程脚本开发（已完成，15h）
 - 实战训练计时功能（已完成，2h）
 
 ## 更新日志
+1. 发布Beta v0.6版本
+
 ### 2021-11-28
 1. 导入游戏外景（1h）
 2. 重构子弹穿透效果（3h）
