@@ -60,6 +60,7 @@ bilibili演示视频：
 - Unity：2018.4.36f1 Personal
 - UI：UGUI
 - DOTween：DOTween_1_2_632
+- EasyTouch：EasyTouch Bundle 5.0.12
 - 开发工具：JetBrain Rider 2020.1.1
 - 开发环境：Windows10 企业版 20H2
 
@@ -184,7 +185,7 @@ bilibili演示视频：
 - 增加NPC移动功能
 
 **GUI功能**
-- 增加手机端兼容
+- 增加手机端兼容（进行中，2h）
 
 #### 2021-10-24新增需求
 **主体功能**
@@ -262,8 +263,12 @@ bilibili演示视频：
 - 实战训练计时功能（已完成，2h）
 
 ## 更新日志
+### 2022-1-16
+1. 引入EasyTouch插件（1h）
+2. 使用EasyTouch Joystick实现人物移动功能（1h）
+
 ### 2021-11-30
-1.增加可飞行飞机预制体（2h）
+1. 增加可飞行飞机预制体（2h）
 
 ### 2021-11-29
 1. 发布Beta v0.6版本

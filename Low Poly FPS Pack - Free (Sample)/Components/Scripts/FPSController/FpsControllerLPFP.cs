@@ -472,6 +472,9 @@ namespace FPSControllerLPFP
         [Serializable]
         private class FpsInput
         {
+            [Header("JoyStick"), SerializeField] 
+            private ETCJoystick joyStick;
+            
             [Tooltip("The name of the virtual axis mapped to rotate the camera around the y axis."),
              SerializeField]
             private string rotateX = "Mouse X";
@@ -511,13 +514,39 @@ namespace FPSControllerLPFP
             /// Returns the value of the virtual axis mapped to move the character back and forth.        
             public float Move
             {
-                get { return Input.GetAxisRaw(move); }
+                get
+                {
+                    int xValue = 0;
+                    float axisValue = joyStick.axisX.axisValue;
+                    if (axisValue > 0.1f)
+                    {
+                        xValue = 1;
+                    }
+                    else if (axisValue < -0.1f)
+                    {
+                        xValue = -1;
+                    }
+                    return Input.GetAxisRaw(move) + xValue;
+                }
             }
 				       
             /// Returns the value of the virtual axis mapped to move the character left and right.         
             public float Strafe
             {
-                get { return Input.GetAxisRaw(strafe); }
+                get
+                {
+                    int yValue = 0;
+                    float axisValue = joyStick.axisY.axisValue;
+                    if (axisValue > 0.1f)
+                    {
+                        yValue = 1;
+                    }
+                    else if (axisValue < -0.1f)
+                    {
+                        yValue = -1;
+                    }
+                    return Input.GetAxisRaw(strafe) + yValue;
+                }
             }
 				    
             /// Returns true while the virtual button mapped to run is held down.          

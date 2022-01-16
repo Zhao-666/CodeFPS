@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball01
+  m_Shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 401e61ba3c5da2f468794e11ee47fad7, type: 3}
+        m_Scale: {x: 5, y: 3}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 69ef31adf3af4bb4da3b6fe624c3ff88, type: 3}
+        m_Scale: {x: 5, y: 3}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Shininess: 0.2636681
+    m_Colors:
+    - _Color: {r: 1, g: 0.43137255, b: 0, a: 0}
+    - _SpecColor: {r: 0.78676474, g: 0.72312933, b: 0.72312933, a: 1}
