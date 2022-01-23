@@ -103,8 +103,11 @@ namespace FPSControllerLPFP
             _velocityX = new SmoothVelocity();
             _velocityZ = new SmoothVelocity();
             weaponController = GetComponent<WeaponController>();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            if (GameConfig.Environment == Env.PC)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;   
+            }
             ValidateRotationRestriction();
             LoadGlobalSetting();
         }
@@ -204,7 +207,8 @@ namespace FPSControllerLPFP
         private void FixedUpdate()
         {
             // FixedUpdate is used instead of Update because this code is dealing with physics and smoothing.
-            if (Cursor.lockState != CursorLockMode.None)
+            if (GameConfig.Environment != Env.PC
+                || Cursor.lockState != CursorLockMode.None)
             {
                 RotateCameraAndCharacter();
                 MoveCharacter();
@@ -243,13 +247,21 @@ namespace FPSControllerLPFP
         /// Returns the target rotation of the camera around the y axis with no smoothing.
         private float RotationXRaw
         {
-            get { return input.RotateX * mouseSensitivity; }
+            get
+            {
+                if (GameConfig.Environment != Env.PC) return 0;
+                return input.RotateX * mouseSensitivity;
+            }
         }
 			
         /// Returns the target rotation of the camera around the x axis with no smoothing.
         private float RotationYRaw
         {
-            get { return input.RotateY * mouseSensitivity; }
+            get
+            {
+                if (GameConfig.Environment != Env.PC) return 0;
+                return input.RotateY * mouseSensitivity;
+            }
         }
 			
         /// Clamps the rotation of the camera around the x axis
@@ -472,7 +484,7 @@ namespace FPSControllerLPFP
         [Serializable]
         private class FpsInput
         {
-            [Header("JoyStick"), SerializeField] 
+            [SerializeField] 
             private ETCJoystick joyStick;
             
             [Tooltip("The name of the virtual axis mapped to rotate the camera around the y axis."),
@@ -516,17 +528,24 @@ namespace FPSControllerLPFP
             {
                 get
                 {
-                    int xValue = 0;
-                    float axisValue = joyStick.axisX.axisValue;
-                    if (axisValue > 0.1f)
+                    float xValue = 0;
+                    if (GameConfig.Environment == Env.PC)
                     {
-                        xValue = 1;
+                        xValue = Input.GetAxisRaw(move);
                     }
-                    else if (axisValue < -0.1f)
+                    else
                     {
-                        xValue = -1;
+                        float axisValue = joyStick.axisX.axisValue;
+                        if (axisValue > 0.1f)
+                        {
+                            xValue = 1;
+                        }
+                        else if (axisValue < -0.1f)
+                        {
+                            xValue = -1;
+                        }
                     }
-                    return Input.GetAxisRaw(move) + xValue;
+                    return xValue;
                 }
             }
 				       
@@ -535,17 +554,24 @@ namespace FPSControllerLPFP
             {
                 get
                 {
-                    int yValue = 0;
-                    float axisValue = joyStick.axisY.axisValue;
-                    if (axisValue > 0.1f)
+                    float yValue = 0;
+                    if (GameConfig.Environment == Env.PC)
                     {
-                        yValue = 1;
+                        yValue = Input.GetAxisRaw(strafe);
                     }
-                    else if (axisValue < -0.1f)
+                    else
                     {
-                        yValue = -1;
+                        float axisValue = joyStick.axisY.axisValue;
+                        if (axisValue > 0.1f)
+                        {
+                            yValue = 1;
+                        }
+                        else if (axisValue < -0.1f)
+                        {
+                            yValue = -1;
+                        }
                     }
-                    return Input.GetAxisRaw(strafe) + yValue;
+                    return yValue;
                 }
             }
 				    

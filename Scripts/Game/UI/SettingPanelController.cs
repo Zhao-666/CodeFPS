@@ -104,12 +104,14 @@ public class SettingPanelController : MonoBehaviour
 
     private void UnlockMouse()
     {
+        if (GameConfig.Environment != Env.PC) return;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
     private void LockMouse()
     {
+        if (GameConfig.Environment != Env.PC) return;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -49,6 +50,15 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 	public float defaultMainFov = 55f;
 	public float aimMainFov = 55f;
 
+	[Header("UI Joystick")] [SerializeField]
+	private ETCButton fireBtn;
+	[SerializeField]
+	private ETCButton aimBtn;
+	[SerializeField]
+	private ETCButton reloadBtn;
+
+	private bool aimBtnPress = false;
+	
 	[Header("UI Weapon Info")]
 	[Tooltip("Name of the current weapon, shown in the game UI.")]
 	public string weaponName;
@@ -259,6 +269,8 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 			cargaOriginPosition = carga.transform.localPosition;
 			cargaOriginRotation = carga.transform.localRotation.eulerAngles;
 		}
+		
+		aimBtn.onUp.AddListener(() => aimBtnPress = !aimBtnPress);
 	}
 
 	private void OnDisable()
@@ -297,8 +309,8 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 
 		//Aiming
 		//Toggle camera FOV when right click is held down
-		if(Input.GetButton("Fire2") && !isReloading && !isRunning && !isInspecting && !holstered
-			&& Cursor.lockState == CursorLockMode.Locked) 
+		if(GetAim() && !isReloading && !isRunning && !isInspecting && !holstered
+			&& CursorLockAllow()) 
 		{
 			isAiming = true;
 			//Start aiming
@@ -463,11 +475,11 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 			outOfAmmo = false;
 			//anim.SetBool ("Out Of Ammo", false);
 		}
-			
+
 		//AUtomatic fire
 		//Left click hold 
-		if (Input.GetMouseButton (0) && !outOfAmmo && !isReloading && !isInspecting && !isRunning
-		    && !holstered && Cursor.lockState == CursorLockMode.Locked) 
+		if (GetFire() && !outOfAmmo && !isReloading && !isInspecting && !isRunning
+		    && !holstered && CursorLockAllow()) 
 		{
 			//Shoot automatic
 			if (Time.time - lastFired > 1 / fireRate) 
@@ -592,7 +604,8 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 		}
 
 		//Reload 
-		if (Input.GetKeyDown (KeyCode.R) && !isReloading && !isInspecting) 
+		if ((Input.GetKeyDown (KeyCode.R) || reloadBtn.axis.axisValue > 0)
+		    && !isReloading && !isInspecting) 
 		{
 			if (currentAmmo < ammo)
 			{
@@ -689,8 +702,9 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 	}
 
 	//Reload
-	private void Reload () {
-		
+	private void Reload ()
+	{
+		aimBtnPress = false;
 		if (outOfAmmo == true) 
 		{
 			//Play diff anim if out of ammo
@@ -809,7 +823,7 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 			yield return null;
 			if (recoilForceCount >= 0)
 			{
-				if (Input.GetMouseButton(0))
+				if (GetFire())
 				{
 					backupForce = ShootingBackupForce;
 				}
@@ -925,6 +939,34 @@ public class AutomaticGunScriptLPFP : GunScriptBase {
 		PlayAudioOnMainAudioSource(SoundClips.takeOutSound);
 		hasBeenHolstered = false;
 		anim.SetBool ("Holster", false);
+	}
+
+	private bool GetFire()
+	{
+		if (GameConfig.Environment == Env.PC)
+		{
+			return Input.GetButton("Fire1");
+		}
+
+		return fireBtn.axis.axisValue > 0;
+	}
+	
+	private bool GetAim()
+	{
+		if (GameConfig.Environment == Env.PC)
+		{
+			return Input.GetButton("Fire2");
+		}
+
+		return aimBtnPress;
+	}
+
+	private bool CursorLockAllow()
+	{
+		//PC状态下需要锁定鼠标
+		//手机状态下不需要锁定鼠标
+		return GameConfig.Environment != Env.PC
+		       || Cursor.lockState == CursorLockMode.Locked;
 	}
 }
 // ----- Low Poly FPS Pack Free Version -----

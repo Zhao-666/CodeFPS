@@ -15,7 +15,7 @@ MonoBehaviour:
   settings:
   - {fileID: 114020354760952422}
   - {fileID: 114894939657995680}
-  - {fileID: 114516935177749632}
+  - {fileID: 114442107258204442}
 --- !u!114 &114020354760952422
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -60,7 +60,7 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
---- !u!114 &114516935177749632
+--- !u!114 &114442107258204442
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1
+    value: 0
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -104,8 +104,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   radius:
-    overrideState: 1
-    value: 3
+    overrideState: 0
+    value: 0.25
   quality:
     overrideState: 0
     value: 2
