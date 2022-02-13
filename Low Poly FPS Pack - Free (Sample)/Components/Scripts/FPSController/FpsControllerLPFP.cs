@@ -249,7 +249,6 @@ namespace FPSControllerLPFP
         {
             get
             {
-                if (GameConfig.Environment != Env.PC) return 0;
                 return input.RotateX * mouseSensitivity;
             }
         }
@@ -259,7 +258,6 @@ namespace FPSControllerLPFP
         {
             get
             {
-                if (GameConfig.Environment != Env.PC) return 0;
                 return input.RotateY * mouseSensitivity;
             }
         }
@@ -487,6 +485,9 @@ namespace FPSControllerLPFP
             [SerializeField] 
             private ETCJoystick joyStick;
             
+            [SerializeField] 
+            private ETCTouchPad touchPad;
+            
             [Tooltip("The name of the virtual axis mapped to rotate the camera around the y axis."),
              SerializeField]
             private string rotateX = "Mouse X";
@@ -514,13 +515,21 @@ namespace FPSControllerLPFP
             /// Returns the value of the virtual axis mapped to rotate the camera around the y axis.
             public float RotateX
             {
-                get { return Input.GetAxisRaw(rotateX); }
+                get
+                {
+                    if (GameConfig.Environment == Env.PC) return Input.GetAxisRaw(rotateX);
+                    return touchPad.axisX.axisValue / 10;
+                }
             }
 				         
             /// Returns the value of the virtual axis mapped to rotate the camera around the x axis.        
             public float RotateY
             {
-                get { return Input.GetAxisRaw(rotateY); }
+                get
+                {
+                    if (GameConfig.Environment == Env.PC) return Input.GetAxisRaw(rotateY);
+                    return touchPad.axisY.axisValue / 10;
+                }
             }
 				        
             /// Returns the value of the virtual axis mapped to move the character back and forth.        
